@@ -1,0 +1,90 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/05/CPU.hdl
+
+/**
+ * The Hack CPU (Central Processing unit), consisting of an ALU,
+ * two registers named A and D, and a program counter named PC.
+ * The CPU is designed to fetch and execute instructions written in 
+ * the Hack machine language. In particular, functions as follows:
+ * Executes the inputted instruction according to the Hack machine 
+ * language specification. The D and A in the language specification
+ * refer to CPU-resident registers, while M refers to the external
+ * memory location addressed by A, i.e. to Memory[A]. The inM input 
+ * holds the value of this location. If the current instruction needs 
+ * to write a value to M, the value is placed in outM, the address 
+ * of the target location is placed in the addressM output, and the 
+ * writeM control bit is asserted. (When writeM==0, any value may 
+ * appear in outM). The outM and writeM outputs are combinational: 
+ * they are affected instantaneously by the execution of the current 
+ * instruction. The addressM and pc outputs are clocked: although they 
+ * are affected by the execution of the current instruction, they commit 
+ * to their new values only in the next time step. If reset==1 then the 
+ * CPU jumps to address 0 (i.e. pc is set to 0 in next time step) rather 
+ * than to the address resulting from executing the current instruction. 
+ */
+
+CHIP CPU {
+
+    IN  inM[16],         // M value input  (M = contents of RAM[A])
+        instruction[16], // Instruction for execution
+        reset;           // Signals whether to re-start the current
+                         // program (reset==1) or continue executing
+                         // the current program (reset==0).
+
+    OUT outM[16],        // M value output
+        writeM,          // Write to M? 
+        addressM[15],    // Address in data memory (of M)
+        pc[15];          // address of next instruction
+
+    PARTS:
+	Mux16(a=instruction, b=alu_out_to_reg_a, sel=instruction[15], out=reg_a_in); 	//Is instruction is a or c?  
+	
+	Not(in=instruction[15], out=f_a_instruction);
+	Or(a=f_a_instruction, b=instruction[5], out=reg_a_load);						//If a instruction or d2(load A) then load A
+	ARegister(in=reg_a_in, load=reg_a_load, out=reg_a_out, out[0..14]=addressM);	
+	
+	Mux16(a=reg_a_out, b=inM, sel=instruction[12], out=alu_y);						//Using Memory or A register
+	
+	And(a=instruction[4], b=instruction[15], out=reg_d_load);						//If c instruction and d1(load D) then load D
+	DRegister(in=reg_d_in, load=reg_d_load, out=reg_d_out, out=alu_x);
+	
+    ALU(x=alu_x,
+		y=alu_y,
+		zx=instruction[11],
+		nx=instruction[10],
+		zy=instruction[9],
+		ny=instruction[8],
+		f=instruction[7],
+		no=instruction[6],
+		out=alu_out,
+		zr=zr,
+		ng=ng);
+	
+	Mux16(sel=instruction[5], a=false, b=true, out=d1_16);							//The d-bits need to be branched to match the 16-bit input of And16		
+	And16(a=alu_out, b[0..15]=d1_16, out=alu_out_to_reg_a);							//If corresponding d-bit is high then alu_out is passed through
+	
+	Mux16(sel=instruction[4], a=false, b=true, out=d2_16);
+	And16(a=alu_out, b[0..15]=d2_16, out=reg_d_in);
+	
+	Mux16(sel=instruction[3], a=false, b=true, out=d3_16);
+	And16(a=alu_out, b[0..15]=d3_16, out=outM);						
+	
+	And(a=instruction[3], b=instruction[15], out=writeM);
+	
+	And(a=instruction[2], b=ng, out=j1_check); 										//If j1 is high then alu out can be <0 to jump
+	And(a=instruction[1], b=zr, out=j2_check);										//If j2 is high then alu out can be =0 to jump
+	
+	Or(a=zr, b=ng, out=Or_zr_ng);
+	Not(in=Orzrng, out=Nor_zr_ng);
+	And(a=instruction[0], b=Nor_zr_ng, out=j3_check);								//If j3 is high then alu out can be >0(niether ng or zr) to jump
+	
+	Or(a=j1_check, b=j2_check, out=j1_j2_check);
+	Or(a=j1_j2_check, b=j3_check, out=j1_j2_j3_check);								//Combining the jump checks, if any are high then the jump is valid
+	
+	And(a=j1_j2_j3_check, b=instruction[15], out=JMP);								//A jump intruction can only be a c instruction, this must also be checked
+	Not(in=JMP, out=increment);														//If the program does not jump then increment instead
+	
+	PC(in=reg_a_out, load=JMP, inc=increment, reset=reset, out[0..14]=pc);
+}
