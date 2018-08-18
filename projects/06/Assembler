@@ -1,0 +1,17 @@
+import sys
+import parse
+import code
+
+if __name__ == "__main__":
+    #asmFilePath = str(sys.argv[1])
+
+    f = open("Prog.hack","w+")
+    while parse.hasMoreCommands():
+        parse.advance()
+        #print(parse.currentCommand)
+        if parse.commandType() == "C_COMMAND":
+            print(parse.comp())
+
+
+
+    f.close
