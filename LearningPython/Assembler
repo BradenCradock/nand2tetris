@@ -1,13 +1,14 @@
 import sys
+import os
+
 
 def openFile(filePath):
+    filePath = filePath + "\Prog.asm"
     file = open(filePath, "r")
     contents = file.read()
-    print(contents)
     file.close()
 
     outputFilePath = filePath.replace(".asm", ".hack")
-    print(outputFilePath)
     f = open(outputFilePath,"w+")
     f.write(contents)
     f.close
@@ -15,3 +16,11 @@ def openFile(filePath):
 if __name__ == "__main__":
     asmFilePath = str(sys.argv[1])
     openFile(asmFilePath)
+
+#def Parse():
+
+#def ToBits():
+
+#def Symbols():
+
+#def Assemble():
