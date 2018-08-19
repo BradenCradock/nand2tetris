@@ -4,6 +4,7 @@ import re
 currentCommand = ""
 currentCommandCounter = 0
 
+#Reads Prog.asm in current directory
 with open("Prog.asm", 'r') as file:
     programIn = file.read().splitlines()
     print('Loaded Code:')
@@ -48,22 +49,21 @@ def symbol():
 def dest():
     global currentCommand
     if "=" in currentCommand:
-        return currentCommand.split('=')[0]
-    else:
-        return ""
+        return currentCommand.split("=")[0]
 
 #Returns the computation insctructions of a C command
 def comp():
     global currentCommand
     if "=" in currentCommand:
-        return currentCommand.split('=')[1]
-    else:
-        return ""
+        if ";" in currentCommand:
+            return currentCommand.split("=")[1].split(";")[0]
+        else:
+            return currentCommand.split("=")[1]
+    elif ";" in currentCommand:
+        return currentCommand.split(";")[0]
 
 #Returns the jump conditions of a C command
 def jump():
     global currentCommand
     if ";" in currentCommand:
-        return currentCommand.split(';')[1]
-    else:
-        return ""
+        return currentCommand.split(";")[1]

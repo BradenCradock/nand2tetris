@@ -5,13 +5,19 @@ import code
 if __name__ == "__main__":
     #asmFilePath = str(sys.argv[1])
 
-    f = open("Prog.hack","w+")
+    f = open("Prog.hack","w+")      #Uses current directory
     while parse.hasMoreCommands():
         parse.advance()
-        #print(parse.currentCommand)
-        if parse.commandType() == "C_COMMAND":
-            print(parse.comp())
-
-
-
+        if parse.commandType() == "A_COMMAND": #If A_COMMAND then 0 followed by symbol address (15 bits)
+            f.write("0%s\n" %(parse.symbol()))
+        elif parse.commandType() == "C_COMMAND":
+            a = "0"
+            if "M" in parse.comp():
+                a = "1"
+            f.write("111%s%s%s%s\n" %(      #C_COMMAND is as follows:   111
+                a,                          #                           a       is 0 if comp using A, 1 if using M
+                code.comp(parse.comp()),    #                           c1..c6  Comp bits
+                code.dest(parse.dest()),    #                           d1..d3  Dest bits
+                code.jump(parse.jump())     #                           j1..j3  Jump bits
+                ))                          # Put together is: 1 1 1 a c1 c2 c3 c4 c5 c6 d1 d2 d3 j1 j2 j3
     f.close
