@@ -9,7 +9,10 @@ if __name__ == "__main__":
     while parse.hasMoreCommands():
         parse.advance()
         if parse.commandType() == "A_COMMAND": #If A_COMMAND then 0 followed by symbol address (15 bits)
-            f.write("0%s\n" %(parse.symbol()))
+            if parse.symbol().isdigit():
+                f.write("0%s\n" %(format(int(parse.symbol()), '015b')))
+            else:
+                f.write("0%s\n" %(parse.symbol()))
         elif parse.commandType() == "C_COMMAND":
             a = "0"
             if "M" in parse.comp():
