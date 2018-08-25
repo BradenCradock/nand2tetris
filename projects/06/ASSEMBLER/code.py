@@ -1,3 +1,5 @@
+#These 3 functions take a string/mnemonic and use this as a key to return the associated binary value
+#Except the first one because I wanted to try something different
 def dest(mnemonic):
     if mnemonic is not None:
         bits = 0b000

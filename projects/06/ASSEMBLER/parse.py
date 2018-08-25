@@ -3,17 +3,16 @@ import re
 
 currentCommand = ""
 currentCommandCounter = 0
+programIn = []
 
 #Reads Prog.asm in current directory
 with open("Prog.asm", 'r') as file:
     programIn = file.read().splitlines()
-    print('Loaded Code:')
-    print("\n".join(programIn))
     file.close()
 
 #Are there more commands to process?
 def hasMoreCommands():
-    if (currentCommandCounter + 1) < len(programIn):
+    if (currentCommandCounter) != len(programIn):
         return True
     else:
         return False
@@ -22,8 +21,8 @@ def hasMoreCommands():
 def advance():
     global currentCommandCounter
     global currentCommand
-    currentCommandCounter += 1
     currentCommand = programIn[currentCommandCounter].replace(" ", "").split("//")[0]
+    currentCommandCounter += 1
 
 #Returns the command type, A, L or C
 def commandType():

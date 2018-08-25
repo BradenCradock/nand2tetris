@@ -1,18 +1,37 @@
 import sys
 import parse
 import code
+import symbolTable
 
 if __name__ == "__main__":
     #asmFilePath = str(sys.argv[1])
 
     f = open("Prog.hack","w+")      #Uses current directory
+    ROMaddress = 0
+    while parse.hasMoreCommands(): #This passes all labels and thier ROM addresses to the symbol table
+        parse.advance()
+        if parse.commandType() == "A_COMMAND":
+            ROMaddress += 1
+        elif parse.commandType() == "C_COMMAND":
+            ROMaddress += 1
+        elif parse.commandType() == "L_COMMAND":
+             symbolTable.addEntry(parse.symbol(), ROMaddress)
+
+    parse.currentCommandCounter = 0
+    RAMaddress = 16
     while parse.hasMoreCommands():
         parse.advance()
         if parse.commandType() == "A_COMMAND": #If A_COMMAND then 0 followed by symbol address (15 bits)
             if parse.symbol().isdigit():
-                f.write("0%s\n" %(format(int(parse.symbol()), '015b')))
+                f.write("0%s\n" %(format(int(parse.symbol()), '015b'))) #If the A_COMMAND does not use a symbol then convert to binary
             else:
-                f.write("0%s\n" %(parse.symbol()))
+                if symbolTable.contains(parse.symbol()):
+                    f.write("0%s\n" %(format(int(symbolTable.getAddress(parse.symbol())), '015b')))
+                else:
+                    symbolTable.addEntry((parse.symbol()), str(RAMaddress))
+                    f.write("0%s\n" %(format(int(symbolTable.getAddress(parse.symbol())), '015b')))
+                    RAMaddress += 1
+
         elif parse.commandType() == "C_COMMAND":
             a = "0"
             if "M" in parse.comp():
