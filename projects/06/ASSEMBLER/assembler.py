@@ -2,11 +2,13 @@ import sys
 import parse
 import code
 import symbolTable
+import os
 
 if __name__ == "__main__":
-    #asmFilePath = str(sys.argv[1])
 
-    f = open("Prog.hack","w+")      #Uses current directory
+    basePath = os.path.splitext(parse.root.filename)[0]
+    print(parse.root.filename)
+    f = open((basePath + ".hack"),"w+")      #Uses current directory
     ROMaddress = 0
     while parse.hasMoreCommands(): #This passes all labels and thier ROM addresses to the symbol table
         parse.advance()

@@ -1,12 +1,16 @@
 import sys
 import re
+from tkinter import *
+from tkinter import filedialog
 
 currentCommand = ""
 currentCommandCounter = 0
 programIn = []
 
-#Reads Prog.asm in current directory
-with open("Prog.asm", 'r') as file:
+root = Tk()
+root.filename =  filedialog.askopenfilename(initialdir = "/", title = "Select .asm file", filetypes = (("asm files","*.asm"),("all files","*.*")))
+
+with open(root.filename, 'r') as file:
     programIn = file.read().splitlines()
     file.close()
 
