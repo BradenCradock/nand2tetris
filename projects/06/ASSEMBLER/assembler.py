@@ -6,11 +6,11 @@ import os
 
 if __name__ == "__main__":
 
-    basePath = os.path.splitext(parse.root.filename)[0]
-    print(parse.root.filename)
-    f = open((basePath + ".hack"),"w+")      #Uses current directory
+    basePath = os.path.splitext(parse.root.filename)[0] #This block imports the filepath used to open Prog.asm to save the Prog.hack file
+    f = open((basePath + ".hack"),"w+")
+
     ROMaddress = 0
-    while parse.hasMoreCommands(): #This passes all labels and thier ROM addresses to the symbol table
+    while parse.hasMoreCommands(): #This passes all labels ie (Xxx) and thier ROM addresses to the symbol table
         parse.advance()
         if parse.commandType() == "A_COMMAND":
             ROMaddress += 1
@@ -19,19 +19,20 @@ if __name__ == "__main__":
         elif parse.commandType() == "L_COMMAND":
              symbolTable.addEntry(parse.symbol(), ROMaddress)
 
-    parse.currentCommandCounter = 0
+    parse.currentCommandCounter = 0     #The current command needs to be set to the start so the instrunction can be parsed and translated
+
     RAMaddress = 16
     while parse.hasMoreCommands():
         parse.advance()
-        if parse.commandType() == "A_COMMAND": #If A_COMMAND then 0 followed by symbol address (15 bits)
+        if parse.commandType() == "A_COMMAND": #If A_COMMAND then translated instruction is a 0 followed by symbol address (15 bits)
             if parse.symbol().isdigit():
                 f.write("0%s\n" %(format(int(parse.symbol()), '015b'))) #If the A_COMMAND does not use a symbol then convert to binary
             else:
                 if symbolTable.contains(parse.symbol()):
-                    f.write("0%s\n" %(format(int(symbolTable.getAddress(parse.symbol())), '015b')))
+                    f.write("0%s\n" %(format(int(symbolTable.getAddress(parse.symbol())), '015b'))) #If symbol exists in the symbol table then use it associated value
                 else:
                     symbolTable.addEntry((parse.symbol()), str(RAMaddress))
-                    f.write("0%s\n" %(format(int(symbolTable.getAddress(parse.symbol())), '015b')))
+                    f.write("0%s\n" %(format(int(symbolTable.getAddress(parse.symbol())), '015b'))) #If the symbol does not exist then add it to the symbol table
                     RAMaddress += 1
 
         elif parse.commandType() == "C_COMMAND":

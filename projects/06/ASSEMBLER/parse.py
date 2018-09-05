@@ -7,6 +7,7 @@ currentCommand = ""
 currentCommandCounter = 0
 programIn = []
 
+#tkinter native library is used to open a file navigation dialog to select the desired Prog.asm file
 root = Tk()
 root.filename =  filedialog.askopenfilename(initialdir = "/", title = "Select .asm file", filetypes = (("asm files","*.asm"),("all files","*.*")))
 
