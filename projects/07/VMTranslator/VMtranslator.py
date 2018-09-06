@@ -11,18 +11,15 @@ def main():
     root.filename =  filedialog.askopenfilename(initialdir = "/", title = "Select .vm file", filetypes = (("vm files","*.vm"),("all files","*.*")))
 
     parse = Parser.Parser(root.filename)
+    codeWriter = CodeWriter.CodeWriter(root.filename)
 
-    """
+
     while parse.hasMoreCommands():
         parse.advance()
-        if parse.commandType() in {"C_PUSH", "C_POP", "C_FUNCTION", "C_CALL"}:
-            print(parse.arg2())
-    """
-
-    codeWriter = CodeWriter.CodeWriter(root.filename)
-    codeWriter.setFileName("Hello")
+        if parse.commandType() is "C_ARITHMETIC":
+            print(parse.currentCommand)
+            codeWriter.writeArithmetic(parse.currentCommand)
     codeWriter.closeFile()
-
 
 if __name__ == "__main__":
     main()
