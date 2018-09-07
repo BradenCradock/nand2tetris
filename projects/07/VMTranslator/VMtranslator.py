@@ -16,9 +16,12 @@ def main():
 
     while parse.hasMoreCommands():
         parse.advance()
-        if parse.commandType() is "C_ARITHMETIC":
-            print(parse.currentCommand)
+        if parse.commandType() == "C_ARITHMETIC":
             codeWriter.writeArithmetic(parse.currentCommand)
+
+        elif parse.commandType() in {"C_POP", "C_PUSH"}:
+            codeWriter.writePushPop(parse.commandType(), parse.arg1(), parse.arg2())
+
     codeWriter.closeFile()
 
 if __name__ == "__main__":

@@ -50,7 +50,7 @@ class Parser:
     #In the case of C_ARITHMETIC, the command itself (add, sub, etc.) is returned.
     #Should not be called if the current command is C_RETURN
     def arg1(self):
-        if commandType() == "C_ARITHMETIC":
+        if self.commandType() == "C_ARITHMETIC":
             return self.currentCommand.split(' ')[0]
         else:
             return self.currentCommand.split(' ')[1]

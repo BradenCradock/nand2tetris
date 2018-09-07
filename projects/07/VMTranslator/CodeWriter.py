@@ -14,6 +14,7 @@ class CodeWriter:
     def setFileName(self, fileName):
         self.fileName = fileName + ".asm"
 
+    #Writes the arithmetic assembly code that requires only one stack entry
     def unaryOp(self, operation):
         asmInstr =  "@SP\n" +\
                     "AM = M - 1\n" +\
@@ -22,6 +23,7 @@ class CodeWriter:
                     "M = M + 1\n"
         return asmInstr
 
+    #Writes the arithmetic assembly code that requires only two stack entries
     def binaryOp(self, operation):
         asmInstr =  "@SP\n" +\
                     "AM = M - 1\n" +\
@@ -32,7 +34,8 @@ class CodeWriter:
                     "@SP\n" +\
                     "M = M + 1\n"
         return asmInstr
-
+    #Writes the arithmetic assembly code that requires a comparison between two stack entries.
+    #Note that this code requires labels in assembly hence the self.compareCounter
     def compareOp(self, command):
 
         asmInstr =  "@SP\n" +\
@@ -40,15 +43,15 @@ class CodeWriter:
                     "D = M\n" +\
                     "@SP\n" +\
                     "AM = M - 1\n" +\
-                    "D = D - M\n" +\
+                    "D = M - D\n" +\
                     "@PASS" + str(self.compareCounter) + "\n" +\
                     "D;J" + command.upper() + "\n" +\
-                    "D = -1\n" +\
+                    "D = 0\n" +\
                     "@END" + str(self.compareCounter) + "\n" +\
                     "0;JMP\n" +\
                     "(PASS" + str(self.compareCounter) + ")\n" +\
                     "@SP\n" +\
-                    "D = 0\n" +\
+                    "D = -1\n" +\
                     "(END" + str(self.compareCounter) + ")\n" +\
                     "@SP\n" +\
                     "A = M\n" +\
@@ -61,7 +64,7 @@ class CodeWriter:
 
     #Writes the assembly code that is the translation of the given arithmetic command.
     def writeArithmetic(self, command):
-        asmInstr = {}
+        asmInstr = ""
         if command == "add":
             asmInstr = self.binaryOp("+")
 
@@ -72,7 +75,7 @@ class CodeWriter:
             asmInstr = self.unaryOp("-")
 
         elif command == "eq":
-            asmInstr = self.binaryOp("+")
+            asmInstr = self.compareOp(command)
 
         elif command == "gt":
             asmInstr = self.compareOp(command)
@@ -91,6 +94,72 @@ class CodeWriter:
 
         self.file.write(asmInstr)
 
+    def writePush(self):
+        asmInstr =  "@SP\n" +\
+                    "A = M\n" +\
+                    "M = D\n" +\
+                    "@SP\n" +\
+                    "M = M + 1\n"
+        return asmInstr
+
+    def writePop(self):
+            asmInstr = ""
+            return asmInstr
+
+    #Writes the assembly code that is the translation of the given command, where command is either C_PUSH or C_POP.
+    def writePushPop(self, command, segment, index):
+        asmInstr = ""
+        asmHeapSegments = {
+                    "local"     : "LCL",
+                    "argument"  : "ARG",
+                    "this"      : "THIS",
+                    "that"      : "THAT"
+        }
+
+        if command == "C_PUSH":
+            if segment == "static":
+                asmInstr =  "@" + self.fileName.split(".")[0] + "." + str(index) +"\n" +\
+                            "D = A\n" +\
+                            self.writePush()
+
+            elif segment in {"local", "argument", "this", "that"}:
+
+                asmInstr =  "@" + asmHeapSegments[segment] + "\n" +\
+                            "D = M\n" +\
+                            "@" + str(index) + "\n" +\
+                            "A = D + A\n" +\
+                            "D = M\n" +\
+                            self.writePush()
+
+            elif segment == "constant":
+                asmInstr =  "@" + str(index) + "\n" +\
+                            "D = A\n" +\
+                            self.writePush()
+
+        elif command == "C_POP":
+            if segment == "static":
+                asmInstr =  "@SP\n" +\
+                            "AM = M - 1\n" +\
+                            "D = M\n" +\
+                            "@" + self.fileName.split(".")[0] + "." + str(index) +"\n" +\
+                            "M = D\n"
+
+            elif segment in {"local", "argument", "this", "that"}:
+                asmInstr =  "@" + asmHeapSegments[segment] + "\n" +\
+                            "D = M\n" +\
+                            "@" + str(index) + "\n" +\
+                            "D = D + A\n" +\
+                            "@R13\n" +\
+                            "M = D\n" +\
+                            "@SP\n" +\
+                            "AM = M - 1\n" +\
+                            "D = M\n" +\
+                            "@R13\n" +\
+                            "A = M\n" +\
+                            "M = D\n"
+        self.file.write(asmInstr)
+
+    #Closes and renames the file to the designated name, if the file already exists then it is replaced by the new version
     def closeFile(self):
         self.file.close()
         try:
