@@ -20,7 +20,7 @@ def main():
             codeWriter.writeArithmetic(parse.currentCommand)
 
         elif parse.commandType() in {"C_POP", "C_PUSH"}:
-            codeWriter.writePushPop(parse.commandType(), parse.arg1(), parse.arg2())
+            codeWriter.writePushPop(parse.commandType(), parse.arg1(), int(parse.arg2()))
 
     codeWriter.closeFile()
 
