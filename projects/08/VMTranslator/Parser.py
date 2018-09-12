@@ -1,3 +1,5 @@
+import os
+
 class Parser:
 
     def __init__(self, filePath):
@@ -6,12 +8,25 @@ class Parser:
         self.currentCommandCounter = 0
         self.programIn = []
 
-        with open(filePath, 'r') as file:
-            self.programIn = file.read().splitlines()
-            self.programIn = [line.split("//")[0].strip() for line in self.programIn] #Remove all comments
-            self.programIn = list(filter(None, self.programIn))   #Remove any empty lines
-            file.close()
+        if filePath.endswith(".vm"):
+            with open(filePath, 'r') as file:
+                self.programIn = file.read().splitlines()
+                file.close()
+        else:
+            for fileName in os.listdir(filePath):
+                if fileName.endswith("Sys.vm"):
+                    file = open(filePath + "\\" + fileName, 'r')
+                    self.programIn = file.read().splitlines()
+                    file.close()
 
+            for fileName in os.listdir(filePath):
+                if fileName.endswith(".vm"):
+                    file = open(filePath + "\\" + fileName , 'r')
+                    self.programIn += file.read().splitlines()
+                    file.close()
+
+        self.programIn = [line.split("//")[0].strip() for line in self.programIn] #Remove all comments
+        self.programIn = list(filter(None, self.programIn))   #Remove any empty lines
 
     #Are there more commands to process?
     def hasMoreCommands(self):

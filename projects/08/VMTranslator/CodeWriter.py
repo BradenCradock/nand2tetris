@@ -4,9 +4,14 @@ import Parser
 class CodeWriter:
 
     def __init__(self, filePath):
+        if filePath.endswith(".vm"):
+            self.file = open(filePath.split(".")[0] + ".asm","w+")
+            self.filePath = filePath.split(".")[0] + ".asm"
 
-        self.file = open(filePath.split(".")[0] + ".asm","w+")
-        self.filePath = filePath.split(".")[0] + ".asm"
+        else:
+            self.file = open(filePath + "\\" + os.path.basename(filePath) + ".asm","w+")
+            self.filePath = filePath
+
         self.fileName = os.path.basename(self.filePath)
         self.compareCounter = 0
 
@@ -44,15 +49,15 @@ class CodeWriter:
 
     #Writes the assembly code that is the translation of the call command.
     def writeCall(self, functionName, numArgs):
-        print("")
+        asmCode = ""
 
     #Writes the assembly code that is the translation of the return command.
     def writeReturn(self):
-        print("")
+        asmCode = ""
 
     #Writes the assembly code that is the translation of the function command.
     def writeFunction(self, functionName, numLocals):
-        print("")
+        asmCode = ""
 
     #Writes the arithmetic assembly code that requires only one stack entry.
     def unaryOp(self, operation):

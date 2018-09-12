@@ -4,15 +4,25 @@ import os
 import CodeWriter
 from tkinter import *
 from tkinter import filedialog
+from tkinter import messagebox
 
-def main():
+
+
+def chooseFiles():
     root = Tk()
     root.withdraw()
-    root.filename =  filedialog.askopenfilename(initialdir = "/", title = "Select .vm file", filetypes = (("vm files","*.vm"),("all files","*.*")))
+    if messagebox.askyesno('Directory or File?', 'Do you want to translate a folder of .vm files?'):
+        filePath =  filedialog.askdirectory(initialdir = "/", title = "Select a folder")
+        return filePath
+    else:
+        filePath =  filedialog.askopenfilename(initialdir = "/", title = "Select a .vm file", filetypes = (("vm files","*.vm"),("all files","*.*")))
+        return filePath
 
-    parse = Parser.Parser(root.filename)
-    codeWriter = CodeWriter.CodeWriter(root.filename)
 
+def main():
+    filePath = chooseFiles()
+    parse = Parser.Parser(filePath)
+    codeWriter = CodeWriter.CodeWriter(filePath)
 
     while parse.hasMoreCommands():
         parse.advance()
@@ -32,6 +42,10 @@ def main():
             codeWriter.writeIf(parse.arg1())
 
     codeWriter.closeFile()
+
+
+
+
 
 if __name__ == "__main__":
     main()
