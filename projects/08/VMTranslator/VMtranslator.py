@@ -8,22 +8,9 @@ from tkinter import messagebox
 
 
 
-def chooseFiles():
-    root = Tk()
-    root.withdraw()
-    if messagebox.askyesno('Directory or File?', 'Do you want to translate a folder of .vm files?'):
-        filePath =  filedialog.askdirectory(initialdir = "/", title = "Select a folder")
-        return filePath
-    else:
-        filePath =  filedialog.askopenfilename(initialdir = "/", title = "Select a .vm file", filetypes = (("vm files","*.vm"),("all files","*.*")))
-        return filePath
-
-
-def main():
-    filePath = chooseFiles()
-    parse = Parser.Parser(filePath)
-    codeWriter = CodeWriter.CodeWriter(filePath)
-
+def translateVM(file, codeWriter):
+    parse = Parser.Parser(file)
+    codeWriter.writeInit()
     while parse.hasMoreCommands():
         parse.advance()
         if parse.commandType() == "C_ARITHMETIC":
@@ -41,11 +28,22 @@ def main():
         elif parse.commandType() == "C_IF":
             codeWriter.writeIf(parse.arg1())
 
+        elif parse.commandType() == "C_CALL":
+            codeWriter.writeCall(parse.arg1(), int(parse.arg2()))
+
+def main():
+    root = Tk()
+    root.withdraw()
+    filePath =  filedialog.askdirectory(initialdir = "/", title = "Select a folder")
+
+    codeWriter = CodeWriter.CodeWriter(filePath + "\\" + os.path.basename(filePath) + ".asm")
+
+    for fileName in os.listdir(filePath):
+        if fileName.lower().endswith(".vm"):
+            codeWriter.setFileName(fileName)
+            translateVM(filePath + "\\" + fileName, codeWriter)
+
     codeWriter.closeFile()
-
-
-
-
 
 if __name__ == "__main__":
     main()

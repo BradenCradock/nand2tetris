@@ -4,29 +4,15 @@ class Parser:
 
     def __init__(self, filePath):
 
-        self.currentCommand = ""
-        self.currentCommandCounter = 0
-        self.programIn = []
-
-        if filePath.endswith(".vm"):
-            with open(filePath, 'r') as file:
-                self.programIn = file.read().splitlines()
-                file.close()
-        else:
-            for fileName in os.listdir(filePath):
-                if fileName.endswith("Sys.vm"):
-                    file = open(filePath + "\\" + fileName, 'r')
-                    self.programIn = file.read().splitlines()
-                    file.close()
-
-            for fileName in os.listdir(filePath):
-                if fileName.endswith(".vm"):
-                    file = open(filePath + "\\" + fileName , 'r')
-                    self.programIn += file.read().splitlines()
-                    file.close()
+        with open(filePath, 'r') as file:
+            self.programIn = file.read().splitlines()
+            file.close()
 
         self.programIn = [line.split("//")[0].strip() for line in self.programIn] #Remove all comments
         self.programIn = list(filter(None, self.programIn))   #Remove any empty lines
+        self.currentCommand = ""
+        self.currentCommandCounter = 0
+
 
     #Are there more commands to process?
     def hasMoreCommands(self):
@@ -56,8 +42,8 @@ class Parser:
                 "goto"      : "C_GOTO",
                 "if-goto"   : "C_IF",
                 "function"  : "C_FUNCTION",
-                "call"      : "C_RETURN",
-                "return"    : "C_CALL"
+                "call"      : "C_CALL",
+                "return"    : "C_RETURN"
         }
         return(commandTypes[self.currentCommand.split(' ')[0]])
 

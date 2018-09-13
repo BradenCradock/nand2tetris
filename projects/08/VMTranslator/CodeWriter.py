@@ -4,60 +4,27 @@ import Parser
 class CodeWriter:
 
     def __init__(self, filePath):
-        if filePath.endswith(".vm"):
-            self.file = open(filePath.split(".")[0] + ".asm","w+")
-            self.filePath = filePath.split(".")[0] + ".asm"
 
-        else:
-            self.file = open(filePath + "\\" + os.path.basename(filePath) + ".asm","w+")
-            self.filePath = filePath
-
-        self.fileName = os.path.basename(self.filePath)
+        self.file = open(filePath, "w+")
+        self.filePath = filePath
+        self.fileName = ""
         self.compareCounter = 0
+        self.returnAddress = 0
 
     #Informs the code writer that the translation of a new VM file is started.
     def setFileName(self, fileName):
-        self.fileName = fileName + ".asm"
+        self.fileName = fileName
+        print("Begun translating file: " + fileName)
 
     #Writes the assembly code that effects the VM initialization, called bootstrap code.
     #This code is placed at the beginning of the output file.
     def writeInit(self):
-        print("")
-
-    #Writes assembly code that is the translation of the label command.
-    def writeLabel(self, label):
-        asmCode = "(" + label + ")\n"
-
-        self.file.write(asmCode)
-
-    #Writes the assembly code that is the translation of the goto command.
-    def writeGoto(self, label):
-        asmCode =   "@" + label + "\n" +\
-                    "0;JMP\n"
+        asmCode =   "@256\n" +\
+                    "D = A\n" +\
+                    "@SP\n" +\
+                    "M = D\n"
 
         self.file.write(asmCode)
-
-    #Writes the assembly code that is the translation of the if-goto command.
-    def writeIf(self, label):
-        asmCode =   "@SP\n" +\
-                    "AM = M - 1\n" +\
-                    "D = M\n" +\
-                    "@" + label + "\n" +\
-                    "D;JNE\n"
-
-        self.file.write(asmCode)
-
-    #Writes the assembly code that is the translation of the call command.
-    def writeCall(self, functionName, numArgs):
-        asmCode = ""
-
-    #Writes the assembly code that is the translation of the return command.
-    def writeReturn(self):
-        asmCode = ""
-
-    #Writes the assembly code that is the translation of the function command.
-    def writeFunction(self, functionName, numLocals):
-        asmCode = ""
 
     #Writes the arithmetic assembly code that requires only one stack entry.
     def unaryOp(self, operation):
@@ -142,7 +109,7 @@ class CodeWriter:
     #This block of code is appended onto any push command.
     #It writes whatever is stored in D to the stack then increments SP
     def writePush(self):
-        asmCode =  "@SP\n" +\
+        asmCode =   "@SP\n" +\
                     "A = M\n" +\
                     "M = D\n" +\
                     "@SP\n" +\
@@ -165,7 +132,7 @@ class CodeWriter:
             #Mapped on RAM[16 ... 255]; each segment reference static i appearing in a VM file named f is compiled to the assembly language symbol f.i
             #Pushing a static i  is as simple as getting the value at its associated address f.i and pushing it onto the stack
             if segment == "static":
-                asmCode =  "@" + self.fileName.split(".")[0] + "." + str(index) +"\n" +\
+                asmCode =   "@" + self.fileName.split(".")[0] + "." + str(index) +"\n" +\
                             "D = M\n" +\
                             self.writePush()
 
@@ -173,7 +140,7 @@ class CodeWriter:
             #The base addresses of these segments are kept in RAM addresses LCL, ARG, THIS, and THAT.
             #Access to the i-th entry of any of these segments is implemented by accessing RAM[segmentBase + i].
             elif segment in {"local", "argument", "this", "that"}:
-                asmCode =  "@" + segmentTranslator[segment] + "\n" +\
+                asmCode =   "@" + segmentTranslator[segment] + "\n" +\
                             "D = M\n" +\
                             "@" + str(index) + "\n" +\
                             "A = D + A\n" +\
@@ -183,7 +150,7 @@ class CodeWriter:
             #A truly a virtual segment:
             #Access to constant i is implemented by supplying the constant i.
             elif segment == "constant":
-                asmCode =  "@" + str(index) + "\n" +\
+                asmCode =   "@" + str(index) + "\n" +\
                             "D = A\n" +\
                             self.writePush()
 
@@ -193,7 +160,7 @@ class CodeWriter:
             #Thus access to pointer i is translated to assembly code that accesses RAM location 3 + iself.
             #Access to temp i is translated to assembly code that accesses RAM location 5 + i.
             elif segment in {"pointer", "temp"}:
-                asmCode =  "@R" + str(index + segmentTranslator[segment]) + "\n" +\
+                asmCode =   "@R" + str(index + segmentTranslator[segment]) + "\n" +\
                             "D = M\n" +\
                             self.writePush()
 
@@ -201,7 +168,7 @@ class CodeWriter:
             #Mapped on RAM[16 ... 255]; each segment reference static i appearing in a VM file named f is compiled to the assembly language symbol f.i
             #To pop static i the stack pointer SP is decremented and the value contained at the new stack location is stored in f.i
             if segment == "static":
-                asmCode =  "@SP\n" +\
+                asmCode =   "@SP\n" +\
                             "AM = M - 1\n" +\
                             "D = M\n" +\
                             "@" + self.fileName.split(".")[0] + "." + str(index) +"\n" +\
@@ -211,7 +178,7 @@ class CodeWriter:
             #The base addresses of these segments are kept in RAM addresses LCL, ARG, THIS, and THAT.
             #Access to the i-th entry of any of these segments is implemented by accessing RAM[segmentBase + i].
             elif segment in {"local", "argument", "this", "that"}:
-                asmCode =  "@" + segmentTranslator[segment] + "\n" +\
+                asmCode =   "@" + segmentTranslator[segment] + "\n" +\
                             "D = M\n" +\
                             "@" + str(index) + "\n" +\
                             "D = D + A\n" +\
@@ -230,7 +197,7 @@ class CodeWriter:
             #Thus access to pointer i is translated to assembly code that accesses RAM location 3 + iself.
             #Access to temp i is translated to assembly code that accesses RAM location 5 + i.
             elif segment in {"pointer", "temp"}:
-                asmCode =  "@SP\n" +\
+                asmCode =   "@SP\n" +\
                             "AM = M - 1\n" +\
                             "D = M\n" +\
                             "@R" + str(index + segmentTranslator[segment]) + "\n" +\
@@ -238,11 +205,73 @@ class CodeWriter:
 
         self.file.write(asmCode)
 
+    #Writes assembly code that is the translation of the label command.
+    def writeLabel(self, label):
+        asmCode = "(" + label + ")\n"
+
+        self.file.write(asmCode)
+
+    #Writes the assembly code that is the translation of the goto command.
+    def writeGoto(self, label):
+        asmCode =   "@" + label + "\n" +\
+                    "0;JMP\n"
+
+        self.file.write(asmCode)
+
+    #Writes the assembly code that is the translation of the if-goto command.
+    def writeIf(self, label):
+        asmCode =   "@SP\n" +\
+                    "AM = M - 1\n" +\
+                    "D = M\n" +\
+                    "@" + label + "\n" +\
+                    "D;JNE\n"
+
+        self.file.write(asmCode)
+
+    #Writes the assembly code that is the translation of the call command.
+    def writeCall(self, functionName, numArgs):
+        asmCode =   "@" + str(self.returnAddress) + "\n" +\
+                    "D = A\n" +\
+                    self.writePush() +\
+                    "@LCL\n" +\
+                    "D = M\n" +\
+                    self.writePush() +\
+                    "@ARG\n" +\
+                    "D = M\n" +\
+                    self.writePush() +\
+                    "@THIS\n" +\
+                    "D = M\n" +\
+                    self.writePush() +\
+                    "@THAT\n" +\
+                    "D = M\n" +\
+                    self.writePush() +\
+                    "@" + str(numArgs + 5) + "\n" +\
+                    "D = A\n" +\
+                    "@SP\n" +\
+                    "D = M - D\n" +\
+                    "@ARG\n" +\
+                    "M = D\n" +\
+                    "@SP\n" +\
+                    "D = M\n" +\
+                    "@LCL\n" +\
+                    "M = D\n"
+
+        self.file.write(asmCode)
+        self.writeGoto(functionName)
+        self.writeLabel(str(self.returnAddress))
+        self.returnAddress += 1
+
+
+    #Writes the assembly code that is the translation of the return command.
+    def writeReturn(self):
+        asmCode = ""
+        self.file.write(asmCode)
+
+    #Writes the assembly code that is the translation of the function command.
+    def writeFunction(self, functionName, numLocals):
+        asmCode = "(" + fileName + "." + functionName + ")\n"
+        self.file.write(asmCode)
+
     #Closes and renames the file to the designated name, if the file already exists then it is replaced by the new version
     def closeFile(self):
         self.file.close()
-        try:
-            os.rename(self.filePath, self.filePath[:self.filePath.rindex("/")] + "/" + self.fileName)
-        except WindowsError:
-            os.remove(self.filePath[:self.filePath.rindex("/")] + "/" + self.fileName)
-            os.rename(self.filePath, self.filePath[:self.filePath.rindex("/")] + "/" + self.fileName)

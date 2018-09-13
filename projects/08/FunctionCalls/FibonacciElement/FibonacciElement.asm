@@ -1,14 +1,7 @@
-@4
+@256
 D = A
 @SP
-A = M
-M = D
-@SP
-M = M + 1
-(WHILE)
-@WHILE
-0;JMP
-@ARG
+M = D@ARG
 D = M
 @0
 A = D + A
@@ -89,6 +82,54 @@ AM = M - 1
 M = M - D
 @SP
 M = M + 1
+@0
+D = A
+@SP
+A = M
+M = D
+@SP
+M = M + 1
+@LCL
+D = M
+@SP
+A = M
+M = D
+@SP
+M = M + 1
+@ARG
+D = M
+@SP
+A = M
+M = D
+@SP
+M = M + 1
+@THIS
+D = M
+@SP
+A = M
+M = D
+@SP
+M = M + 1
+@THAT
+D = M
+@SP
+A = M
+M = D
+@SP
+M = M + 1
+@6
+D = A
+@SP
+D = M - D
+@ARG
+M = D
+@SP
+D = M
+@LCL
+M = D
+@Main.fibonacci
+0;JMP
+(0)
 @ARG
 D = M
 @0
@@ -114,6 +155,54 @@ AM = M - 1
 M = M - D
 @SP
 M = M + 1
+@1
+D = A
+@SP
+A = M
+M = D
+@SP
+M = M + 1
+@LCL
+D = M
+@SP
+A = M
+M = D
+@SP
+M = M + 1
+@ARG
+D = M
+@SP
+A = M
+M = D
+@SP
+M = M + 1
+@THIS
+D = M
+@SP
+A = M
+M = D
+@SP
+M = M + 1
+@THAT
+D = M
+@SP
+A = M
+M = D
+@SP
+M = M + 1
+@6
+D = A
+@SP
+D = M - D
+@ARG
+M = D
+@SP
+D = M
+@LCL
+M = D
+@Main.fibonacci
+0;JMP
+(1)
 @SP
 AM = M - 1
 D = M
@@ -122,13 +211,64 @@ AM = M - 1
 M = M + D
 @SP
 M = M + 1
-@4
+@256
+D = A
+@SP
+M = D@4
 D = A
 @SP
 A = M
 M = D
 @SP
 M = M + 1
+@2
+D = A
+@SP
+A = M
+M = D
+@SP
+M = M + 1
+@LCL
+D = M
+@SP
+A = M
+M = D
+@SP
+M = M + 1
+@ARG
+D = M
+@SP
+A = M
+M = D
+@SP
+M = M + 1
+@THIS
+D = M
+@SP
+A = M
+M = D
+@SP
+M = M + 1
+@THAT
+D = M
+@SP
+A = M
+M = D
+@SP
+M = M + 1
+@6
+D = A
+@SP
+D = M - D
+@ARG
+M = D
+@SP
+D = M
+@LCL
+M = D
+@Main.fibonacci
+0;JMP
+(2)
 (WHILE)
 @WHILE
 0;JMP
