@@ -25,6 +25,7 @@ class CodeWriter:
                     "M = D\n"
 
         self.file.write(asmCode)
+        self.writeCall("Sys.init", 0)
 
     #Writes the arithmetic assembly code that requires only one stack entry.
     def unaryOp(self, operation):
@@ -261,15 +262,56 @@ class CodeWriter:
         self.writeLabel(str(self.returnAddress))
         self.returnAddress += 1
 
+    def restoreSegment(self, segment):
+        asmCode =   "@R14\n" +\
+                    "M = M - 1\n" +\
+                    "A = M\n" +\
+                    "D = M\n" +\
+                    "@" + segment + "\n" +\
+                    "M = D\n"
+
+        return asmCode
+
 
     #Writes the assembly code that is the translation of the return command.
     def writeReturn(self):
-        asmCode = ""
+        asmCode =   "@LCL\n" +\
+                    "D = M\n" +\
+                    "@R14\n" +\
+                    "M = D\n" +\
+                    "@5\n" +\
+                    "AD = D - A\n" +\
+                    "D = M\n" +\
+                    "@R15\n" +\
+                    "M = D\n" +\
+                    "@SP\n" +\
+                    "AM = M - 1\n" +\
+                    "D = M\n" +\
+                    "@ARG\n" +\
+                    "A = M\n" +\
+                    "M = D\n" +\
+                    "D = A\n" +\
+                    "@SP\n" +\
+                    "M = D + 1\n" +\
+                    self.restoreSegment("THAT") +\
+                    self.restoreSegment("THIS") +\
+                    self.restoreSegment("ARG") +\
+                    self.restoreSegment("LCL") +\
+                    "@R15\n" +\
+                    "A = M\n" +\
+                    "0;JMP\n"
+
         self.file.write(asmCode)
 
     #Writes the assembly code that is the translation of the function command.
     def writeFunction(self, functionName, numLocals):
-        asmCode = "(" + fileName + "." + functionName + ")\n"
+        asmCode =   "(" + functionName + ")\n"
+
+        for _ in range(numLocals):
+            asmCode +=  "@0\n" +\
+                        "D = A\n" +\
+                        self.writePush()
+
         self.file.write(asmCode)
 
     #Closes and renames the file to the designated name, if the file already exists then it is replaced by the new version

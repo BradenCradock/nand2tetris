@@ -31,6 +31,12 @@ def translateVM(file, codeWriter):
         elif parse.commandType() == "C_CALL":
             codeWriter.writeCall(parse.arg1(), int(parse.arg2()))
 
+        elif parse.commandType() == "C_FUNCTION":
+            codeWriter.writeFunction(parse.arg1(), int(parse.arg2()))
+
+        elif parse.commandType() == "C_RETURN":
+            codeWriter.writeReturn()
+
 def main():
     root = Tk()
     root.withdraw()
