@@ -281,7 +281,6 @@ class CodeWriter:
                     "M = D\n" +\
                     "@5\n" +\
                     "AD = D - A\n" +\
-                    "D = M\n" +\
                     "@R15\n" +\
                     "M = D\n" +\
                     "@SP\n" +\
@@ -298,6 +297,7 @@ class CodeWriter:
                     self.restoreSegment("ARG") +\
                     self.restoreSegment("LCL") +\
                     "@R15\n" +\
+                    "A = M\n" +\
                     "A = M\n" +\
                     "0;JMP\n"
 

@@ -94,7 +94,6 @@ D = M
 M = D
 @5
 AD = D - A
-D = M
 @R15
 M = D
 @SP
@@ -131,6 +130,7 @@ D = M
 @LCL
 M = D
 @R15
+A = M
 A = M
 0;JMP
 (Class1.get)
@@ -162,7 +162,6 @@ D = M
 M = D
 @5
 AD = D - A
-D = M
 @R15
 M = D
 @SP
@@ -199,6 +198,7 @@ D = M
 @LCL
 M = D
 @R15
+A = M
 A = M
 0;JMP
 @256
@@ -297,7 +297,6 @@ D = M
 M = D
 @5
 AD = D - A
-D = M
 @R15
 M = D
 @SP
@@ -334,6 +333,7 @@ D = M
 @LCL
 M = D
 @R15
+A = M
 A = M
 0;JMP
 (Class2.get)
@@ -365,7 +365,6 @@ D = M
 M = D
 @5
 AD = D - A
-D = M
 @R15
 M = D
 @SP
@@ -402,6 +401,7 @@ D = M
 @LCL
 M = D
 @R15
+A = M
 A = M
 0;JMP
 @256
