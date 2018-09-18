@@ -2,7 +2,7 @@
 D = A
 @SP
 M = D
-@0
+@RA$0
 D = A
 @SP
 A = M
@@ -49,7 +49,7 @@ D = M
 M = D
 @Sys.init
 0;JMP
-(0)
+(RA$0)
 (Main.fibonacci)
 @ARG
 D = M
@@ -74,15 +74,15 @@ D = M
 @SP
 AM = M - 1
 D = M - D
-@PASS0
+@PASS$0
 D;JLT
 D = 0
-@END0
+@END$0
 0;JMP
-(PASS0)
+(PASS$0)
 @SP
 D = -1
-(END0)
+(END$0)
 @SP
 A = M
 M = D
@@ -111,7 +111,8 @@ D = M
 @R14
 M = D
 @5
-AD = D - A
+A = D - A
+D = M
 @R15
 M = D
 @SP
@@ -176,7 +177,7 @@ AM = M - 1
 M = M - D
 @SP
 M = M + 1
-@1
+@RA$1
 D = A
 @SP
 A = M
@@ -223,7 +224,7 @@ D = M
 M = D
 @Main.fibonacci
 0;JMP
-(1)
+(RA$1)
 @ARG
 D = M
 @0
@@ -249,7 +250,7 @@ AM = M - 1
 M = M - D
 @SP
 M = M + 1
-@2
+@RA$2
 D = A
 @SP
 A = M
@@ -296,7 +297,7 @@ D = M
 M = D
 @Main.fibonacci
 0;JMP
-(2)
+(RA$2)
 @SP
 AM = M - 1
 D = M
@@ -310,7 +311,8 @@ D = M
 @R14
 M = D
 @5
-AD = D - A
+A = D - A
+D = M
 @R15
 M = D
 @SP
@@ -353,7 +355,7 @@ A = M
 D = A
 @SP
 M = D
-@3
+@RA$3
 D = A
 @SP
 A = M
@@ -400,7 +402,7 @@ D = M
 M = D
 @Sys.init
 0;JMP
-(3)
+(RA$3)
 (Sys.init)
 @4
 D = A
@@ -409,7 +411,7 @@ A = M
 M = D
 @SP
 M = M + 1
-@4
+@RA$4
 D = A
 @SP
 A = M
@@ -456,7 +458,7 @@ D = M
 M = D
 @Main.fibonacci
 0;JMP
-(4)
+(RA$4)
 (WHILE)
 @WHILE
 0;JMP

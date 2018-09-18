@@ -57,15 +57,15 @@ class CodeWriter:
                     "@SP\n" +\
                     "AM = M - 1\n" +\
                     "D = M - D\n" +\
-                    "@PASS" + str(self.compareCounter) + "\n" +\
+                    "@PASS$" + str(self.compareCounter) + "\n" +\
                     "D;J" + command.upper() + "\n" +\
                     "D = 0\n" +\
-                    "@END" + str(self.compareCounter) + "\n" +\
+                    "@END$" + str(self.compareCounter) + "\n" +\
                     "0;JMP\n" +\
-                    "(PASS" + str(self.compareCounter) + ")\n" +\
+                    "(PASS$" + str(self.compareCounter) + ")\n" +\
                     "@SP\n" +\
                     "D = -1\n" +\
-                    "(END" + str(self.compareCounter) + ")\n" +\
+                    "(END$" + str(self.compareCounter) + ")\n" +\
                     "@SP\n" +\
                     "A = M\n" +\
                     "M = D\n" +\
@@ -231,7 +231,7 @@ class CodeWriter:
 
     #Writes the assembly code that is the translation of the call command.
     def writeCall(self, functionName, numArgs):
-        asmCode =   "@" + str(self.returnAddress) + "\n" +\
+        asmCode =   "@RA$" + str(self.returnAddress) + "\n" +\
                     "D = A\n" +\
                     self.writePush() +\
                     "@LCL\n" +\
@@ -259,7 +259,7 @@ class CodeWriter:
 
         self.file.write(asmCode)
         self.writeGoto(functionName)
-        self.writeLabel(str(self.returnAddress))
+        self.writeLabel("RA$" + str(self.returnAddress))
         self.returnAddress += 1
 
     def restoreSegment(self, segment):
@@ -274,13 +274,15 @@ class CodeWriter:
 
 
     #Writes the assembly code that is the translation of the return command.
+
     def writeReturn(self):
         asmCode =   "@LCL\n" +\
                     "D = M\n" +\
                     "@R14\n" +\
                     "M = D\n" +\
                     "@5\n" +\
-                    "AD = D - A\n" +\
+                    "A = D - A\n" +\
+                    "D = M\n" +\
                     "@R15\n" +\
                     "M = D\n" +\
                     "@SP\n" +\
@@ -297,7 +299,6 @@ class CodeWriter:
                     self.restoreSegment("ARG") +\
                     self.restoreSegment("LCL") +\
                     "@R15\n" +\
-                    "A = M\n" +\
                     "A = M\n" +\
                     "0;JMP\n"
 

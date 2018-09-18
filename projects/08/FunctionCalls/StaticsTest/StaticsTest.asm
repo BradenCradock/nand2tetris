@@ -2,7 +2,7 @@
 D = A
 @SP
 M = D
-@0
+@RA$0
 D = A
 @SP
 A = M
@@ -49,7 +49,7 @@ D = M
 M = D
 @Sys.init
 0;JMP
-(0)
+(RA$0)
 (Class1.set)
 @ARG
 D = M
@@ -93,7 +93,8 @@ D = M
 @R14
 M = D
 @5
-AD = D - A
+A = D - A
+D = M
 @R15
 M = D
 @SP
@@ -130,7 +131,6 @@ D = M
 @LCL
 M = D
 @R15
-A = M
 A = M
 0;JMP
 (Class1.get)
@@ -161,7 +161,8 @@ D = M
 @R14
 M = D
 @5
-AD = D - A
+A = D - A
+D = M
 @R15
 M = D
 @SP
@@ -199,13 +200,12 @@ D = M
 M = D
 @R15
 A = M
-A = M
 0;JMP
 @256
 D = A
 @SP
 M = D
-@1
+@RA$1
 D = A
 @SP
 A = M
@@ -252,7 +252,7 @@ D = M
 M = D
 @Sys.init
 0;JMP
-(1)
+(RA$1)
 (Class2.set)
 @ARG
 D = M
@@ -296,7 +296,8 @@ D = M
 @R14
 M = D
 @5
-AD = D - A
+A = D - A
+D = M
 @R15
 M = D
 @SP
@@ -333,7 +334,6 @@ D = M
 @LCL
 M = D
 @R15
-A = M
 A = M
 0;JMP
 (Class2.get)
@@ -364,7 +364,8 @@ D = M
 @R14
 M = D
 @5
-AD = D - A
+A = D - A
+D = M
 @R15
 M = D
 @SP
@@ -402,13 +403,12 @@ D = M
 M = D
 @R15
 A = M
-A = M
 0;JMP
 @256
 D = A
 @SP
 M = D
-@2
+@RA$2
 D = A
 @SP
 A = M
@@ -455,7 +455,7 @@ D = M
 M = D
 @Sys.init
 0;JMP
-(2)
+(RA$2)
 (Sys.init)
 @6
 D = A
@@ -471,7 +471,7 @@ A = M
 M = D
 @SP
 M = M + 1
-@3
+@RA$3
 D = A
 @SP
 A = M
@@ -518,7 +518,7 @@ D = M
 M = D
 @Class1.set
 0;JMP
-(3)
+(RA$3)
 @SP
 AM = M - 1
 D = M
@@ -538,7 +538,7 @@ A = M
 M = D
 @SP
 M = M + 1
-@4
+@RA$4
 D = A
 @SP
 A = M
@@ -585,13 +585,13 @@ D = M
 M = D
 @Class2.set
 0;JMP
-(4)
+(RA$4)
 @SP
 AM = M - 1
 D = M
 @R5
 M = D
-@5
+@RA$5
 D = A
 @SP
 A = M
@@ -638,8 +638,8 @@ D = M
 M = D
 @Class1.get
 0;JMP
-(5)
-@6
+(RA$5)
+@RA$6
 D = A
 @SP
 A = M
@@ -686,7 +686,7 @@ D = M
 M = D
 @Class2.get
 0;JMP
-(6)
+(RA$6)
 (WHILE)
 @WHILE
 0;JMP
