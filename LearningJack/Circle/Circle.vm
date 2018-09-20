@@ -1,0 +1,144 @@
+function Circle.new 0
+push constant 3
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+pop this 1
+push argument 2
+pop this 2
+push pointer 0
+call Circle.draw 1
+pop temp 0
+push pointer 0
+return
+function Circle.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function Circle.draw 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push this 2
+call Screen.drawCircle 3
+pop temp 0
+push constant 0
+return
+function Circle.erase 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push this 2
+call Screen.drawCircle 3
+pop temp 0
+push constant 0
+return
+function Circle.move 0
+push argument 0
+pop pointer 0
+push argument 1
+push this 2
+add
+push constant 510
+lt
+push argument 1
+push this 2
+sub
+push constant 0
+gt
+and
+push argument 2
+push this 2
+add
+push constant 255
+lt
+and
+push argument 2
+push this 2
+sub
+push constant 0
+gt
+and
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+call Circle.erase 1
+pop temp 0
+push argument 1
+pop this 0
+push argument 2
+pop this 1
+push pointer 0
+call Circle.draw 1
+pop temp 0
+label IF_FALSE0
+push constant 0
+return
+function Circle.size 0
+push argument 0
+pop pointer 0
+push this 0
+push argument 1
+add
+push constant 510
+lt
+push this 1
+push argument 1
+add
+push constant 255
+lt
+and
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+call Circle.erase 1
+pop temp 0
+push argument 1
+pop this 2
+push this 2
+push constant 0
+lt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+pop this 2
+label IF_FALSE1
+push pointer 0
+call Circle.draw 1
+pop temp 0
+label IF_FALSE0
+push constant 0
+return
+function Circle.getx 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Circle.gety 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Circle.getRadius 0
+push argument 0
+pop pointer 0
+push this 2
+return

@@ -1,0 +1,69 @@
+/** Operations to create/manipulate a circle */
+class Circle {
+
+	field int xpos, ypos;
+	field int radius;
+	
+	/**Constructs a new circle*/
+	constructor Circle new(int x, int y, int r) {
+		let xpos = x;
+		let ypos = y;
+		let radius = r;
+		do draw();
+		return this;
+	}
+
+	
+	method void dispose() {
+      do Memory.deAlloc(this);
+      return;
+	}
+	
+	method void draw() {
+		do Screen.setColor(true);
+		do Screen.drawCircle(xpos, ypos, radius);
+		return;
+	}
+	
+	method void erase() {
+		do Screen.setColor(false);
+		do Screen.drawCircle(xpos, ypos, radius);
+		return;
+	}
+   
+	method void move(int x, int y) {
+		if (((x + radius) < 510) & ((x - radius) > 0) & ((y + radius) < 255) & ((y - radius) > 0)) {
+			do erase();
+			let xpos = x;
+			let ypos = y;
+			do draw();
+		}	
+		return;
+	}
+	
+	method void size(int r) {
+		if (((xpos + r) < 510) & ((ypos + r) < 255)) {
+			do erase();
+			let radius = r;
+			if (radius < 0) {let radius = 0;}
+			do draw();
+		}
+		return;
+	}
+	
+	method int getx() {
+		return xpos;
+	}
+	
+	method int gety() {
+		return ypos;
+	}
+	
+	method int getRadius() {
+		return radius;
+	}
+	
+	
+	
+	
+}

@@ -1,0 +1,28 @@
+/** Creates a Circle object and draws it*/
+class Main {
+	function void main() {
+		var Circle circle;
+		var char key;
+		var boolean exit;
+		let circle = Circle.new(50, 50, 10);
+		let key = 0;
+		let exit = false;
+		
+		while (~(exit)) {
+			while (key = 0) {
+				let key = Keyboard.keyPressed();
+			}
+			while (~(key = 0)) {
+				let key = Keyboard.keyPressed();
+				if (key = 81) 	{let exit = true;}
+				if (key = 90) 	{do circle.size((circle.getRadius() - 1));}
+				if (key = 88) 	{do circle.size((circle.getRadius() + 1));}
+				if (key = 131) 	{do circle.move(circle.getx(), (circle.gety() - 5));}
+				if (key = 133) 	{do circle.move(circle.getx(), (circle.gety() + 5));}
+				if (key = 130) 	{do circle.move((circle.getx() - 5), circle.gety());}
+				if (key = 132) 	{do circle.move((circle.getx() + 5), circle.gety());}
+			}
+		}
+		return;
+	}
+}

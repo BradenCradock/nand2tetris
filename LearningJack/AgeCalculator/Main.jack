@@ -1,0 +1,13 @@
+/** Prints Hello World */
+class Main {
+	function void main() {
+		var Int DoB;
+		var Int CurYr;
+		let DoB = Keyboard.readInt("When were you born? ");
+		let CurYr = Keyboard.readInt("What is the current year? " );
+		do Output.printString("You are ");
+		do Output.printInt(CurYr - DoB);
+		do Output.printString(" years old.");
+		return;
+	}
+}
