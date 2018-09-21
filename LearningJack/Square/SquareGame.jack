@@ -1,0 +1,111 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/09/Square/SquareGame.jack
+
+/**
+ * Implements the Square Dance game.
+ * This simple game allows the user to move a black square around
+ * the screen, and change the square's size during the movement.
+ * When the game starts, a square of 30 by 30 pixels is shown at the
+ * top-left corner of the screen. The user controls the square as follows.
+ * The 4 arrow keys are used to move the square up, down, left, and right.
+ * The 'z' and 'x' keys are used, respectively, to decrement and increment
+ * the square's size. The 'q' key is used to quit the game.
+ */
+
+class SquareGame {
+    field Square square, food; // the square of this game
+    field int direction, foodx, foody; 	// the square's current direction: 
+										// 0=none, 1=up, 2=down, 3=left, 4=right
+
+   /** Constructs a new Square Game. */
+    constructor SquareGame new() {
+		// Creates a 30 by 30 pixels square and positions it at the top-left
+		// of the screen.
+		let square = Square.new(0, 0, 30);
+		let direction = 0;  // initial state is no movement
+		let foodx = 250;
+		let foody = 117;
+		let food = Square.new(foody, foodx, 5);
+		return this;
+    }
+
+   /** Disposes this game. */
+   method void dispose() {
+      do square.dispose();
+	  do food.dispose();
+      do Memory.deAlloc(this);
+      return;
+   }
+
+   /** Moves the square in the current direction. */
+   method void moveSquare() {
+      if (direction = 1) { do square.moveUp(); }
+      if (direction = 2) { do square.moveDown(); }
+      if (direction = 3) { do square.moveLeft(); }
+      if (direction = 4) { do square.moveRight(); }
+      do Sys.wait(5);  // delays the next movement
+      return;
+   }
+
+   /** Runs the game: handles the user's inputs and moves the square accordingly */
+	method void run() {
+		var char key;  // the key currently pressed by the user
+		var boolean exit;
+		var int seed;
+		let exit = false;
+		do Output.moveCursor(10, 10);
+		do Output.printString("Press any key to start");
+		do Output.moveCursor(0, 0);
+	  
+		while (key = 0) {
+			do Sys.wait(5);
+			let seed = seed + 1;
+			let key = Keyboard.keyPressed();
+		}
+		
+		let key = 0;
+		do LCGRandom.setSeed(seed);
+		do Screen.clearScreen();
+		let foodx = LCGRandom.randRange(50, 450);
+		let foody = LCGRandom.randRange(50, 200);
+		do food.setPosition(foody, foodx);
+		
+		while (~exit) {
+			// waits for a key to be pressed
+			
+			while (key = 0) {
+				if ((food.getx() > square.getx()) & (food.getx() < (square.getx() + square.getSize())) & (food.gety() > square.gety()) & (food.gety() < (square.gety() + square.getSize()))) {
+					let foodx = LCGRandom.randRange(50, 450);
+					let foody = LCGRandom.randRange(50, 200);
+					do food.setPosition(foody, foodx);
+					do square.incSize();
+				}	
+				let key = Keyboard.keyPressed();
+				do moveSquare();
+			}
+			if (key = 81)  { let exit = true; }     // q key
+			if (key = 131) { let direction = 1; }   // up arrow
+			if (key = 133) { let direction = 2; }   // down arrow
+			if (key = 130) { let direction = 3; }   // left arrow
+			if (key = 132) { let direction = 4; }   // right arrow
+
+			// waits for the key to be released
+			while (~(key = 0)) {
+				if ((food.getx() > square.getx()) & (food.getx() < (square.getx() + square.getSize())) & (food.gety() > square.gety()) & (food.gety() < (square.gety() + square.getSize()))) {
+					let foodx = LCGRandom.randRange(50, 450);
+					let foody = LCGRandom.randRange(50, 200);
+					do food.setPosition(foody, foodx);
+					do square.incSize();
+				}	
+				let key = Keyboard.keyPressed();
+				do moveSquare();
+			}
+		} // while
+		return;
+	}
+}
+
+
+
