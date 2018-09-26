@@ -1,5 +1,6 @@
 import re
 
+
 class JackTokenizer:
 
     def __init__(self, filePath):
