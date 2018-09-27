@@ -25,8 +25,11 @@ class JackTokenizer:
                 elif isComment == True:
                     self.programIn[lineNum] = ""
 
+
+            self.programIn = re.split('([(;) ])', " ".join(self.programIn))
             self.programIn = " ".join(self.programIn).split()
             self.programIn = list(filter(None, self.programIn))
+
 
             file.close()
             self.currentToken = ""
