@@ -14,7 +14,17 @@ def main():
 
     while tokenizer.hasMoreTokens():
         tokenizer.advance()
-        print(tokenizer.currentToken)
+        tokenType = tokenizer.tokenType()
+        if tokenType == "KEYWORD":
+            print(tokenizer.keyWord())
+        elif tokenType == "SYMBOL":
+            print(tokenizer.symbol())
+        elif tokenType == "IDENTIFIER":
+            print(tokenizer.identifier())
+        elif tokenType == "INT_CONST":
+            print(tokenizer.intVal())
+        elif tokenType == "STRING_CONST":
+            print(tokenizer.stringVal())
 
 if __name__ == "__main__":
     main()
