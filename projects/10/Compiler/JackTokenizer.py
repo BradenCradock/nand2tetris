@@ -1,16 +1,15 @@
 import re
 
-
 class JackTokenizer:
 
     def __init__(self, filePath):
 
         with open(filePath, 'r') as file:
             self.programIn = file.read().splitlines()
-            self.programIn = [line.split("//")[0].strip() for line in self.programIn]
+            self.programIn = [line.split("//")[0].strip() for line in self.programIn] #Remove all comments that use the "//" identifier
 
             isComment = False
-            for lineNum, line in enumerate(self.programIn): #Removes all comments using the /* identifier
+            for lineNum, line in enumerate(self.programIn): #Removes all comments that use the "/*" identifier
                 if "/*" in line:
                     if "*/" in line:
                         self.programIn[lineNum] = re.sub('/*(.*)*/', '', line)
@@ -26,9 +25,9 @@ class JackTokenizer:
                     self.programIn[lineNum] = ""
 
 
-            self.programIn = re.split('([(;) ])', " ".join(self.programIn))
-            self.programIn = " ".join(self.programIn).split()
-            self.programIn = list(filter(None, self.programIn))
+            self.programIn = re.split('([(;). ])', " ".join(self.programIn)) #Creates a new element in the list for every instance of "(", ")" and ";"
+            self.programIn = " ".join(self.programIn).split() #Seperates every token into a new element
+            self.programIn = list(filter(None, self.programIn)) #Removes any bland elements in the list
 
             file.close()
             self.currentToken = ""
