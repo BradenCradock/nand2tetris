@@ -1,1 +1,0 @@
-<tokens>CLASSMain{FUNCTIONVOIDmain(){VARSquareGamegame;LETgame=SquareGame.new();DOgame.run();DOgame.dispose();RETURN;}}</tokens>

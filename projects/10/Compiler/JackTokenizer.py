@@ -27,10 +27,11 @@ class JackTokenizer:
 
             self.programIn = re.split('([(;). ])', " ".join(self.programIn)) #Creates a new element in the list for every instance of "(", ")" and ";"
             self.programIn = " ".join(self.programIn).split() #Seperates every token into a new element
-            self.programIn = list(filter(None, self.programIn)) #Removes any bland elements in the list
+            self.programIn = list(filter(None, self.programIn)) #Removes any null elements in the list
 
             file.close()
             self.currentToken = ""
+            self.currentTokenType = ""
             self.tokenCounter = 0
 
     def hasMoreTokens(self):
@@ -39,7 +40,17 @@ class JackTokenizer:
     def advance(self):
         self.currentToken = self.programIn[self.tokenCounter].split("//")[0]
         self.tokenCounter += 1
-
+        self.currentTokenType = self.tokenType()
+        if self.currentTokenType == "KEYWORD":
+            self.currentToken = self.keyWord()
+        elif self.currentTokenType == "SYMBOL":
+            self.currentToken = self.symbol()
+        elif self.currentTokenType == "IDENTIFIER":
+            self.currentToken = self.identifier()
+        elif self.currentTokenType == "INT_CONST":
+            self.currentToken = self.intVal()
+        elif self.currentTokenType == "STRING_CONST":
+            self.currentToken = self.stringVal()
 
     def tokenType(self):
         if self.currentToken[0].isalpha() or self.currentToken[0] == "_":
@@ -74,7 +85,7 @@ class JackTokenizer:
 
 
     def intVal(self):
-        return int(self.currentToken)
+        return self.currentToken
 
 
     def stringVal(self):
