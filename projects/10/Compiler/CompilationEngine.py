@@ -1,5 +1,6 @@
 import JackTokenizer
 import re
+import sys
 
 class CompilationEngine:
 
@@ -7,6 +8,8 @@ class CompilationEngine:
         self.tokenizer = JackTokenizer.JackTokenizer(inputFilepath)
         self.file = open(outputFilepath, "w+")
         self.xmlIndentation = 0
+        self.types = ["int", "boolean", "char", "void"]
+
         self.compileClass()
 
     #Compiles a complete class.
@@ -14,30 +17,76 @@ class CompilationEngine:
         self.tokenizer.advance()
         print("<class>", file = self.file)
         self.xmlIndentation += 1
-        if self.tokenizer.currentToken == "CLASS":
+
+        if self.tokenizer.currentToken == "class":
             self.writeXml()
             self.tokenizer.advance()
+
             if self.tokenizer.currentTokenType == "IDENTIFIER":
                 self.writeXml()
                 self.tokenizer.advance()
+
                 if self.tokenizer.currentToken == "{":
                     self.writeXml()
                     self.tokenizer.advance()
+                    print(self.tokenizer.currentToken)
 
+                    while self.tokenizer.currentToken not in {"}", "constructor", "function", "method", "void"} :
+                        if self.tokenizer.currentToken in {"field", "static"}:
+                            self.compileClassVarDec()
+                        else:
+                            sys.exit("Invalid Syntax: Expected declaration of a variable or subrotuine.")
+
+                    while self.tokenizer.currentToken != "}":
+                        if self.tokenizer.currentToken in {"constructor", "function", "method", "void"}:
+                            self.compileSubroutine()
+                        elif self.tokenizer.currentToken in {"field", "static"}:
+                            sys.exit("Invalid Syntax: Declaration of all class variables must occur before subrotuines.")
+                        else:
+                            sys.exit("Invalid Syntax: Expected declaration of a variable or subrotuine.")
 
                 else:
-                    print("Invalid Syntax: Expected \"{\" after class identifier.")
+                    sys.exit("Invalid Syntax: Expected \"{\" after class identifier.")
             else:
-                print("Invalid Syntax: Expected identifier after class declaration.")
+                sys.exit("Invalid Syntax: Expected identifier after class declaration.")
         else:
-            print("Invalid Syntax: Module must begin with class declaration.")
+            sys.exit("Invalid Syntax: Module must begin with class declaration.")
         print("</class>", file = self.file)
         self.xmlIndentation -= 1
         return
 
     #Compiles a static or field declaration.
     def compileClassVarDec(self):
-        return True
+        print("\t" * self.xmlIndentation + "<classVarDec>", file = self.file)
+        self.xmlIndentation += 1
+        self.writeXml()
+        self.tokenizer.advance()
+        if self.tokenizer.currentToken in self.types:
+            self.writeXml()
+            self.tokenizer.advance()
+            if self.tokenizer.currentTokenType == "IDENTIFIER":
+                self.writeXml()
+                self.tokenizer.advance()
+                while self.tokenizer.currentToken != ";":
+                    if self.tokenizer.currentToken == ",":
+                        self.writeXml()
+                        self.tokenizer.advance()
+                        if self.tokenizer.currentTokenType == "IDENTIFIER":
+                            self.writeXml()
+                            self.tokenizer.advance()
+                        else:
+                            sys.exit("Invalid Syntax: Idenfifier cannot begin with a digit.")
+                    else:
+                        sys.exit("Invalid Syntax: Expected \",\" or \";\"")
+            else:
+                sys.exit("Invalid Syntax: Idenfifier cannot begin with a digit.")
+
+        else:
+            sys.exit("Invalid syntax or invalid variable type.")
+
+        self.xmlIndentation -= 1
+        print("\t" * self.xmlIndentation + "</classVarDec>", file = self.file)
+        return
 
     #Compiles a complete method, function or constructor.
     def compileSubroutine(self):

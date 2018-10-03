@@ -25,7 +25,7 @@ class JackTokenizer:
                     self.programIn[lineNum] = ""
 
 
-            self.programIn = re.split('([(;). ])', " ".join(self.programIn)) #Creates a new element in the list for every instance of "(", ")" and ";"
+            self.programIn = re.split('([(;)., ])', " ".join(self.programIn)) #Creates a new element in the list for every instance of "(", ")" and ";"
             self.programIn = " ".join(self.programIn).split() #Seperates every token into a new element
             self.programIn = list(filter(None, self.programIn)) #Removes any null elements in the list
 
@@ -73,7 +73,7 @@ class JackTokenizer:
             return "SYMBOL"
 
     def keyWord(self):
-        return self.currentToken.upper()
+        return self.currentToken
 
 
     def symbol(self):
