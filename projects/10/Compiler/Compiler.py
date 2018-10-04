@@ -8,11 +8,11 @@ from tkinter import messagebox
 def main():
     root = Tk()
     root.withdraw()
-    inputFilepath =  filePath =  filedialog.askdirectory(initialdir = "/", title = "Select a folder")
+    inputFilepath = filedialog.askdirectory(initialdir = "/", title = "Select a folder")
 
     for fileName in os.listdir(inputFilepath):
         if fileName.lower().endswith(".jack"):
-            compilationEngine = CompilationEngine.CompilationEngine(inputFilepath, (inputFilepath + "\\" + os.path.basename(inputFilepath) + ".xml"))
+            compilationEngine = CompilationEngine.CompilationEngine(os.path.basename(inputFilepath) + "\\" + fileName, os.path.basename(inputFilepath) + "\\" + fileName[:-5] + ".xml")
 
 if __name__ == "__main__":
     main()

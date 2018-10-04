@@ -119,7 +119,7 @@ class CompilationEngine:
                 if self.tokenizer.currentToken == "(":
                     self.writeXml()
                     self.tokenizer.advance()
-                    self.parameterList()
+                    self.compileParameterList()
                     if self.tokenizer.currentToken == ")":
                         self.writeXml()
                         self.tokenizer.advance()

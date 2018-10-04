@@ -1,0 +1,18 @@
+<class>
+	<KEYWORD> class </KEYWORD> 
+	<IDENTIFIER> Main </IDENTIFIER> 
+	<SYMBOL> { </SYMBOL> 
+	<classVarDec>
+		<KEYWORD> static </KEYWORD> 
+		<KEYWORD> boolean </KEYWORD> 
+		<IDENTIFIER> test </IDENTIFIER> 
+		<SYMBOL> ; </SYMBOL> 
+	</classVarDec>
+	<subroutineDec>
+		<KEYWORD> function </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<IDENTIFIER> main </IDENTIFIER> 
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+	</subroutineDec>
+</class>

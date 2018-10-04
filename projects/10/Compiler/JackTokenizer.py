@@ -6,24 +6,36 @@ class JackTokenizer:
 
         with open(filePath, 'r') as file:
             self.programIn = file.read().splitlines()
-            self.programIn = [line.split("//")[0].strip() for line in self.programIn] #Remove all comments that use the "//" identifier
+            #self.programIn = [line.split("//")[0].strip() for line in self.programIn] #Remove all comments that use the "//" identifier
 
             isComment = False
             for lineNum, line in enumerate(self.programIn): #Removes all comments that use the "/*" identifier
-                if "/*" in line:
-                    if "*/" in line:
+                lineNoQuotes = re.sub('"[^>]+"', '', line)
+                if ("/*" in lineNoQuotes) & ("//" in lineNoQuotes):
+                    if lineNoQuotes.find("/*") < lineNoQuotes.find("//"):
+                        if "*/" in lineNoQuotes:
+                            self.programIn[lineNum] = re.sub('/*(.*)*/', '', line)
+                        else:
+                            self.programIn[lineNum] = self.programIn[lineNum].split("/*", 1)[0]
+                            isComment = True
+                    else:
+                        self.programIn[lineNum] = line.split("//")[0]
+                if ("/*" in lineNoQuotes):
+                    if "*/" in lineNoQuotes:
                         self.programIn[lineNum] = re.sub('/*(.*)*/', '', line)
                     else:
                         self.programIn[lineNum] = self.programIn[lineNum].split("/*", 1)[0]
                         isComment = True
 
-                elif "*/" in line:
-                    self.programIn[lineNum] = self.programIn[lineNum].split("*/")[1].strip()
+                elif ("*/" in lineNoQuotes) & (isComment == True):
+                    self.programIn[lineNum] = self.programIn[lineNum].split("*/")[1]
                     isComment = False
+
+                elif "//" in lineNoQuotes:
+                    self.programIn[lineNum] = line.split("//")[0]
 
                 elif isComment:
                     self.programIn[lineNum] = ""
-
 
             self.programIn = re.split('([(;)., ])', " ".join(self.programIn)) #Creates a new element in the list for every instance of "(", ")" and ";"
             self.programIn = " ".join(self.programIn).split() #Seperates every token into a new element
@@ -38,7 +50,7 @@ class JackTokenizer:
         return (self.tokenCounter) < len(self.programIn)
 
     def advance(self):
-        self.currentToken = self.programIn[self.tokenCounter].split("//")[0]
+        self.currentToken = self.programIn[self.tokenCounter]
         self.tokenCounter += 1
         self.currentTokenType = self.tokenType()
         if self.currentTokenType == "KEYWORD":
