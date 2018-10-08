@@ -113,17 +113,21 @@ class CompilationEngine:
         if (self.tokenizer.currentToken in self.types) | (self.tokenizer.currentToken == "void"):
             self.writeXml()
             self.tokenizer.advance()
+
             if self.tokenizer.currentTokenType == "IDENTIFIER":
                 self.writeXml()
                 self.tokenizer.advance()
+
                 if self.tokenizer.currentToken == "(":
                     self.writeXml()
                     self.tokenizer.advance()
                     self.compileParameterList()
+
                     if self.tokenizer.currentToken == ")":
                         self.writeXml()
                         self.tokenizer.advance()
                         self.compileSubroutineBody()
+
                     else:
                         print("</class>", file = self.file)
                         sys.exit("Invalid Syntax: Expected \")\" after definition of function parameters.")
@@ -143,9 +147,33 @@ class CompilationEngine:
 
     #Compiles the boday of a method, function or constructor.
     def compileSubroutineBody(self):
+        print("\t" * self.xmlIndentation + "<subroutineBody>", file = self.file)
+        self.xmlIndentation += 1
+        if self.tokenizer.currentToken == "{":
+            self.writeXml()
+            self.tokenizer.advance()
+            while self.tokenizer.currentToken != "return":
+                if self.tokenizer.currentToken = "var":
+
+            if self.tokenizer.currentToken == "}":
+                self.writeXml()
+                self.tokenizer.advance()
+
+            else:
+                print("</class>", file = self.file)
+                sys.exit("Invalid Syntax: Expected \"}\" after return.")
+        else:
+            print("</class>", file = self.file)
+            sys.exit("Invalid Syntax: Expected \"{\" after declaration of function.")
+        while
         return
     #Compiles a (possibly empty) parameter list, not including the enclosing"()".
     def compileParameterList(self):
+        print("\t" * self.xmlIndentation + "<parameterList>", file = self.file)
+        self.xmlIndentation += 1
+
+        while self.tokenizer.currentToken != ")":
+
         return
 
     #Compiles a var declaration.

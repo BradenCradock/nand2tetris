@@ -9,7 +9,7 @@ class JackTokenizer:
             #self.programIn = [line.split("//")[0].strip() for line in self.programIn] #Remove all comments that use the "//" identifier
 
             isComment = False
-            for lineNum, line in enumerate(self.programIn): #Removes all comments that use the "/*" identifier
+            for lineNum, line in enumerate(self.programIn): #Removes all comments
                 lineNoQuotes = re.sub('"[^>]+"', '', line)
                 if ("/*" in lineNoQuotes) & ("//" in lineNoQuotes):
                     if lineNoQuotes.find("/*") < lineNoQuotes.find("//"):
