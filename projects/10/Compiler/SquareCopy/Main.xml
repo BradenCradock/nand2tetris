@@ -13,6 +13,7 @@
 		<KEYWORD> void </KEYWORD> 
 		<IDENTIFIER> main </IDENTIFIER> 
 		<SYMBOL> ( </SYMBOL> 
-		<SYMBOL> ) </SYMBOL> 
-	</subroutineDec>
-</class>
+		<parameterList>
+			<SYMBOL> ) </SYMBOL> 
+			<subroutineBody>
+				<SYMBOL> { </SYMBOL> 
