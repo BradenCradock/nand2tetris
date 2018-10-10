@@ -28,14 +28,14 @@ class CompilationEngine:
         print("</class>", file = self.file)
         sys.exit("Invalid Syntax: Expected " + expected + "but recieved " + recieved)
 
-    def checkTokenMatch(self, string):
+    def checkToken(self, string):
         if self.tokenizer.currentToken in string:
             self.writeXml()
             self.tokenizer.advance()
         else:
             self.syntaxError(string, self.tokenizer.currentToken)
 
-    def checkToken(self, string):
+    def checkTokenType(self, string):
         if self.tokenizer.currentTokenType in string:
             self.writeXml()
             self.tokenizer.advance()
