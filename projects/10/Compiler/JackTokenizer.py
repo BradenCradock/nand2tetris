@@ -5,15 +5,13 @@ class JackTokenizer:
     def __init__(self, filePath):
 
         with open(filePath, 'r') as file:
-            #self.programIn = file.read().splitlines()
-            #self.programIn = [line.split("//")[0].strip() for line in self.programIn] #Remove all comments that use the "//" identifier
+
             self.programIn = file.read()
             self.tokens = []
             self.formatProgramAsRead()
 
-
             file.close()
-            print(*self.tokens, sep = "\n")
+            #print(*self.tokens, sep = "\n")
             self.currentToken = ""
             self.currentTokenType = ""
             self.tokenCounter = 0
@@ -44,10 +42,10 @@ class JackTokenizer:
                 appendedString = line
             elif string == True and "\"" in line:
                 string = False
-                appendedString += line
+                appendedString += " " + line
                 newlist.append(appendedString)
             elif string == True:
-                appendedString += line
+                appendedString += " " + line
             else:
                 newlist.append(line)
         return newlist
@@ -62,40 +60,6 @@ class JackTokenizer:
         self.tokens = self.removeWhitespace()
         self.tokens = list(filter(None, self.tokens)) #Removes any null elements in the list
         self.tokens = self.fixStrings()
-
-    def formatProgramAsList(self):
-        isComment = False
-        for lineNum, line in enumerate(self.programIn): #Removes all comments
-            lineNoQuotes = re.sub('"[^>]+"', '', line)
-            if ("/*" in lineNoQuotes) & ("//" in lineNoQuotes):
-                if lineNoQuotes.find("/*") < lineNoQuotes.find("//"):
-                    if "*/" in lineNoQuotes:
-                        self.programIn[lineNum] = re.sub('/*(.*)*/', '', line)
-                    else:
-                        self.programIn[lineNum] = self.programIn[lineNum].split("/*", 1)[0]
-                        isComment = True
-                else:
-                    self.programIn[lineNum] = line.split("//")[0]
-            if ("/*" in lineNoQuotes):
-                if "*/" in lineNoQuotes:
-                    self.programIn[lineNum] = re.sub('/*(.*)*/', '', line)
-                else:
-                    self.programIn[lineNum] = self.programIn[lineNum].split("/*", 1)[0]
-                    isComment = True
-
-            elif ("*/" in lineNoQuotes) & (isComment == True):
-                self.programIn[lineNum] = self.programIn[lineNum].split("*/")[1]
-                isComment = False
-
-            elif "//" in lineNoQuotes:
-                self.programIn[lineNum] = line.split("//")[0]
-
-            elif isComment:
-                self.programIn[lineNum] = ""
-
-        self.programIn = re.split('([(;)., ])', " ".join(self.programIn)) #Creates a new element in the list for every instance of "(", ")" and ";"
-        self.programIn = " ".join(self.programIn).split() #Seperates every token into a new element
-        self.programIn = list(filter(None, self.programIn)) #Removes any null elements in the list
 
     def hasMoreTokens(self):
         return (self.tokenCounter) < len(self.tokens)

@@ -25,8 +25,9 @@ class CompilationEngine:
 
 
     def syntaxError(self, expected, recieved):
-        print("</class>", file = self.file)
-        sys.exit("Invalid Syntax: Expected " + expected + "but recieved " + recieved)
+        self.xmlIndentation = 0
+        self.xmlCloseTag("class")
+        sys.exit("Invalid Syntax: Expected " + expected + " but recieved " + recieved)
 
     def checkToken(self, string):
         if self.tokenizer.currentToken in string:
@@ -47,32 +48,36 @@ class CompilationEngine:
             self.writeXml()
             self.tokenizer.advance()
         else:
-            print("</class>", file = self.file)
-            sys.exit("Invalid Syntax: " + self.tokenizer.currentToken + "is not a valid type.")
+            self.xmlIndentation = 0
+            self.xmlCloseTag("class")
+            sys.exit("Invalid Syntax: " + self.tokenizer.currentToken + " is not a valid type.")
+
+    def xmlOpenTag(self, tag):
+        print("\t" * self.xmlIndentation + "<" + tag + ">", file = self.file)
+        self.xmlIndentation += 1
+
+    def xmlCloseTag(self, tag):
+        self.xmlIndentation -= 1
+        print("\t" * self.xmlIndentation + "</" + tag + ">", file = self.file)
 
     #Compiles a complete class.
     def compileClass(self):
         self.tokenizer.advance()
-        print("<class>", file = self.file)
-        self.xmlIndentation += 1
+        self.xmlOpenTag("class")
 
         self.checkToken("class")
         self.checkTokenType("IDENTIFIER")
         self.checkToken("{")
-
         while self.tokenizer.currentToken not in {"}", "constructor", "function", "method", "void"} :
             self.compileClassVarDec()
         while self.tokenizer.currentToken != "}":
             self.compileSubroutine()
 
-        print("</class>", file = self.file)
-        self.xmlIndentation -= 1
-
+        self.xmlCloseTag("class")
 
     #Compiles a static or field declaration.
     def compileClassVarDec(self):
-        print("\t" * self.xmlIndentation + "<classVarDec>", file = self.file)
-        self.xmlIndentation += 1
+        self.xmlOpenTag("classVarDec")
 
         self.checkToken({"field", "static"})
         self.checkVarType()
@@ -82,87 +87,156 @@ class CompilationEngine:
             self.checkTokenType("IDENTIFIER")
         self.checkToken(";")
 
-        self.xmlIndentation -= 1
-        print("\t" * self.xmlIndentation + "</classVarDec>", file = self.file)
+        self.xmlCloseTag("classVarDec")
 
     #Compiles a complete method, function or constructor.
     def compileSubroutine(self):
-        print("\t" * self.xmlIndentation + "<subroutineDec>", file = self.file)
-        self.xmlIndentation += 1
+        self.xmlOpenTag("subroutineDec")
 
         self.checkToken({"constructor", "function", "method", "void"})
-        self.checkToken(self.types.append("void"))
+        self.checkToken(self.types + ["void"])
         self.checkTokenType("IDENTIFIER")
         self.checkToken("(")
         self.compileParameterList()
         self.checkToken(")")
         self.compileSubroutineBody()
 
-        self.xmlIndentation -= 1
-        print("\t" * self.xmlIndentation + "</subroutineDec>", file = self.file)
-        return
-
+        self.xmlCloseTag("subroutineDec")
 
     #Compiles the boday of a method, function or constructor.
     def compileSubroutineBody(self):
-        print("\t" * self.xmlIndentation + "<subroutineBody>", file = self.file)
-        self.xmlIndentation += 1
+        self.xmlOpenTag("subroutineBody")
 
         self.checkToken("{")
-        while self.tokenizer.currentToken != "return":
-            if self.tokenizer.currentToken == "var":
-                    self.compileVarDec()
-            if self.tokenizer.currentToken == "}":
-                self.writeXml()
-                self.tokenizer.advance()
+        while self.tokenizer.currentToken not in {"let", "if", "while", "do", "return"}:
+            self.compileVarDec()
+        self.compileStatements()
+        self.checkToken("}")
 
-            else:
-                print("</class>", file = self.file)
-                sys.exit("Invalid Syntax: Expected \"}\" after return.")
-        else:
-            print("</class>", file = self.file)
-            sys.exit("Invalid Syntax: Expected \"{\" after declaration of function.")
-        return
+        self.xmlCloseTag("subroutineBody")
+
     #Compiles a (possibly empty) parameter list, not including the enclosing"()".
     def compileParameterList(self):
-        print("\t" * self.xmlIndentation + "<parameterList>", file = self.file)
-        self.xmlIndentation += 1
+        if self.tokenizer.currentToken != ")":
+            self.xmlOpenTag("parameterList")
 
-        #while self.tokenizer.currentToken != ")":
+            self.checkVarType()
+            self.checkTokenType("IDENTIFIER")
+            while self.tokenizer.currentToken != ")":
+                self.checkToken(",")
+                self.checkVarType()
+                self.checkTokenType("IDENTIFIER")
 
-        return
+            self.xmlCloseTag("parameterList")
 
     #Compiles a var declaration.
     def compileVarDec(self):
-        return
+        self.xmlOpenTag("varDec")
+
+        self.checkToken("var")
+        self.checkVarType()
+        self.checkTokenType("IDENTIFIER")
+        while self.tokenizer.currentToken != (";"):
+            self.checkToken(",")
+            self.checkTokenType("IDENTIFIER")
+
+        self.xmlCloseTag("varDec")
 
     #Compiles a sequence of statements, not including the enclosing "{}".
+
     def compileStatements(self):
-        return
+        self.xmlOpenTag("statements")
+
+        statementPrefixes = {
+            "let"       : self.compileLet(),
+            "do"        : self.compileDo(),
+            "if"        : self.compileIf(),
+            "while"     : self.compileWhile(),
+            "return"    : self.compileReturn()
+        }
+        while self.tokenizer.currentToken != ("}"):
+            if self.tokenizer.currentToken in statementPrefixes:
+                statementPrefixes[self.tokenizer.currentToken]
+            else:
+                self.syntaxError({"let", "do", "if", "while", "return"}, self.tokenizer.currentToken)
+
+        self.xmlCloseTag("statements")
 
     #Compiles a do statement.
     def compileDo(self):
-        return
+        self.xmlOpenTag("doStatement")
+
+        self.checkToken("do")
+        self.compileExpression()
+
+        self.xmlCloseTag("doStatement")
 
     #Compiles a let statement.
     def compileLet(self):
-        return
+        self.xmlOpenTag("letStatement")
+
+        self.checkToken("let")
+        self.checkTokenType("IDENTIFIER")
+        if self.tokenizer.currentToken == "[":
+            self.checkToken("[")
+            self.compileExpression()
+            self.checkToken("]")
+        self.checkToken("=")
+        self.compileExpression()
+        self.checkToken(";")
+
+        self.xmlCloseTag("letStatement")
 
     #Compiles a while statement.
     def compileWhile(self):
-        return
+        self.xmlOpenTag("whileStatement")
+
+        self.checkToken("while")
+        self.checkToken("(")
+        self.compileExpression()
+        self.checkToken(")")
+        self.checkToken("{")
+        self.compileStatements()
+        self.checkToken("}")
+
+        self.xmlCloseTag("whileStatement")
 
     #Compiles a return statement.
     def compileReturn(self):
-        return
+        self.xmlOpenTag("returnStatement")
+
+        self.checkToken("return")
+        if self.tokenizer.currentToken != ";":
+            self.compileExpression()
+        self.checkToken(";")
+
+        self.xmlCloseTag("returnStatement")
 
     #Compiles an if statement, possibly with a trailing else clause.
     def compileIf(self):
-        return
+        self.xmlOpenTag("ifStatement")
 
-    #Compiles and expression.
+        self.checkToken("if")
+        self.checkToken("(")
+        self.compileExpression()
+        self.checkToken(")")
+        self.checkToken("{")
+        self.compileStatements()
+        self.checkToken("}")
+        if self.tokenizer.currentToken == "else":
+            self.checkToken("else")
+            self.checkToken("{")
+            self.compileStatements()
+            self.checkToken("}")
+
+        self.xmlCloseTag("ifStatement")
+
+    #Compiles an expression.
     def compileExpression(self):
-        return
+        self.xmlOpenTag("statement")
+
+
+        self.xmlCloseTag("statement")
 
     #Compiles a term.
     #This rotuine is faced with a slight difficulty when trying to decide between some of the alternate parsing rules.

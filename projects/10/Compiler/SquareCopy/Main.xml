@@ -10,3 +10,12 @@
 	</classVarDec>
 	<subroutineDec>
 		<KEYWORD> function </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<IDENTIFIER> main </IDENTIFIER> 
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<varDec>
+				<KEYWORD> var </KEYWORD> 
+</class>
