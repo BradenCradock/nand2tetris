@@ -27,7 +27,7 @@ class CompilationEngine:
     def syntaxError(self, expected, recieved):
         self.xmlIndentation = 0
         self.xmlCloseTag("class")
-        sys.exit("Invalid Syntax: Expected " + expected + " but recieved " + recieved)
+        sys.exit("Invalid Syntax: Expected " + str(expected) + " but recieved " + recieved)
 
     def checkToken(self, string):
         if self.tokenizer.currentToken in string:
@@ -80,7 +80,10 @@ class CompilationEngine:
         self.xmlOpenTag("classVarDec")
 
         self.checkToken({"field", "static"})
-        self.checkVarType()
+        if self.tokenizer.currentTokenType == "IDENTIFIER":
+            self.checkTokenType("IDENTIFIER") #Should be var type check
+        else:
+            self.checkToken(self.types)
         self.checkTokenType("IDENTIFIER")
         while self.tokenizer.currentToken != ";":
             self.checkToken(",")
@@ -94,7 +97,10 @@ class CompilationEngine:
         self.xmlOpenTag("subroutineDec")
 
         self.checkToken({"constructor", "function", "method", "void"})
-        self.checkToken(self.types + ["void"])
+        if self.tokenizer.currentTokenType == "IDENTIFIER":
+            self.checkTokenType("IDENTIFIER") #Should be var type check
+        else:
+            self.checkToken(self.types + ["void"])
         self.checkTokenType("IDENTIFIER")
         self.checkToken("(")
         self.compileParameterList()
@@ -120,7 +126,10 @@ class CompilationEngine:
         if self.tokenizer.currentToken != ")":
             self.xmlOpenTag("parameterList")
 
-            self.checkVarType()
+            if self.tokenizer.currentTokenType == "IDENTIFIER":
+                self.checkTokenType("IDENTIFIER") #Should be var type check
+            else:
+                self.checkToken(self.types)
             self.checkTokenType("IDENTIFIER")
             while self.tokenizer.currentToken != ")":
                 self.checkToken(",")
@@ -134,11 +143,15 @@ class CompilationEngine:
         self.xmlOpenTag("varDec")
 
         self.checkToken("var")
-        self.checkVarType()
+        if self.tokenizer.currentTokenType == "IDENTIFIER":
+            self.checkTokenType("IDENTIFIER") #Should be var type check
+        else:
+            self.checkToken(self.types)
         self.checkTokenType("IDENTIFIER")
         while self.tokenizer.currentToken != (";"):
             self.checkToken(",")
             self.checkTokenType("IDENTIFIER")
+        self.checkToken(";")
 
         self.xmlCloseTag("varDec")
 
@@ -148,17 +161,18 @@ class CompilationEngine:
         self.xmlOpenTag("statements")
 
         statementPrefixes = {
-            "let"       : self.compileLet(),
-            "do"        : self.compileDo(),
-            "if"        : self.compileIf(),
-            "while"     : self.compileWhile(),
-            "return"    : self.compileReturn()
+            "let"       : self.compileLet,
+            "do"        : self.compileDo,
+            "if"        : self.compileIf,
+            "while"     : self.compileWhile,
+            "return"    : self.compileReturn
         }
         while self.tokenizer.currentToken != ("}"):
             if self.tokenizer.currentToken in statementPrefixes:
-                statementPrefixes[self.tokenizer.currentToken]
+                statementPrefixes[self.tokenizer.currentToken]()
             else:
-                self.syntaxError({"let", "do", "if", "while", "return"}, self.tokenizer.currentToken)
+                print(self.tokenizer.currentToken)
+                self.syntaxError("One of (let, do, if, while, return)", self.tokenizer.currentToken)
 
         self.xmlCloseTag("statements")
 
@@ -168,6 +182,7 @@ class CompilationEngine:
 
         self.checkToken("do")
         self.compileExpression()
+        self.checkToken(";")
 
         self.xmlCloseTag("doStatement")
 
@@ -233,10 +248,14 @@ class CompilationEngine:
 
     #Compiles an expression.
     def compileExpression(self):
-        self.xmlOpenTag("statement")
+        self.xmlOpenTag("expression")
 
+        self.compileTerm()
+        while self.tokenizer.currentToken not in {"]", ")", ";", ",", "("}:
+            self.checkToken({"+", "-", "*", "/", "&", "|", ">", "<", "="})
+            self.compileTerm()
 
-        self.xmlCloseTag("statement")
+        self.xmlCloseTag("expression")
 
     #Compiles a term.
     #This rotuine is faced with a slight difficulty when trying to decide between some of the alternate parsing rules.
@@ -244,8 +263,58 @@ class CompilationEngine:
     #A single look ahead token, which may be one of "[", "(" or "." suffices to distinguish between the three possibilities.
     #Any other token is not part of this term and should not be advanced over.
     def compileTerm(self):
-        return
+        self.xmlOpenTag("term")
 
+        invalidKeywords = {"class", "constructor", "function", "method", "field",
+                           "static","var","int", "char", "boolean", "void",
+                           "let", "do", "if", "else", "while", "return"}
+
+        if self.tokenizer.currentTokenType == "IDENTIFIER":
+            self.checkTokenType("IDENTIFIER")
+            if self.tokenizer.currentToken == "[":             #Identifier is an array
+                self.checkToken("[")
+                self.compileExpression()
+                self.checkToken("]")
+            elif self.tokenizer.currentToken in {"(", "."}:    #Identifier is a subroutine call
+                self.compileSubroutineCall()
+
+        elif self.tokenizer.currentToken in {"-", "~"}:
+            self.checkToken({"-", "~"})
+            self.compileTerm()
+
+        elif self.tokenizer.currentToken == "(":
+            self.checkToken("(")
+            self.compileExpression()
+            self.checkToken(")")
+
+        elif self.tokenizer.currentToken not in invalidKeywords:
+            self.writeXml()
+            self.tokenizer.advance()
+
+        else:
+            self.syntaxError("One of (true, false, null, this)", self.tokenizer.currentToken)
+
+        self.xmlCloseTag("term")
+
+    def compileSubroutineCall(self):
+        self.xmlOpenTag("subroutineCall")
+
+        if self.tokenizer.currentToken == ".":
+            self.checkToken(".")
+            self.checkTokenType("IDENTIFIER")
+        self.checkToken("(")
+        self.compileExpressionList()
+        self.checkToken(")")
+
+        self.xmlCloseTag("subroutineCall")
     #Compiles a (possibily empty) comma-seperated list of expressions.
     def compileExpressionList(self):
-        return
+        self.xmlOpenTag("expressionList")
+
+        if self.tokenizer.currentToken != ")":
+            self.compileExpression()
+        while self.tokenizer.currentToken != ")":
+            self.checkToken(",")
+            self.compileExpression()
+
+        self.xmlCloseTag("expressionList")

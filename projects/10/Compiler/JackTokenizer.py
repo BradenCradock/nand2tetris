@@ -46,6 +46,10 @@ class JackTokenizer:
                 newlist.append(appendedString)
             elif string == True:
                 appendedString += " " + line
+
+            elif line.startswith("-") and len(line) > 1:
+                newlist.append("-")
+                newlist.append(line[1:])
             else:
                 newlist.append(line)
         return newlist
@@ -56,7 +60,7 @@ class JackTokenizer:
 
     def formatProgramAsRead(self):
         self.programIn = self.removeComments()
-        self.tokens = re.split('([(;).,])| ', self.programIn)
+        self.tokens = re.split('([(;}){.,-])| ', self.programIn)
         self.tokens = self.removeWhitespace()
         self.tokens = list(filter(None, self.tokens)) #Removes any null elements in the list
         self.tokens = self.fixStrings()
@@ -85,7 +89,7 @@ class JackTokenizer:
 
             keywords = {"class", "constructor", "function", "method", "field","static",
                         "var","int", "char", "boolean", "void", "true", "false",
-                        "null", "this","let", "do", "if", "else", "while", "return"}
+                        "null", "this", "let", "do", "if", "else", "while", "return"}
 
             if self.currentToken in keywords:
                 return "KEYWORD"
@@ -97,7 +101,7 @@ class JackTokenizer:
         elif self.currentToken.startswith("\"") and  self.currentToken.endswith("\""):
             return  "STRING_CONST"
 
-        elif re.match("[.,{}();]", self.currentToken):
+        elif re.match("\W", self.currentToken):
             return "SYMBOL"
 
         else:

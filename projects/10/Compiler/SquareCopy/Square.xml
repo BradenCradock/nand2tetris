@@ -1,0 +1,1348 @@
+<class>
+	<KEYWORD> class </KEYWORD> 
+	<IDENTIFIER> Square </IDENTIFIER> 
+	<SYMBOL> { </SYMBOL> 
+	<classVarDec>
+		<KEYWORD> field </KEYWORD> 
+		<KEYWORD> int </KEYWORD> 
+		<IDENTIFIER> x </IDENTIFIER> 
+		<SYMBOL> , </SYMBOL> 
+		<IDENTIFIER> y </IDENTIFIER> 
+		<SYMBOL> ; </SYMBOL> 
+	</classVarDec>
+	<classVarDec>
+		<KEYWORD> field </KEYWORD> 
+		<KEYWORD> int </KEYWORD> 
+		<IDENTIFIER> size </IDENTIFIER> 
+		<SYMBOL> ; </SYMBOL> 
+	</classVarDec>
+	<subroutineDec>
+		<KEYWORD> constructor </KEYWORD> 
+		<IDENTIFIER> Square </IDENTIFIER> 
+		<IDENTIFIER> new </IDENTIFIER> 
+		<SYMBOL> ( </SYMBOL> 
+		<parameterList>
+			<KEYWORD> int </KEYWORD> 
+			<IDENTIFIER> Ax </IDENTIFIER> 
+			<SYMBOL> , </SYMBOL> 
+			<KEYWORD> int </KEYWORD> 
+			<IDENTIFIER> Ay </IDENTIFIER> 
+			<SYMBOL> , </SYMBOL> 
+			<KEYWORD> int </KEYWORD> 
+			<IDENTIFIER> Asize </IDENTIFIER> 
+		</parameterList>
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<IDENTIFIER> x </IDENTIFIER> 
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<IDENTIFIER> Ax </IDENTIFIER> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<IDENTIFIER> y </IDENTIFIER> 
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<IDENTIFIER> Ay </IDENTIFIER> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<IDENTIFIER> size </IDENTIFIER> 
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<IDENTIFIER> Asize </IDENTIFIER> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<IDENTIFIER> draw </IDENTIFIER> 
+							<subroutineCall>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<expression>
+						<term>
+							<KEYWORD> this </KEYWORD> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<IDENTIFIER> dispose </IDENTIFIER> 
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<IDENTIFIER> Memory </IDENTIFIER> 
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<IDENTIFIER> deAlloc </IDENTIFIER> 
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<KEYWORD> this </KEYWORD> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<IDENTIFIER> draw </IDENTIFIER> 
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<IDENTIFIER> Screen </IDENTIFIER> 
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<IDENTIFIER> setColor </IDENTIFIER> 
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<KEYWORD> true </KEYWORD> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<IDENTIFIER> Screen </IDENTIFIER> 
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<IDENTIFIER> drawRectangle </IDENTIFIER> 
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<IDENTIFIER> x </IDENTIFIER> 
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<IDENTIFIER> y </IDENTIFIER> 
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<IDENTIFIER> x </IDENTIFIER> 
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<IDENTIFIER> size </IDENTIFIER> 
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<IDENTIFIER> y </IDENTIFIER> 
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<IDENTIFIER> size </IDENTIFIER> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<IDENTIFIER> erase </IDENTIFIER> 
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<IDENTIFIER> Screen </IDENTIFIER> 
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<IDENTIFIER> setColor </IDENTIFIER> 
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<KEYWORD> false </KEYWORD> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<IDENTIFIER> Screen </IDENTIFIER> 
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<IDENTIFIER> drawRectangle </IDENTIFIER> 
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<IDENTIFIER> x </IDENTIFIER> 
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<IDENTIFIER> y </IDENTIFIER> 
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<IDENTIFIER> x </IDENTIFIER> 
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<IDENTIFIER> size </IDENTIFIER> 
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<IDENTIFIER> y </IDENTIFIER> 
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<IDENTIFIER> size </IDENTIFIER> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<IDENTIFIER> incSize </IDENTIFIER> 
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<SYMBOL> ( </SYMBOL> 
+							<expression>
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<IDENTIFIER> y </IDENTIFIER> 
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<IDENTIFIER> size </IDENTIFIER> 
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+								<SYMBOL> &lt; </SYMBOL> 
+								<term>
+									<INT_CONST> 254 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ) </SYMBOL> 
+						</term>
+						<SYMBOL> &amp; </SYMBOL> 
+						<term>
+							<SYMBOL> ( </SYMBOL> 
+							<expression>
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<IDENTIFIER> x </IDENTIFIER> 
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<IDENTIFIER> size </IDENTIFIER> 
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+								<SYMBOL> &lt; </SYMBOL> 
+								<term>
+									<INT_CONST> 510 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ) </SYMBOL> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> erase </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<IDENTIFIER> size </IDENTIFIER> 
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<IDENTIFIER> size </IDENTIFIER> 
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<INT_CONST> 2 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> draw </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<IDENTIFIER> decSize </IDENTIFIER> 
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<IDENTIFIER> size </IDENTIFIER> 
+						</term>
+						<SYMBOL> $gt; </SYMBOL> 
+						<term>
+							<INT_CONST> 2 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> erase </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<IDENTIFIER> size </IDENTIFIER> 
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<IDENTIFIER> size </IDENTIFIER> 
+								</term>
+								<SYMBOL> - </SYMBOL> 
+								<term>
+									<INT_CONST> 2 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> draw </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<IDENTIFIER> moveUp </IDENTIFIER> 
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<IDENTIFIER> y </IDENTIFIER> 
+						</term>
+						<SYMBOL> $gt; </SYMBOL> 
+						<term>
+							<INT_CONST> 1 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> Screen </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<IDENTIFIER> setColor </IDENTIFIER> 
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<KEYWORD> false </KEYWORD> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> Screen </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<IDENTIFIER> drawRectangle </IDENTIFIER> 
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<IDENTIFIER> x </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<SYMBOL> ( </SYMBOL> 
+													<expression>
+														<term>
+															<IDENTIFIER> y </IDENTIFIER> 
+														</term>
+														<SYMBOL> + </SYMBOL> 
+														<term>
+															<IDENTIFIER> size </IDENTIFIER> 
+														</term>
+													</expression>
+													<SYMBOL> ) </SYMBOL> 
+												</term>
+												<SYMBOL> - </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> x </IDENTIFIER> 
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<IDENTIFIER> size </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> y </IDENTIFIER> 
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<IDENTIFIER> size </IDENTIFIER> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<IDENTIFIER> y </IDENTIFIER> 
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<IDENTIFIER> y </IDENTIFIER> 
+								</term>
+								<SYMBOL> - </SYMBOL> 
+								<term>
+									<INT_CONST> 2 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> Screen </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<IDENTIFIER> setColor </IDENTIFIER> 
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<KEYWORD> true </KEYWORD> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> Screen </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<IDENTIFIER> drawRectangle </IDENTIFIER> 
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<IDENTIFIER> x </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> y </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> x </IDENTIFIER> 
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<IDENTIFIER> size </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> y </IDENTIFIER> 
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<IDENTIFIER> moveDown </IDENTIFIER> 
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<SYMBOL> ( </SYMBOL> 
+							<expression>
+								<term>
+									<IDENTIFIER> y </IDENTIFIER> 
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<IDENTIFIER> size </IDENTIFIER> 
+								</term>
+							</expression>
+							<SYMBOL> ) </SYMBOL> 
+						</term>
+						<SYMBOL> &lt; </SYMBOL> 
+						<term>
+							<INT_CONST> 254 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> Screen </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<IDENTIFIER> setColor </IDENTIFIER> 
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<KEYWORD> false </KEYWORD> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> Screen </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<IDENTIFIER> drawRectangle </IDENTIFIER> 
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<IDENTIFIER> x </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> y </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> x </IDENTIFIER> 
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<IDENTIFIER> size </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> y </IDENTIFIER> 
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<IDENTIFIER> y </IDENTIFIER> 
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<IDENTIFIER> y </IDENTIFIER> 
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<INT_CONST> 2 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> Screen </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<IDENTIFIER> setColor </IDENTIFIER> 
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<KEYWORD> true </KEYWORD> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> Screen </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<IDENTIFIER> drawRectangle </IDENTIFIER> 
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<IDENTIFIER> x </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<SYMBOL> ( </SYMBOL> 
+													<expression>
+														<term>
+															<IDENTIFIER> y </IDENTIFIER> 
+														</term>
+														<SYMBOL> + </SYMBOL> 
+														<term>
+															<IDENTIFIER> size </IDENTIFIER> 
+														</term>
+													</expression>
+													<SYMBOL> ) </SYMBOL> 
+												</term>
+												<SYMBOL> - </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> x </IDENTIFIER> 
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<IDENTIFIER> size </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> y </IDENTIFIER> 
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<IDENTIFIER> size </IDENTIFIER> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<IDENTIFIER> moveLeft </IDENTIFIER> 
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<IDENTIFIER> x </IDENTIFIER> 
+						</term>
+						<SYMBOL> $gt; </SYMBOL> 
+						<term>
+							<INT_CONST> 1 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> Screen </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<IDENTIFIER> setColor </IDENTIFIER> 
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<KEYWORD> false </KEYWORD> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> Screen </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<IDENTIFIER> drawRectangle </IDENTIFIER> 
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<SYMBOL> ( </SYMBOL> 
+													<expression>
+														<term>
+															<IDENTIFIER> x </IDENTIFIER> 
+														</term>
+														<SYMBOL> + </SYMBOL> 
+														<term>
+															<IDENTIFIER> size </IDENTIFIER> 
+														</term>
+													</expression>
+													<SYMBOL> ) </SYMBOL> 
+												</term>
+												<SYMBOL> - </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> y </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> x </IDENTIFIER> 
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<IDENTIFIER> size </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> y </IDENTIFIER> 
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<IDENTIFIER> size </IDENTIFIER> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<IDENTIFIER> x </IDENTIFIER> 
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<IDENTIFIER> x </IDENTIFIER> 
+								</term>
+								<SYMBOL> - </SYMBOL> 
+								<term>
+									<INT_CONST> 2 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> Screen </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<IDENTIFIER> setColor </IDENTIFIER> 
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<KEYWORD> true </KEYWORD> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> Screen </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<IDENTIFIER> drawRectangle </IDENTIFIER> 
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<IDENTIFIER> x </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> y </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> x </IDENTIFIER> 
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> y </IDENTIFIER> 
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<IDENTIFIER> size </IDENTIFIER> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<IDENTIFIER> moveRight </IDENTIFIER> 
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<SYMBOL> ( </SYMBOL> 
+							<expression>
+								<term>
+									<IDENTIFIER> x </IDENTIFIER> 
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<IDENTIFIER> size </IDENTIFIER> 
+								</term>
+							</expression>
+							<SYMBOL> ) </SYMBOL> 
+						</term>
+						<SYMBOL> &lt; </SYMBOL> 
+						<term>
+							<INT_CONST> 510 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> Screen </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<IDENTIFIER> setColor </IDENTIFIER> 
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<KEYWORD> false </KEYWORD> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> Screen </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<IDENTIFIER> drawRectangle </IDENTIFIER> 
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<IDENTIFIER> x </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> y </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> x </IDENTIFIER> 
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> y </IDENTIFIER> 
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<IDENTIFIER> size </IDENTIFIER> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<IDENTIFIER> x </IDENTIFIER> 
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<IDENTIFIER> x </IDENTIFIER> 
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<INT_CONST> 2 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> Screen </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<IDENTIFIER> setColor </IDENTIFIER> 
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<KEYWORD> true </KEYWORD> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<IDENTIFIER> Screen </IDENTIFIER> 
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<IDENTIFIER> drawRectangle </IDENTIFIER> 
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<SYMBOL> ( </SYMBOL> 
+													<expression>
+														<term>
+															<IDENTIFIER> x </IDENTIFIER> 
+														</term>
+														<SYMBOL> + </SYMBOL> 
+														<term>
+															<IDENTIFIER> size </IDENTIFIER> 
+														</term>
+													</expression>
+													<SYMBOL> ) </SYMBOL> 
+												</term>
+												<SYMBOL> - </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> y </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> x </IDENTIFIER> 
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<IDENTIFIER> size </IDENTIFIER> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<IDENTIFIER> y </IDENTIFIER> 
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<IDENTIFIER> size </IDENTIFIER> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+</class>
