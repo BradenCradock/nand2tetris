@@ -1,5 +1,6 @@
 import sys
 import CompilationEngine
+import SymbolTable
 import os
 from tkinter import *
 from tkinter import filedialog
@@ -10,6 +11,7 @@ def main():
     root.withdraw()
     inputFilepath = filedialog.askdirectory(initialdir = "/", title = "Select a folder")
 
+    symbolTable = SymbolTable.SymbolTable()
     for fileName in os.listdir(inputFilepath):
         if fileName.lower().endswith(".jack"):
             compilationEngine = CompilationEngine.CompilationEngine(os.path.basename(inputFilepath) + "\\" + fileName, os.path.basename(inputFilepath) + "\\" + fileName[:-5] + ".xml")
