@@ -65,7 +65,10 @@ class VMWriter:
             elif category in {"field", "static", "var", "arg"}:
                 if self.symbolTable.kindOf(self.tokenizer.currentToken) is None:
                     self.symbolTable.define(self.tokenizer.currentToken, type, category.upper())
-                self.writeIdentifierXml(category, type, "test") #self.symbolTable.indexOf(self.tokenizer.currentToken)
+                    type = "defined"
+                else:
+                    type = "used"
+                self.writeIdentifierXml(category, type, str(self.symbolTable.indexOf(self.tokenizer.currentToken))) #
                 self.tokenizer.advance()
 
         else:

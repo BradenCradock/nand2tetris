@@ -13,8 +13,8 @@ Index: N/A
 		<Identifier>
 			Identifier: test
 Category: static
-State: boolean
-Index: test
+State: defined
+Index: 0
 		</Identifier>
 		<SYMBOL> ; </SYMBOL> 
 	</classVarDec>
@@ -37,8 +37,8 @@ Index: N/A
 				<Identifier>
 					Identifier: game
 Category: var
-State: SquareGame
-Index: test
+State: defined
+Index: 0
 				</Identifier>
 				<SYMBOL> ; </SYMBOL> 
 			</varDec>
@@ -48,8 +48,8 @@ Index: test
 					<Identifier>
 						Identifier: game
 Category: var
-State: var
-Index: test
+State: used
+Index: 0
 					</Identifier>
 					<SYMBOL> = </SYMBOL> 
 					<expression>
@@ -57,8 +57,8 @@ Index: test
 							<Identifier>
 								Identifier: SquareGame
 Category: var
-State: used
-Index: test
+State: defined
+Index: 1
 							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
@@ -85,7 +85,7 @@ Index: N/A
 								Identifier: game
 Category: var
 State: used
-Index: test
+Index: 0
 							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
@@ -112,7 +112,7 @@ Index: N/A
 								Identifier: game
 Category: var
 State: used
-Index: test
+Index: 0
 							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
@@ -158,15 +158,15 @@ Index: N/A
 				<Identifier>
 					Identifier: i
 Category: var
-State: int
-Index: test
+State: defined
+Index: 2
 				</Identifier>
 				<SYMBOL> , </SYMBOL> 
 				<Identifier>
 					Identifier: j
 Category: var
-State: int
-Index: test
+State: defined
+Index: 3
 				</Identifier>
 				<SYMBOL> ; </SYMBOL> 
 			</varDec>
@@ -176,8 +176,8 @@ Index: test
 				<Identifier>
 					Identifier: s
 Category: var
-State: String
-Index: test
+State: defined
+Index: 4
 				</Identifier>
 				<SYMBOL> ; </SYMBOL> 
 			</varDec>
@@ -187,8 +187,8 @@ Index: test
 				<Identifier>
 					Identifier: a
 Category: var
-State: Array
-Index: test
+State: defined
+Index: 5
 				</Identifier>
 				<SYMBOL> ; </SYMBOL> 
 			</varDec>
@@ -209,8 +209,8 @@ Index: test
 							<Identifier>
 								Identifier: s
 Category: var
-State: var
-Index: test
+State: used
+Index: 4
 							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
@@ -225,8 +225,8 @@ Index: test
 							<Identifier>
 								Identifier: s
 Category: var
-State: var
-Index: test
+State: used
+Index: 4
 							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
@@ -241,8 +241,8 @@ Index: test
 							<Identifier>
 								Identifier: a[1]
 Category: var
-State: var
-Index: test
+State: defined
+Index: 6
 							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
@@ -250,8 +250,8 @@ Index: test
 									<Identifier>
 										Identifier: a[2]
 Category: var
-State: used
-Index: test
+State: defined
+Index: 7
 									</Identifier>
 								</term>
 							</expression>
@@ -267,8 +267,8 @@ Index: test
 							<Identifier>
 								Identifier: i
 Category: var
-State: var
-Index: test
+State: used
+Index: 2
 							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
@@ -277,7 +277,7 @@ Index: test
 										Identifier: i
 Category: var
 State: used
-Index: test
+Index: 2
 									</Identifier>
 								</term>
 								<SYMBOL> * </SYMBOL> 
@@ -291,7 +291,7 @@ Index: test
 													Identifier: j
 Category: var
 State: used
-Index: test
+Index: 3
 												</Identifier>
 											</term>
 										</term>
@@ -306,8 +306,8 @@ Index: test
 							<Identifier>
 								Identifier: j
 Category: var
-State: var
-Index: test
+State: used
+Index: 3
 							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
@@ -316,7 +316,7 @@ Index: test
 										Identifier: j
 Category: var
 State: used
-Index: test
+Index: 3
 									</Identifier>
 								</term>
 								<SYMBOL> / </SYMBOL> 
@@ -340,8 +340,8 @@ Index: test
 							<Identifier>
 								Identifier: i
 Category: var
-State: var
-Index: test
+State: used
+Index: 2
 							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
@@ -350,7 +350,7 @@ Index: test
 										Identifier: i
 Category: var
 State: used
-Index: test
+Index: 2
 									</Identifier>
 								</term>
 								<SYMBOL> | </SYMBOL> 
@@ -359,7 +359,7 @@ Index: test
 										Identifier: j
 Category: var
 State: used
-Index: test
+Index: 3
 									</Identifier>
 								</term>
 							</expression>

@@ -13,15 +13,15 @@ Index: N/A
 		<Identifier>
 			Identifier: x
 Category: field
-State: int
-Index: test
+State: defined
+Index: 0
 		</Identifier>
 		<SYMBOL> , </SYMBOL> 
 		<Identifier>
 			Identifier: y
 Category: field
-State: int
-Index: test
+State: defined
+Index: 1
 		</Identifier>
 		<SYMBOL> ; </SYMBOL> 
 	</classVarDec>
@@ -31,8 +31,8 @@ Index: test
 		<Identifier>
 			Identifier: size
 Category: field
-State: int
-Index: test
+State: defined
+Index: 2
 		</Identifier>
 		<SYMBOL> ; </SYMBOL> 
 	</classVarDec>
@@ -51,24 +51,24 @@ Index: N/A
 			<Identifier>
 				Identifier: Ax
 Category: arg
-State: int
-Index: test
+State: defined
+Index: 0
 			</Identifier>
 			<SYMBOL> , </SYMBOL> 
 			<KEYWORD> int </KEYWORD> 
 			<Identifier>
 				Identifier: Ay
 Category: arg
-State: int
-Index: test
+State: defined
+Index: 1
 			</Identifier>
 			<SYMBOL> , </SYMBOL> 
 			<KEYWORD> int </KEYWORD> 
 			<Identifier>
 				Identifier: Asize
 Category: arg
-State: int
-Index: test
+State: defined
+Index: 2
 			</Identifier>
 		</parameterList>
 		<SYMBOL> ) </SYMBOL> 
@@ -80,8 +80,8 @@ Index: test
 					<Identifier>
 						Identifier: x
 Category: var
-State: var
-Index: test
+State: defined
+Index: 0
 					</Identifier>
 					<SYMBOL> = </SYMBOL> 
 					<expression>
@@ -90,7 +90,7 @@ Index: test
 								Identifier: Ax
 Category: var
 State: used
-Index: test
+Index: 0
 							</Identifier>
 						</term>
 					</expression>
@@ -101,8 +101,8 @@ Index: test
 					<Identifier>
 						Identifier: y
 Category: var
-State: var
-Index: test
+State: defined
+Index: 1
 					</Identifier>
 					<SYMBOL> = </SYMBOL> 
 					<expression>
@@ -111,7 +111,7 @@ Index: test
 								Identifier: Ay
 Category: var
 State: used
-Index: test
+Index: 1
 							</Identifier>
 						</term>
 					</expression>
@@ -122,8 +122,8 @@ Index: test
 					<Identifier>
 						Identifier: size
 Category: var
-State: var
-Index: test
+State: defined
+Index: 2
 					</Identifier>
 					<SYMBOL> = </SYMBOL> 
 					<expression>
@@ -132,7 +132,7 @@ Index: test
 								Identifier: Asize
 Category: var
 State: used
-Index: test
+Index: 2
 							</Identifier>
 						</term>
 					</expression>
@@ -145,8 +145,8 @@ Index: test
 							<Identifier>
 								Identifier: draw
 Category: var
-State: used
-Index: test
+State: defined
+Index: 3
 							</Identifier>
 							<subroutineCall>
 								<SYMBOL> ( </SYMBOL> 
@@ -192,8 +192,8 @@ Index: N/A
 							<Identifier>
 								Identifier: Memory
 Category: var
-State: used
-Index: test
+State: defined
+Index: 4
 							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
@@ -246,8 +246,8 @@ Index: N/A
 							<Identifier>
 								Identifier: Screen
 Category: var
-State: used
-Index: test
+State: defined
+Index: 5
 							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
@@ -279,7 +279,7 @@ Index: N/A
 								Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
@@ -297,7 +297,7 @@ Index: N/A
 												Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 											</Identifier>
 										</term>
 									</expression>
@@ -308,7 +308,7 @@ Index: test
 												Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 											</Identifier>
 										</term>
 									</expression>
@@ -319,7 +319,7 @@ Index: test
 												Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 											</Identifier>
 										</term>
 										<SYMBOL> + </SYMBOL> 
@@ -328,7 +328,7 @@ Index: test
 												Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 											</Identifier>
 										</term>
 									</expression>
@@ -339,7 +339,7 @@ Index: test
 												Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 											</Identifier>
 										</term>
 										<SYMBOL> + </SYMBOL> 
@@ -348,7 +348,7 @@ Index: test
 												Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 											</Identifier>
 										</term>
 									</expression>
@@ -389,7 +389,7 @@ Index: N/A
 								Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
@@ -421,7 +421,7 @@ Index: N/A
 								Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
@@ -439,7 +439,7 @@ Index: N/A
 												Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 											</Identifier>
 										</term>
 									</expression>
@@ -450,7 +450,7 @@ Index: test
 												Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 											</Identifier>
 										</term>
 									</expression>
@@ -461,7 +461,7 @@ Index: test
 												Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 											</Identifier>
 										</term>
 										<SYMBOL> + </SYMBOL> 
@@ -470,7 +470,7 @@ Index: test
 												Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 											</Identifier>
 										</term>
 									</expression>
@@ -481,7 +481,7 @@ Index: test
 												Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 											</Identifier>
 										</term>
 										<SYMBOL> + </SYMBOL> 
@@ -490,7 +490,7 @@ Index: test
 												Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 											</Identifier>
 										</term>
 									</expression>
@@ -538,7 +538,7 @@ Index: N/A
 												Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 											</Identifier>
 										</term>
 										<SYMBOL> + </SYMBOL> 
@@ -547,7 +547,7 @@ Index: test
 												Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 											</Identifier>
 										</term>
 									</expression>
@@ -572,7 +572,7 @@ Index: test
 												Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 											</Identifier>
 										</term>
 										<SYMBOL> + </SYMBOL> 
@@ -581,7 +581,7 @@ Index: test
 												Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 											</Identifier>
 										</term>
 									</expression>
@@ -605,8 +605,8 @@ Index: test
 									<Identifier>
 										Identifier: erase
 Category: var
-State: used
-Index: test
+State: defined
+Index: 6
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> ( </SYMBOL> 
@@ -623,8 +623,8 @@ Index: test
 							<Identifier>
 								Identifier: size
 Category: var
-State: var
-Index: test
+State: used
+Index: 2
 							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
@@ -633,7 +633,7 @@ Index: test
 										Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 									</Identifier>
 								</term>
 								<SYMBOL> + </SYMBOL> 
@@ -651,7 +651,7 @@ Index: test
 										Identifier: draw
 Category: var
 State: used
-Index: test
+Index: 3
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> ( </SYMBOL> 
@@ -697,7 +697,7 @@ Index: N/A
 								Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 							</Identifier>
 						</term>
 						<SYMBOL> $gt; </SYMBOL> 
@@ -716,7 +716,7 @@ Index: test
 										Identifier: erase
 Category: var
 State: used
-Index: test
+Index: 6
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> ( </SYMBOL> 
@@ -733,8 +733,8 @@ Index: test
 							<Identifier>
 								Identifier: size
 Category: var
-State: var
-Index: test
+State: used
+Index: 2
 							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
@@ -743,7 +743,7 @@ Index: test
 										Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 									</Identifier>
 								</term>
 								<SYMBOL> - </SYMBOL> 
@@ -761,7 +761,7 @@ Index: test
 										Identifier: draw
 Category: var
 State: used
-Index: test
+Index: 3
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> ( </SYMBOL> 
@@ -807,7 +807,7 @@ Index: N/A
 								Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 							</Identifier>
 						</term>
 						<SYMBOL> $gt; </SYMBOL> 
@@ -826,7 +826,7 @@ Index: test
 										Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -858,7 +858,7 @@ Index: N/A
 										Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -876,7 +876,7 @@ Index: N/A
 														Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 													</Identifier>
 												</term>
 											</expression>
@@ -890,7 +890,7 @@ Index: test
 																Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 															</Identifier>
 														</term>
 														<SYMBOL> + </SYMBOL> 
@@ -899,7 +899,7 @@ Index: test
 																Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 															</Identifier>
 														</term>
 													</expression>
@@ -917,7 +917,7 @@ Index: test
 														Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
@@ -926,7 +926,7 @@ Index: test
 														Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 													</Identifier>
 												</term>
 											</expression>
@@ -937,7 +937,7 @@ Index: test
 														Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
@@ -946,7 +946,7 @@ Index: test
 														Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 													</Identifier>
 												</term>
 											</expression>
@@ -962,8 +962,8 @@ Index: test
 							<Identifier>
 								Identifier: y
 Category: var
-State: var
-Index: test
+State: used
+Index: 1
 							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
@@ -972,7 +972,7 @@ Index: test
 										Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 									</Identifier>
 								</term>
 								<SYMBOL> - </SYMBOL> 
@@ -990,7 +990,7 @@ Index: test
 										Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -1022,7 +1022,7 @@ Index: N/A
 										Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -1040,7 +1040,7 @@ Index: N/A
 														Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 													</Identifier>
 												</term>
 											</expression>
@@ -1051,7 +1051,7 @@ Index: test
 														Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 													</Identifier>
 												</term>
 											</expression>
@@ -1062,7 +1062,7 @@ Index: test
 														Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
@@ -1071,7 +1071,7 @@ Index: test
 														Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 													</Identifier>
 												</term>
 											</expression>
@@ -1082,7 +1082,7 @@ Index: test
 														Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
@@ -1134,7 +1134,7 @@ Index: N/A
 										Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 									</Identifier>
 								</term>
 								<SYMBOL> + </SYMBOL> 
@@ -1143,7 +1143,7 @@ Index: test
 										Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 									</Identifier>
 								</term>
 							</expression>
@@ -1165,7 +1165,7 @@ Index: test
 										Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -1197,7 +1197,7 @@ Index: N/A
 										Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -1215,7 +1215,7 @@ Index: N/A
 														Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 													</Identifier>
 												</term>
 											</expression>
@@ -1226,7 +1226,7 @@ Index: test
 														Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 													</Identifier>
 												</term>
 											</expression>
@@ -1237,7 +1237,7 @@ Index: test
 														Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
@@ -1246,7 +1246,7 @@ Index: test
 														Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 													</Identifier>
 												</term>
 											</expression>
@@ -1257,7 +1257,7 @@ Index: test
 														Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
@@ -1277,8 +1277,8 @@ Index: test
 							<Identifier>
 								Identifier: y
 Category: var
-State: var
-Index: test
+State: used
+Index: 1
 							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
@@ -1287,7 +1287,7 @@ Index: test
 										Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 									</Identifier>
 								</term>
 								<SYMBOL> + </SYMBOL> 
@@ -1305,7 +1305,7 @@ Index: test
 										Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -1337,7 +1337,7 @@ Index: N/A
 										Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -1355,7 +1355,7 @@ Index: N/A
 														Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 													</Identifier>
 												</term>
 											</expression>
@@ -1369,7 +1369,7 @@ Index: test
 																Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 															</Identifier>
 														</term>
 														<SYMBOL> + </SYMBOL> 
@@ -1378,7 +1378,7 @@ Index: test
 																Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 															</Identifier>
 														</term>
 													</expression>
@@ -1396,7 +1396,7 @@ Index: test
 														Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
@@ -1405,7 +1405,7 @@ Index: test
 														Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 													</Identifier>
 												</term>
 											</expression>
@@ -1416,7 +1416,7 @@ Index: test
 														Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
@@ -1425,7 +1425,7 @@ Index: test
 														Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 													</Identifier>
 												</term>
 											</expression>
@@ -1470,7 +1470,7 @@ Index: N/A
 								Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 							</Identifier>
 						</term>
 						<SYMBOL> $gt; </SYMBOL> 
@@ -1489,7 +1489,7 @@ Index: test
 										Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -1521,7 +1521,7 @@ Index: N/A
 										Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -1542,7 +1542,7 @@ Index: N/A
 																Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 															</Identifier>
 														</term>
 														<SYMBOL> + </SYMBOL> 
@@ -1551,7 +1551,7 @@ Index: test
 																Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 															</Identifier>
 														</term>
 													</expression>
@@ -1569,7 +1569,7 @@ Index: test
 														Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 													</Identifier>
 												</term>
 											</expression>
@@ -1580,7 +1580,7 @@ Index: test
 														Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
@@ -1589,7 +1589,7 @@ Index: test
 														Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 													</Identifier>
 												</term>
 											</expression>
@@ -1600,7 +1600,7 @@ Index: test
 														Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
@@ -1609,7 +1609,7 @@ Index: test
 														Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 													</Identifier>
 												</term>
 											</expression>
@@ -1625,8 +1625,8 @@ Index: test
 							<Identifier>
 								Identifier: x
 Category: var
-State: var
-Index: test
+State: used
+Index: 0
 							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
@@ -1635,7 +1635,7 @@ Index: test
 										Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 									</Identifier>
 								</term>
 								<SYMBOL> - </SYMBOL> 
@@ -1653,7 +1653,7 @@ Index: test
 										Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -1685,7 +1685,7 @@ Index: N/A
 										Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -1703,7 +1703,7 @@ Index: N/A
 														Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 													</Identifier>
 												</term>
 											</expression>
@@ -1714,7 +1714,7 @@ Index: test
 														Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 													</Identifier>
 												</term>
 											</expression>
@@ -1725,7 +1725,7 @@ Index: test
 														Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
@@ -1740,7 +1740,7 @@ Index: test
 														Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
@@ -1749,7 +1749,7 @@ Index: test
 														Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 													</Identifier>
 												</term>
 											</expression>
@@ -1797,7 +1797,7 @@ Index: N/A
 										Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 									</Identifier>
 								</term>
 								<SYMBOL> + </SYMBOL> 
@@ -1806,7 +1806,7 @@ Index: test
 										Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 									</Identifier>
 								</term>
 							</expression>
@@ -1828,7 +1828,7 @@ Index: test
 										Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -1860,7 +1860,7 @@ Index: N/A
 										Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -1878,7 +1878,7 @@ Index: N/A
 														Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 													</Identifier>
 												</term>
 											</expression>
@@ -1889,7 +1889,7 @@ Index: test
 														Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 													</Identifier>
 												</term>
 											</expression>
@@ -1900,7 +1900,7 @@ Index: test
 														Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
@@ -1915,7 +1915,7 @@ Index: test
 														Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
@@ -1924,7 +1924,7 @@ Index: test
 														Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 													</Identifier>
 												</term>
 											</expression>
@@ -1940,8 +1940,8 @@ Index: test
 							<Identifier>
 								Identifier: x
 Category: var
-State: var
-Index: test
+State: used
+Index: 0
 							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
@@ -1950,7 +1950,7 @@ Index: test
 										Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 									</Identifier>
 								</term>
 								<SYMBOL> + </SYMBOL> 
@@ -1968,7 +1968,7 @@ Index: test
 										Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -2000,7 +2000,7 @@ Index: N/A
 										Identifier: Screen
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -2021,7 +2021,7 @@ Index: N/A
 																Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 															</Identifier>
 														</term>
 														<SYMBOL> + </SYMBOL> 
@@ -2030,7 +2030,7 @@ Index: test
 																Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 															</Identifier>
 														</term>
 													</expression>
@@ -2048,7 +2048,7 @@ Index: test
 														Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 													</Identifier>
 												</term>
 											</expression>
@@ -2059,7 +2059,7 @@ Index: test
 														Identifier: x
 Category: var
 State: used
-Index: test
+Index: 0
 													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
@@ -2068,7 +2068,7 @@ Index: test
 														Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 													</Identifier>
 												</term>
 											</expression>
@@ -2079,7 +2079,7 @@ Index: test
 														Identifier: y
 Category: var
 State: used
-Index: test
+Index: 1
 													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
@@ -2088,7 +2088,7 @@ Index: test
 														Identifier: size
 Category: var
 State: used
-Index: test
+Index: 2
 													</Identifier>
 												</term>
 											</expression>

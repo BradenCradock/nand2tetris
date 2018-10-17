@@ -13,8 +13,8 @@ Index: N/A
 		<Identifier>
 			Identifier: square
 Category: field
-State: Square
-Index: test
+State: defined
+Index: 0
 		</Identifier>
 		<SYMBOL> ; </SYMBOL> 
 	</classVarDec>
@@ -24,8 +24,8 @@ Index: test
 		<Identifier>
 			Identifier: direction
 Category: field
-State: int
-Index: test
+State: defined
+Index: 1
 		</Identifier>
 		<SYMBOL> ; </SYMBOL> 
 	</classVarDec>
@@ -48,8 +48,8 @@ Index: N/A
 					<Identifier>
 						Identifier: square
 Category: var
-State: var
-Index: test
+State: used
+Index: 0
 					</Identifier>
 					<SYMBOL> = </SYMBOL> 
 					<expression>
@@ -57,8 +57,8 @@ Index: test
 							<Identifier>
 								Identifier: Square
 Category: var
-State: used
-Index: test
+State: defined
+Index: 0
 							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
@@ -99,8 +99,8 @@ Index: N/A
 					<Identifier>
 						Identifier: direction
 Category: var
-State: var
-Index: test
+State: defined
+Index: 1
 					</Identifier>
 					<SYMBOL> = </SYMBOL> 
 					<expression>
@@ -144,8 +144,8 @@ Index: N/A
 							<Identifier>
 								Identifier: square
 Category: var
-State: used
-Index: test
+State: defined
+Index: 2
 							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
@@ -171,8 +171,8 @@ Index: N/A
 							<Identifier>
 								Identifier: Memory
 Category: var
-State: used
-Index: test
+State: defined
+Index: 3
 							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
@@ -227,7 +227,7 @@ Index: N/A
 								Identifier: direction
 Category: var
 State: used
-Index: test
+Index: 1
 							</Identifier>
 						</term>
 						<SYMBOL> = </SYMBOL> 
@@ -246,7 +246,7 @@ Index: test
 										Identifier: square
 Category: var
 State: used
-Index: test
+Index: 2
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -277,7 +277,7 @@ Index: N/A
 								Identifier: direction
 Category: var
 State: used
-Index: test
+Index: 1
 							</Identifier>
 						</term>
 						<SYMBOL> = </SYMBOL> 
@@ -296,7 +296,7 @@ Index: test
 										Identifier: square
 Category: var
 State: used
-Index: test
+Index: 2
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -327,7 +327,7 @@ Index: N/A
 								Identifier: direction
 Category: var
 State: used
-Index: test
+Index: 1
 							</Identifier>
 						</term>
 						<SYMBOL> = </SYMBOL> 
@@ -346,7 +346,7 @@ Index: test
 										Identifier: square
 Category: var
 State: used
-Index: test
+Index: 2
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -377,7 +377,7 @@ Index: N/A
 								Identifier: direction
 Category: var
 State: used
-Index: test
+Index: 1
 							</Identifier>
 						</term>
 						<SYMBOL> = </SYMBOL> 
@@ -396,7 +396,7 @@ Index: test
 										Identifier: square
 Category: var
 State: used
-Index: test
+Index: 2
 									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
@@ -425,8 +425,8 @@ Index: N/A
 							<Identifier>
 								Identifier: Sys
 Category: var
-State: used
-Index: test
+State: defined
+Index: 4
 							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
@@ -477,8 +477,8 @@ Index: N/A
 				<Identifier>
 					Identifier: key
 Category: var
-State: char
-Index: test
+State: defined
+Index: 5
 				</Identifier>
 				<SYMBOL> ; </SYMBOL> 
 			</varDec>
@@ -488,8 +488,8 @@ Index: test
 				<Identifier>
 					Identifier: exit
 Category: var
-State: boolean
-Index: test
+State: defined
+Index: 6
 				</Identifier>
 				<SYMBOL> ; </SYMBOL> 
 			</varDec>
@@ -499,8 +499,8 @@ Index: test
 					<Identifier>
 						Identifier: exit
 Category: var
-State: var
-Index: test
+State: used
+Index: 6
 					</Identifier>
 					<SYMBOL> = </SYMBOL> 
 					<expression>
@@ -530,7 +530,7 @@ Index: test
 										Identifier: key
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 								</term>
 								<SYMBOL> = </SYMBOL> 
@@ -546,8 +546,8 @@ Index: test
 									<Identifier>
 										Identifier: key
 Category: var
-State: var
-Index: test
+State: used
+Index: 5
 									</Identifier>
 									<SYMBOL> = </SYMBOL> 
 									<expression>
@@ -555,8 +555,8 @@ Index: test
 											<Identifier>
 												Identifier: Keyboard
 Category: var
-State: used
-Index: test
+State: defined
+Index: 7
 											</Identifier>
 											<subroutineCall>
 												<SYMBOL> . </SYMBOL> 
@@ -582,8 +582,8 @@ Index: N/A
 											<Identifier>
 												Identifier: moveSquare
 Category: var
-State: used
-Index: test
+State: defined
+Index: 8
 											</Identifier>
 											<subroutineCall>
 												<SYMBOL> ( </SYMBOL> 
@@ -607,7 +607,7 @@ Index: test
 										Identifier: key
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 								</term>
 								<SYMBOL> = </SYMBOL> 
@@ -623,8 +623,8 @@ Index: test
 									<Identifier>
 										Identifier: exit
 Category: var
-State: var
-Index: test
+State: used
+Index: 6
 									</Identifier>
 									<SYMBOL> = </SYMBOL> 
 									<expression>
@@ -646,7 +646,7 @@ Index: test
 										Identifier: key
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 								</term>
 								<SYMBOL> = </SYMBOL> 
@@ -665,7 +665,7 @@ Index: test
 												Identifier: square
 Category: var
 State: used
-Index: test
+Index: 2
 											</Identifier>
 											<subroutineCall>
 												<SYMBOL> . </SYMBOL> 
@@ -696,7 +696,7 @@ Index: N/A
 										Identifier: key
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 								</term>
 								<SYMBOL> = </SYMBOL> 
@@ -715,7 +715,7 @@ Index: test
 												Identifier: square
 Category: var
 State: used
-Index: test
+Index: 2
 											</Identifier>
 											<subroutineCall>
 												<SYMBOL> . </SYMBOL> 
@@ -746,7 +746,7 @@ Index: N/A
 										Identifier: key
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 								</term>
 								<SYMBOL> = </SYMBOL> 
@@ -762,8 +762,8 @@ Index: test
 									<Identifier>
 										Identifier: direction
 Category: var
-State: var
-Index: test
+State: used
+Index: 1
 									</Identifier>
 									<SYMBOL> = </SYMBOL> 
 									<expression>
@@ -785,7 +785,7 @@ Index: test
 										Identifier: key
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 								</term>
 								<SYMBOL> = </SYMBOL> 
@@ -801,8 +801,8 @@ Index: test
 									<Identifier>
 										Identifier: direction
 Category: var
-State: var
-Index: test
+State: used
+Index: 1
 									</Identifier>
 									<SYMBOL> = </SYMBOL> 
 									<expression>
@@ -824,7 +824,7 @@ Index: test
 										Identifier: key
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 								</term>
 								<SYMBOL> = </SYMBOL> 
@@ -840,8 +840,8 @@ Index: test
 									<Identifier>
 										Identifier: direction
 Category: var
-State: var
-Index: test
+State: used
+Index: 1
 									</Identifier>
 									<SYMBOL> = </SYMBOL> 
 									<expression>
@@ -863,7 +863,7 @@ Index: test
 										Identifier: key
 Category: var
 State: used
-Index: test
+Index: 5
 									</Identifier>
 								</term>
 								<SYMBOL> = </SYMBOL> 
@@ -879,8 +879,8 @@ Index: test
 									<Identifier>
 										Identifier: direction
 Category: var
-State: var
-Index: test
+State: used
+Index: 1
 									</Identifier>
 									<SYMBOL> = </SYMBOL> 
 									<expression>
@@ -907,7 +907,7 @@ Index: test
 													Identifier: key
 Category: var
 State: used
-Index: test
+Index: 5
 												</Identifier>
 											</term>
 											<SYMBOL> = </SYMBOL> 
@@ -927,8 +927,8 @@ Index: test
 									<Identifier>
 										Identifier: key
 Category: var
-State: var
-Index: test
+State: used
+Index: 5
 									</Identifier>
 									<SYMBOL> = </SYMBOL> 
 									<expression>
@@ -937,7 +937,7 @@ Index: test
 												Identifier: Keyboard
 Category: var
 State: used
-Index: test
+Index: 7
 											</Identifier>
 											<subroutineCall>
 												<SYMBOL> . </SYMBOL> 
@@ -964,7 +964,7 @@ Index: N/A
 												Identifier: moveSquare
 Category: var
 State: used
-Index: test
+Index: 8
 											</Identifier>
 											<subroutineCall>
 												<SYMBOL> ( </SYMBOL> 
