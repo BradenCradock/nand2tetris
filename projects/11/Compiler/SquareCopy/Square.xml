@@ -1,35 +1,75 @@
 <class>
 	<KEYWORD> class </KEYWORD> 
-	<IDENTIFIER> Square </IDENTIFIER> 
+	<Identifier>
+		Identifier: Square
+Category: class
+State: defined
+Index: N/A
+	</Identifier>
 	<SYMBOL> { </SYMBOL> 
 	<classVarDec>
 		<KEYWORD> field </KEYWORD> 
 		<KEYWORD> int </KEYWORD> 
-		<IDENTIFIER> x </IDENTIFIER> 
+		<Identifier>
+			Identifier: x
+Category: field
+State: int
+Index: test
+		</Identifier>
 		<SYMBOL> , </SYMBOL> 
-		<IDENTIFIER> y </IDENTIFIER> 
+		<Identifier>
+			Identifier: y
+Category: field
+State: int
+Index: test
+		</Identifier>
 		<SYMBOL> ; </SYMBOL> 
 	</classVarDec>
 	<classVarDec>
 		<KEYWORD> field </KEYWORD> 
 		<KEYWORD> int </KEYWORD> 
-		<IDENTIFIER> size </IDENTIFIER> 
+		<Identifier>
+			Identifier: size
+Category: field
+State: int
+Index: test
+		</Identifier>
 		<SYMBOL> ; </SYMBOL> 
 	</classVarDec>
 	<subroutineDec>
 		<KEYWORD> constructor </KEYWORD> 
 		<IDENTIFIER> Square </IDENTIFIER> 
-		<IDENTIFIER> new </IDENTIFIER> 
+		<Identifier>
+			Identifier: new
+Category: constructor
+State: defined
+Index: N/A
+		</Identifier>
 		<SYMBOL> ( </SYMBOL> 
 		<parameterList>
 			<KEYWORD> int </KEYWORD> 
-			<IDENTIFIER> Ax </IDENTIFIER> 
+			<Identifier>
+				Identifier: Ax
+Category: arg
+State: int
+Index: test
+			</Identifier>
 			<SYMBOL> , </SYMBOL> 
 			<KEYWORD> int </KEYWORD> 
-			<IDENTIFIER> Ay </IDENTIFIER> 
+			<Identifier>
+				Identifier: Ay
+Category: arg
+State: int
+Index: test
+			</Identifier>
 			<SYMBOL> , </SYMBOL> 
 			<KEYWORD> int </KEYWORD> 
-			<IDENTIFIER> Asize </IDENTIFIER> 
+			<Identifier>
+				Identifier: Asize
+Category: arg
+State: int
+Index: test
+			</Identifier>
 		</parameterList>
 		<SYMBOL> ) </SYMBOL> 
 		<subroutineBody>
@@ -37,33 +77,63 @@
 			<statements>
 				<letStatement>
 					<KEYWORD> let </KEYWORD> 
-					<IDENTIFIER> x </IDENTIFIER> 
+					<Identifier>
+						Identifier: x
+Category: var
+State: var
+Index: test
+					</Identifier>
 					<SYMBOL> = </SYMBOL> 
 					<expression>
 						<term>
-							<IDENTIFIER> Ax </IDENTIFIER> 
+							<Identifier>
+								Identifier: Ax
+Category: var
+State: used
+Index: test
+							</Identifier>
 						</term>
 					</expression>
 					<SYMBOL> ; </SYMBOL> 
 				</letStatement>
 				<letStatement>
 					<KEYWORD> let </KEYWORD> 
-					<IDENTIFIER> y </IDENTIFIER> 
+					<Identifier>
+						Identifier: y
+Category: var
+State: var
+Index: test
+					</Identifier>
 					<SYMBOL> = </SYMBOL> 
 					<expression>
 						<term>
-							<IDENTIFIER> Ay </IDENTIFIER> 
+							<Identifier>
+								Identifier: Ay
+Category: var
+State: used
+Index: test
+							</Identifier>
 						</term>
 					</expression>
 					<SYMBOL> ; </SYMBOL> 
 				</letStatement>
 				<letStatement>
 					<KEYWORD> let </KEYWORD> 
-					<IDENTIFIER> size </IDENTIFIER> 
+					<Identifier>
+						Identifier: size
+Category: var
+State: var
+Index: test
+					</Identifier>
 					<SYMBOL> = </SYMBOL> 
 					<expression>
 						<term>
-							<IDENTIFIER> Asize </IDENTIFIER> 
+							<Identifier>
+								Identifier: Asize
+Category: var
+State: used
+Index: test
+							</Identifier>
 						</term>
 					</expression>
 					<SYMBOL> ; </SYMBOL> 
@@ -72,7 +142,12 @@
 					<KEYWORD> do </KEYWORD> 
 					<expression>
 						<term>
-							<IDENTIFIER> draw </IDENTIFIER> 
+							<Identifier>
+								Identifier: draw
+Category: var
+State: used
+Index: test
+							</Identifier>
 							<subroutineCall>
 								<SYMBOL> ( </SYMBOL> 
 								<expressionList>
@@ -99,7 +174,12 @@
 	<subroutineDec>
 		<KEYWORD> method </KEYWORD> 
 		<KEYWORD> void </KEYWORD> 
-		<IDENTIFIER> dispose </IDENTIFIER> 
+		<Identifier>
+			Identifier: dispose
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
 		<SYMBOL> ( </SYMBOL> 
 		<SYMBOL> ) </SYMBOL> 
 		<subroutineBody>
@@ -109,10 +189,20 @@
 					<KEYWORD> do </KEYWORD> 
 					<expression>
 						<term>
-							<IDENTIFIER> Memory </IDENTIFIER> 
+							<Identifier>
+								Identifier: Memory
+Category: var
+State: used
+Index: test
+							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
-								<IDENTIFIER> deAlloc </IDENTIFIER> 
+								<Identifier>
+									Identifier: deAlloc
+Category: method
+State: defined
+Index: N/A
+								</Identifier>
 								<SYMBOL> ( </SYMBOL> 
 								<expressionList>
 									<expression>
@@ -138,7 +228,12 @@
 	<subroutineDec>
 		<KEYWORD> method </KEYWORD> 
 		<KEYWORD> void </KEYWORD> 
-		<IDENTIFIER> draw </IDENTIFIER> 
+		<Identifier>
+			Identifier: draw
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
 		<SYMBOL> ( </SYMBOL> 
 		<SYMBOL> ) </SYMBOL> 
 		<subroutineBody>
@@ -148,10 +243,20 @@
 					<KEYWORD> do </KEYWORD> 
 					<expression>
 						<term>
-							<IDENTIFIER> Screen </IDENTIFIER> 
+							<Identifier>
+								Identifier: Screen
+Category: var
+State: used
+Index: test
+							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
-								<IDENTIFIER> setColor </IDENTIFIER> 
+								<Identifier>
+									Identifier: setColor
+Category: method
+State: defined
+Index: N/A
+								</Identifier>
 								<SYMBOL> ( </SYMBOL> 
 								<expressionList>
 									<expression>
@@ -170,41 +275,81 @@
 					<KEYWORD> do </KEYWORD> 
 					<expression>
 						<term>
-							<IDENTIFIER> Screen </IDENTIFIER> 
+							<Identifier>
+								Identifier: Screen
+Category: var
+State: used
+Index: test
+							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
-								<IDENTIFIER> drawRectangle </IDENTIFIER> 
+								<Identifier>
+									Identifier: drawRectangle
+Category: method
+State: defined
+Index: N/A
+								</Identifier>
 								<SYMBOL> ( </SYMBOL> 
 								<expressionList>
 									<expression>
 										<term>
-											<IDENTIFIER> x </IDENTIFIER> 
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: test
+											</Identifier>
 										</term>
 									</expression>
 									<SYMBOL> , </SYMBOL> 
 									<expression>
 										<term>
-											<IDENTIFIER> y </IDENTIFIER> 
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: test
+											</Identifier>
 										</term>
 									</expression>
 									<SYMBOL> , </SYMBOL> 
 									<expression>
 										<term>
-											<IDENTIFIER> x </IDENTIFIER> 
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: test
+											</Identifier>
 										</term>
 										<SYMBOL> + </SYMBOL> 
 										<term>
-											<IDENTIFIER> size </IDENTIFIER> 
+											<Identifier>
+												Identifier: size
+Category: var
+State: used
+Index: test
+											</Identifier>
 										</term>
 									</expression>
 									<SYMBOL> , </SYMBOL> 
 									<expression>
 										<term>
-											<IDENTIFIER> y </IDENTIFIER> 
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: test
+											</Identifier>
 										</term>
 										<SYMBOL> + </SYMBOL> 
 										<term>
-											<IDENTIFIER> size </IDENTIFIER> 
+											<Identifier>
+												Identifier: size
+Category: var
+State: used
+Index: test
+											</Identifier>
 										</term>
 									</expression>
 								</expressionList>
@@ -225,7 +370,12 @@
 	<subroutineDec>
 		<KEYWORD> method </KEYWORD> 
 		<KEYWORD> void </KEYWORD> 
-		<IDENTIFIER> erase </IDENTIFIER> 
+		<Identifier>
+			Identifier: erase
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
 		<SYMBOL> ( </SYMBOL> 
 		<SYMBOL> ) </SYMBOL> 
 		<subroutineBody>
@@ -235,10 +385,20 @@
 					<KEYWORD> do </KEYWORD> 
 					<expression>
 						<term>
-							<IDENTIFIER> Screen </IDENTIFIER> 
+							<Identifier>
+								Identifier: Screen
+Category: var
+State: used
+Index: test
+							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
-								<IDENTIFIER> setColor </IDENTIFIER> 
+								<Identifier>
+									Identifier: setColor
+Category: method
+State: defined
+Index: N/A
+								</Identifier>
 								<SYMBOL> ( </SYMBOL> 
 								<expressionList>
 									<expression>
@@ -257,41 +417,81 @@
 					<KEYWORD> do </KEYWORD> 
 					<expression>
 						<term>
-							<IDENTIFIER> Screen </IDENTIFIER> 
+							<Identifier>
+								Identifier: Screen
+Category: var
+State: used
+Index: test
+							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
-								<IDENTIFIER> drawRectangle </IDENTIFIER> 
+								<Identifier>
+									Identifier: drawRectangle
+Category: method
+State: defined
+Index: N/A
+								</Identifier>
 								<SYMBOL> ( </SYMBOL> 
 								<expressionList>
 									<expression>
 										<term>
-											<IDENTIFIER> x </IDENTIFIER> 
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: test
+											</Identifier>
 										</term>
 									</expression>
 									<SYMBOL> , </SYMBOL> 
 									<expression>
 										<term>
-											<IDENTIFIER> y </IDENTIFIER> 
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: test
+											</Identifier>
 										</term>
 									</expression>
 									<SYMBOL> , </SYMBOL> 
 									<expression>
 										<term>
-											<IDENTIFIER> x </IDENTIFIER> 
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: test
+											</Identifier>
 										</term>
 										<SYMBOL> + </SYMBOL> 
 										<term>
-											<IDENTIFIER> size </IDENTIFIER> 
+											<Identifier>
+												Identifier: size
+Category: var
+State: used
+Index: test
+											</Identifier>
 										</term>
 									</expression>
 									<SYMBOL> , </SYMBOL> 
 									<expression>
 										<term>
-											<IDENTIFIER> y </IDENTIFIER> 
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: test
+											</Identifier>
 										</term>
 										<SYMBOL> + </SYMBOL> 
 										<term>
-											<IDENTIFIER> size </IDENTIFIER> 
+											<Identifier>
+												Identifier: size
+Category: var
+State: used
+Index: test
+											</Identifier>
 										</term>
 									</expression>
 								</expressionList>
@@ -312,7 +512,12 @@
 	<subroutineDec>
 		<KEYWORD> method </KEYWORD> 
 		<KEYWORD> void </KEYWORD> 
-		<IDENTIFIER> incSize </IDENTIFIER> 
+		<Identifier>
+			Identifier: incSize
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
 		<SYMBOL> ( </SYMBOL> 
 		<SYMBOL> ) </SYMBOL> 
 		<subroutineBody>
@@ -329,11 +534,21 @@
 									<SYMBOL> ( </SYMBOL> 
 									<expression>
 										<term>
-											<IDENTIFIER> y </IDENTIFIER> 
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: test
+											</Identifier>
 										</term>
 										<SYMBOL> + </SYMBOL> 
 										<term>
-											<IDENTIFIER> size </IDENTIFIER> 
+											<Identifier>
+												Identifier: size
+Category: var
+State: used
+Index: test
+											</Identifier>
 										</term>
 									</expression>
 									<SYMBOL> ) </SYMBOL> 
@@ -353,11 +568,21 @@
 									<SYMBOL> ( </SYMBOL> 
 									<expression>
 										<term>
-											<IDENTIFIER> x </IDENTIFIER> 
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: test
+											</Identifier>
 										</term>
 										<SYMBOL> + </SYMBOL> 
 										<term>
-											<IDENTIFIER> size </IDENTIFIER> 
+											<Identifier>
+												Identifier: size
+Category: var
+State: used
+Index: test
+											</Identifier>
 										</term>
 									</expression>
 									<SYMBOL> ) </SYMBOL> 
@@ -377,7 +602,12 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> erase </IDENTIFIER> 
+									<Identifier>
+										Identifier: erase
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
@@ -390,11 +620,21 @@
 						</doStatement>
 						<letStatement>
 							<KEYWORD> let </KEYWORD> 
-							<IDENTIFIER> size </IDENTIFIER> 
+							<Identifier>
+								Identifier: size
+Category: var
+State: var
+Index: test
+							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> size </IDENTIFIER> 
+									<Identifier>
+										Identifier: size
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> + </SYMBOL> 
 								<term>
@@ -407,7 +647,12 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> draw </IDENTIFIER> 
+									<Identifier>
+										Identifier: draw
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
@@ -432,7 +677,12 @@
 	<subroutineDec>
 		<KEYWORD> method </KEYWORD> 
 		<KEYWORD> void </KEYWORD> 
-		<IDENTIFIER> decSize </IDENTIFIER> 
+		<Identifier>
+			Identifier: decSize
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
 		<SYMBOL> ( </SYMBOL> 
 		<SYMBOL> ) </SYMBOL> 
 		<subroutineBody>
@@ -443,7 +693,12 @@
 					<SYMBOL> ( </SYMBOL> 
 					<expression>
 						<term>
-							<IDENTIFIER> size </IDENTIFIER> 
+							<Identifier>
+								Identifier: size
+Category: var
+State: used
+Index: test
+							</Identifier>
 						</term>
 						<SYMBOL> $gt; </SYMBOL> 
 						<term>
@@ -457,7 +712,12 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> erase </IDENTIFIER> 
+									<Identifier>
+										Identifier: erase
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
@@ -470,11 +730,21 @@
 						</doStatement>
 						<letStatement>
 							<KEYWORD> let </KEYWORD> 
-							<IDENTIFIER> size </IDENTIFIER> 
+							<Identifier>
+								Identifier: size
+Category: var
+State: var
+Index: test
+							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> size </IDENTIFIER> 
+									<Identifier>
+										Identifier: size
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> - </SYMBOL> 
 								<term>
@@ -487,7 +757,12 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> draw </IDENTIFIER> 
+									<Identifier>
+										Identifier: draw
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
@@ -512,7 +787,12 @@
 	<subroutineDec>
 		<KEYWORD> method </KEYWORD> 
 		<KEYWORD> void </KEYWORD> 
-		<IDENTIFIER> moveUp </IDENTIFIER> 
+		<Identifier>
+			Identifier: moveUp
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
 		<SYMBOL> ( </SYMBOL> 
 		<SYMBOL> ) </SYMBOL> 
 		<subroutineBody>
@@ -523,7 +803,12 @@
 					<SYMBOL> ( </SYMBOL> 
 					<expression>
 						<term>
-							<IDENTIFIER> y </IDENTIFIER> 
+							<Identifier>
+								Identifier: y
+Category: var
+State: used
+Index: test
+							</Identifier>
 						</term>
 						<SYMBOL> $gt; </SYMBOL> 
 						<term>
@@ -537,10 +822,20 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> Screen </IDENTIFIER> 
+									<Identifier>
+										Identifier: Screen
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> setColor </IDENTIFIER> 
+										<Identifier>
+											Identifier: setColor
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 											<expression>
@@ -559,15 +854,30 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> Screen </IDENTIFIER> 
+									<Identifier>
+										Identifier: Screen
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> drawRectangle </IDENTIFIER> 
+										<Identifier>
+											Identifier: drawRectangle
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 											<expression>
 												<term>
-													<IDENTIFIER> x </IDENTIFIER> 
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
@@ -576,11 +886,21 @@
 													<SYMBOL> ( </SYMBOL> 
 													<expression>
 														<term>
-															<IDENTIFIER> y </IDENTIFIER> 
+															<Identifier>
+																Identifier: y
+Category: var
+State: used
+Index: test
+															</Identifier>
 														</term>
 														<SYMBOL> + </SYMBOL> 
 														<term>
-															<IDENTIFIER> size </IDENTIFIER> 
+															<Identifier>
+																Identifier: size
+Category: var
+State: used
+Index: test
+															</Identifier>
 														</term>
 													</expression>
 													<SYMBOL> ) </SYMBOL> 
@@ -593,21 +913,41 @@
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> x </IDENTIFIER> 
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
 												<term>
-													<IDENTIFIER> size </IDENTIFIER> 
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> y </IDENTIFIER> 
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
 												<term>
-													<IDENTIFIER> size </IDENTIFIER> 
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 										</expressionList>
@@ -619,11 +959,21 @@
 						</doStatement>
 						<letStatement>
 							<KEYWORD> let </KEYWORD> 
-							<IDENTIFIER> y </IDENTIFIER> 
+							<Identifier>
+								Identifier: y
+Category: var
+State: var
+Index: test
+							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> y </IDENTIFIER> 
+									<Identifier>
+										Identifier: y
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> - </SYMBOL> 
 								<term>
@@ -636,10 +986,20 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> Screen </IDENTIFIER> 
+									<Identifier>
+										Identifier: Screen
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> setColor </IDENTIFIER> 
+										<Identifier>
+											Identifier: setColor
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 											<expression>
@@ -658,37 +1018,72 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> Screen </IDENTIFIER> 
+									<Identifier>
+										Identifier: Screen
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> drawRectangle </IDENTIFIER> 
+										<Identifier>
+											Identifier: drawRectangle
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 											<expression>
 												<term>
-													<IDENTIFIER> x </IDENTIFIER> 
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> y </IDENTIFIER> 
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> x </IDENTIFIER> 
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
 												<term>
-													<IDENTIFIER> size </IDENTIFIER> 
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> y </IDENTIFIER> 
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
 												<term>
@@ -716,7 +1111,12 @@
 	<subroutineDec>
 		<KEYWORD> method </KEYWORD> 
 		<KEYWORD> void </KEYWORD> 
-		<IDENTIFIER> moveDown </IDENTIFIER> 
+		<Identifier>
+			Identifier: moveDown
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
 		<SYMBOL> ( </SYMBOL> 
 		<SYMBOL> ) </SYMBOL> 
 		<subroutineBody>
@@ -730,11 +1130,21 @@
 							<SYMBOL> ( </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> y </IDENTIFIER> 
+									<Identifier>
+										Identifier: y
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> + </SYMBOL> 
 								<term>
-									<IDENTIFIER> size </IDENTIFIER> 
+									<Identifier>
+										Identifier: size
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 							</expression>
 							<SYMBOL> ) </SYMBOL> 
@@ -751,10 +1161,20 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> Screen </IDENTIFIER> 
+									<Identifier>
+										Identifier: Screen
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> setColor </IDENTIFIER> 
+										<Identifier>
+											Identifier: setColor
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 											<expression>
@@ -773,37 +1193,72 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> Screen </IDENTIFIER> 
+									<Identifier>
+										Identifier: Screen
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> drawRectangle </IDENTIFIER> 
+										<Identifier>
+											Identifier: drawRectangle
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 											<expression>
 												<term>
-													<IDENTIFIER> x </IDENTIFIER> 
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> y </IDENTIFIER> 
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> x </IDENTIFIER> 
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
 												<term>
-													<IDENTIFIER> size </IDENTIFIER> 
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> y </IDENTIFIER> 
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
 												<term>
@@ -819,11 +1274,21 @@
 						</doStatement>
 						<letStatement>
 							<KEYWORD> let </KEYWORD> 
-							<IDENTIFIER> y </IDENTIFIER> 
+							<Identifier>
+								Identifier: y
+Category: var
+State: var
+Index: test
+							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> y </IDENTIFIER> 
+									<Identifier>
+										Identifier: y
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> + </SYMBOL> 
 								<term>
@@ -836,10 +1301,20 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> Screen </IDENTIFIER> 
+									<Identifier>
+										Identifier: Screen
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> setColor </IDENTIFIER> 
+										<Identifier>
+											Identifier: setColor
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 											<expression>
@@ -858,15 +1333,30 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> Screen </IDENTIFIER> 
+									<Identifier>
+										Identifier: Screen
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> drawRectangle </IDENTIFIER> 
+										<Identifier>
+											Identifier: drawRectangle
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 											<expression>
 												<term>
-													<IDENTIFIER> x </IDENTIFIER> 
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
@@ -875,11 +1365,21 @@
 													<SYMBOL> ( </SYMBOL> 
 													<expression>
 														<term>
-															<IDENTIFIER> y </IDENTIFIER> 
+															<Identifier>
+																Identifier: y
+Category: var
+State: used
+Index: test
+															</Identifier>
 														</term>
 														<SYMBOL> + </SYMBOL> 
 														<term>
-															<IDENTIFIER> size </IDENTIFIER> 
+															<Identifier>
+																Identifier: size
+Category: var
+State: used
+Index: test
+															</Identifier>
 														</term>
 													</expression>
 													<SYMBOL> ) </SYMBOL> 
@@ -892,21 +1392,41 @@
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> x </IDENTIFIER> 
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
 												<term>
-													<IDENTIFIER> size </IDENTIFIER> 
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> y </IDENTIFIER> 
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
 												<term>
-													<IDENTIFIER> size </IDENTIFIER> 
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 										</expressionList>
@@ -930,7 +1450,12 @@
 	<subroutineDec>
 		<KEYWORD> method </KEYWORD> 
 		<KEYWORD> void </KEYWORD> 
-		<IDENTIFIER> moveLeft </IDENTIFIER> 
+		<Identifier>
+			Identifier: moveLeft
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
 		<SYMBOL> ( </SYMBOL> 
 		<SYMBOL> ) </SYMBOL> 
 		<subroutineBody>
@@ -941,7 +1466,12 @@
 					<SYMBOL> ( </SYMBOL> 
 					<expression>
 						<term>
-							<IDENTIFIER> x </IDENTIFIER> 
+							<Identifier>
+								Identifier: x
+Category: var
+State: used
+Index: test
+							</Identifier>
 						</term>
 						<SYMBOL> $gt; </SYMBOL> 
 						<term>
@@ -955,10 +1485,20 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> Screen </IDENTIFIER> 
+									<Identifier>
+										Identifier: Screen
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> setColor </IDENTIFIER> 
+										<Identifier>
+											Identifier: setColor
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 											<expression>
@@ -977,10 +1517,20 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> Screen </IDENTIFIER> 
+									<Identifier>
+										Identifier: Screen
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> drawRectangle </IDENTIFIER> 
+										<Identifier>
+											Identifier: drawRectangle
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 											<expression>
@@ -988,11 +1538,21 @@
 													<SYMBOL> ( </SYMBOL> 
 													<expression>
 														<term>
-															<IDENTIFIER> x </IDENTIFIER> 
+															<Identifier>
+																Identifier: x
+Category: var
+State: used
+Index: test
+															</Identifier>
 														</term>
 														<SYMBOL> + </SYMBOL> 
 														<term>
-															<IDENTIFIER> size </IDENTIFIER> 
+															<Identifier>
+																Identifier: size
+Category: var
+State: used
+Index: test
+															</Identifier>
 														</term>
 													</expression>
 													<SYMBOL> ) </SYMBOL> 
@@ -1005,27 +1565,52 @@
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> y </IDENTIFIER> 
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> x </IDENTIFIER> 
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
 												<term>
-													<IDENTIFIER> size </IDENTIFIER> 
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> y </IDENTIFIER> 
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
 												<term>
-													<IDENTIFIER> size </IDENTIFIER> 
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 										</expressionList>
@@ -1037,11 +1622,21 @@
 						</doStatement>
 						<letStatement>
 							<KEYWORD> let </KEYWORD> 
-							<IDENTIFIER> x </IDENTIFIER> 
+							<Identifier>
+								Identifier: x
+Category: var
+State: var
+Index: test
+							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> x </IDENTIFIER> 
+									<Identifier>
+										Identifier: x
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> - </SYMBOL> 
 								<term>
@@ -1054,10 +1649,20 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> Screen </IDENTIFIER> 
+									<Identifier>
+										Identifier: Screen
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> setColor </IDENTIFIER> 
+										<Identifier>
+											Identifier: setColor
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 											<expression>
@@ -1076,27 +1681,52 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> Screen </IDENTIFIER> 
+									<Identifier>
+										Identifier: Screen
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> drawRectangle </IDENTIFIER> 
+										<Identifier>
+											Identifier: drawRectangle
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 											<expression>
 												<term>
-													<IDENTIFIER> x </IDENTIFIER> 
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> y </IDENTIFIER> 
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> x </IDENTIFIER> 
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
 												<term>
@@ -1106,11 +1736,21 @@
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> y </IDENTIFIER> 
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
 												<term>
-													<IDENTIFIER> size </IDENTIFIER> 
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 										</expressionList>
@@ -1134,7 +1774,12 @@
 	<subroutineDec>
 		<KEYWORD> method </KEYWORD> 
 		<KEYWORD> void </KEYWORD> 
-		<IDENTIFIER> moveRight </IDENTIFIER> 
+		<Identifier>
+			Identifier: moveRight
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
 		<SYMBOL> ( </SYMBOL> 
 		<SYMBOL> ) </SYMBOL> 
 		<subroutineBody>
@@ -1148,11 +1793,21 @@
 							<SYMBOL> ( </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> x </IDENTIFIER> 
+									<Identifier>
+										Identifier: x
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> + </SYMBOL> 
 								<term>
-									<IDENTIFIER> size </IDENTIFIER> 
+									<Identifier>
+										Identifier: size
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 							</expression>
 							<SYMBOL> ) </SYMBOL> 
@@ -1169,10 +1824,20 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> Screen </IDENTIFIER> 
+									<Identifier>
+										Identifier: Screen
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> setColor </IDENTIFIER> 
+										<Identifier>
+											Identifier: setColor
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 											<expression>
@@ -1191,27 +1856,52 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> Screen </IDENTIFIER> 
+									<Identifier>
+										Identifier: Screen
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> drawRectangle </IDENTIFIER> 
+										<Identifier>
+											Identifier: drawRectangle
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 											<expression>
 												<term>
-													<IDENTIFIER> x </IDENTIFIER> 
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> y </IDENTIFIER> 
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> x </IDENTIFIER> 
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
 												<term>
@@ -1221,11 +1911,21 @@
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> y </IDENTIFIER> 
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
 												<term>
-													<IDENTIFIER> size </IDENTIFIER> 
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 										</expressionList>
@@ -1237,11 +1937,21 @@
 						</doStatement>
 						<letStatement>
 							<KEYWORD> let </KEYWORD> 
-							<IDENTIFIER> x </IDENTIFIER> 
+							<Identifier>
+								Identifier: x
+Category: var
+State: var
+Index: test
+							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> x </IDENTIFIER> 
+									<Identifier>
+										Identifier: x
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> + </SYMBOL> 
 								<term>
@@ -1254,10 +1964,20 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> Screen </IDENTIFIER> 
+									<Identifier>
+										Identifier: Screen
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> setColor </IDENTIFIER> 
+										<Identifier>
+											Identifier: setColor
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 											<expression>
@@ -1276,10 +1996,20 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> Screen </IDENTIFIER> 
+									<Identifier>
+										Identifier: Screen
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> drawRectangle </IDENTIFIER> 
+										<Identifier>
+											Identifier: drawRectangle
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 											<expression>
@@ -1287,11 +2017,21 @@
 													<SYMBOL> ( </SYMBOL> 
 													<expression>
 														<term>
-															<IDENTIFIER> x </IDENTIFIER> 
+															<Identifier>
+																Identifier: x
+Category: var
+State: used
+Index: test
+															</Identifier>
 														</term>
 														<SYMBOL> + </SYMBOL> 
 														<term>
-															<IDENTIFIER> size </IDENTIFIER> 
+															<Identifier>
+																Identifier: size
+Category: var
+State: used
+Index: test
+															</Identifier>
 														</term>
 													</expression>
 													<SYMBOL> ) </SYMBOL> 
@@ -1304,27 +2044,52 @@
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> y </IDENTIFIER> 
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> x </IDENTIFIER> 
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
 												<term>
-													<IDENTIFIER> size </IDENTIFIER> 
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 											<SYMBOL> , </SYMBOL> 
 											<expression>
 												<term>
-													<IDENTIFIER> y </IDENTIFIER> 
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 												<SYMBOL> + </SYMBOL> 
 												<term>
-													<IDENTIFIER> size </IDENTIFIER> 
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: test
+													</Identifier>
 												</term>
 											</expression>
 										</expressionList>

@@ -1,11 +1,13 @@
 import JackTokenizer
+import SymbolTable
 import re
 import sys
 
-class CompilationEngine:
+class VMWriter:
 
     def __init__(self, inputFilepath, outputFilepath):
         self.tokenizer = JackTokenizer.JackTokenizer(inputFilepath)
+        self.symbolTable = SymbolTable.SymbolTable()
         self.file = open(outputFilepath, "w+")
         self.xmlIndentation = 0
         self.types = ["int", "boolean", "char"]
@@ -23,6 +25,22 @@ class CompilationEngine:
 
         print("\t" * self.xmlIndentation + "<" + self.tokenizer.currentTokenType + "> " + token + " </" + self.tokenizer.currentTokenType + "> ", file = self.file)
 
+    def writeIdentifierXml(self, category, state, index):
+        rep = {"<"  : "&lt;",
+                  ">"  : "$gt;",
+                  "\"" : "&quot;",
+                  "&"  : "&amp;"}
+        rep = dict((re.escape(k), v) for k, v in rep.items())
+        pattern = re.compile("|".join(rep.keys()))
+        input = "Identifier: " + self.tokenizer.currentToken + "\n" +\
+                "Category: " + category + "\n" +\
+                "State: " + state + "\n" +\
+                "Index: " + index
+        output = pattern.sub(lambda m: rep[re.escape(m.group(0))], input)
+
+        self.xmlOpenTag("Identifier")
+        print("\t" * self.xmlIndentation + output, file = self.file)
+        self.xmlCloseTag("Identifier")
 
     def syntaxError(self, expected, recieved):
         self.xmlIndentation = 0
@@ -36,10 +54,20 @@ class CompilationEngine:
         else:
             self.syntaxError(string, self.tokenizer.currentToken)
 
-    def checkTokenType(self, string):
-        if self.tokenizer.currentTokenType in string:
-            self.writeXml()
-            self.tokenizer.advance()
+    def checkIdentifier(self, type, category):
+        if self.tokenizer.currentTokenType == "IDENTIFIER":
+            if category in {"constructor", "function", "method", "void", "class"}:
+                if type != "used":
+                    type = "defined"
+                self.writeIdentifierXml(category, type, "N/A")
+                self.tokenizer.advance()
+
+            elif category in {"field", "static", "var", "arg"}:
+                if self.symbolTable.kindOf(self.tokenizer.currentToken) is None:
+                    self.symbolTable.define(self.tokenizer.currentToken, type, category.upper())
+                self.writeIdentifierXml(category, type, "test") #self.symbolTable.indexOf(self.tokenizer.currentToken)
+                self.tokenizer.advance()
+
         else:
             self.syntaxError(string, self.tokenizer.currentTokenType)
 
@@ -66,7 +94,7 @@ class CompilationEngine:
         self.xmlOpenTag("class")
 
         self.checkToken("class")
-        self.checkTokenType("IDENTIFIER")
+        self.checkIdentifier("class", "class")
         self.checkToken("{")
         while self.tokenizer.currentToken not in {"}", "constructor", "function", "method", "void"} :
             self.compileClassVarDec()
@@ -75,19 +103,23 @@ class CompilationEngine:
 
         self.xmlCloseTag("class")
 
+
     #Compiles a static or field declaration.
     def compileClassVarDec(self):
         self.xmlOpenTag("classVarDec")
 
+        category = self.tokenizer.currentToken
         self.checkToken({"field", "static"})
+        type = self.tokenizer.currentToken
         if self.tokenizer.currentTokenType == "IDENTIFIER":
-            self.checkTokenType("IDENTIFIER") #Should be var type check
+            self.writeXml()
+            self.tokenizer.advance()
         else:
             self.checkToken(self.types)
-        self.checkTokenType("IDENTIFIER")
+        self.checkIdentifier(type, category)
         while self.tokenizer.currentToken != ";":
             self.checkToken(",")
-            self.checkTokenType("IDENTIFIER")
+            self.checkIdentifier(type, category)
         self.checkToken(";")
 
         self.xmlCloseTag("classVarDec")
@@ -96,12 +128,15 @@ class CompilationEngine:
     def compileSubroutine(self):
         self.xmlOpenTag("subroutineDec")
 
+        category = self.tokenizer.currentToken
         self.checkToken({"constructor", "function", "method", "void"})
+        type = self.tokenizer.currentToken
         if self.tokenizer.currentTokenType == "IDENTIFIER":
-            self.checkTokenType("IDENTIFIER") #Should be var type check
+            self.writeXml()
+            self.tokenizer.advance()
         else:
             self.checkToken(self.types + ["void"])
-        self.checkTokenType("IDENTIFIER")
+        self.checkIdentifier(type, category)
         self.checkToken("(")
         self.compileParameterList()
         self.checkToken(")")
@@ -125,16 +160,18 @@ class CompilationEngine:
     def compileParameterList(self):
         if self.tokenizer.currentToken != ")":
             self.xmlOpenTag("parameterList")
-
+            type = self.tokenizer.currentToken
             if self.tokenizer.currentTokenType == "IDENTIFIER":
-                self.checkTokenType("IDENTIFIER") #Should be var type check
+                self.writeXml()
+                self.tokenizer.advance()
             else:
                 self.checkToken(self.types)
-            self.checkTokenType("IDENTIFIER")
+            self.checkIdentifier(type, "arg")
             while self.tokenizer.currentToken != ")":
                 self.checkToken(",")
+                type = self.tokenizer.currentToken
                 self.checkVarType()
-                self.checkTokenType("IDENTIFIER")
+                self.checkIdentifier(type, "arg")
 
             self.xmlCloseTag("parameterList")
 
@@ -143,14 +180,16 @@ class CompilationEngine:
         self.xmlOpenTag("varDec")
 
         self.checkToken("var")
+        type = self.tokenizer.currentToken
         if self.tokenizer.currentTokenType == "IDENTIFIER":
-            self.checkTokenType("IDENTIFIER") #Should be var type check
+            self.writeXml()
+            self.tokenizer.advance()
         else:
             self.checkToken(self.types)
-        self.checkTokenType("IDENTIFIER")
+        self.checkIdentifier(type, "var")
         while self.tokenizer.currentToken != (";"):
             self.checkToken(",")
-            self.checkTokenType("IDENTIFIER")
+            self.checkIdentifier(type, "var")
         self.checkToken(";")
 
         self.xmlCloseTag("varDec")
@@ -191,7 +230,7 @@ class CompilationEngine:
         self.xmlOpenTag("letStatement")
 
         self.checkToken("let")
-        self.checkTokenType("IDENTIFIER")
+        self.checkIdentifier("var", "var")
         if self.tokenizer.currentToken == "[":
             self.checkToken("[")
             self.compileExpression()
@@ -270,7 +309,7 @@ class CompilationEngine:
                            "let", "do", "if", "else", "while", "return"}
 
         if self.tokenizer.currentTokenType == "IDENTIFIER":
-            self.checkTokenType("IDENTIFIER")
+            self.checkIdentifier("used", "var")
             if self.tokenizer.currentToken == "[":             #Identifier is an array
                 self.checkToken("[")
                 self.compileExpression()
@@ -301,7 +340,7 @@ class CompilationEngine:
 
         if self.tokenizer.currentToken == ".":
             self.checkToken(".")
-            self.checkTokenType("IDENTIFIER")
+            self.checkIdentifier("method", "method")
         self.checkToken("(")
         self.compileExpressionList()
         self.checkToken(")")

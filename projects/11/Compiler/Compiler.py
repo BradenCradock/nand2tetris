@@ -1,6 +1,5 @@
 import sys
-import CompilationEngine
-import SymbolTable
+import VMWriter
 import os
 from tkinter import *
 from tkinter import filedialog
@@ -10,11 +9,9 @@ def main():
     root = Tk()
     root.withdraw()
     inputFilepath = filedialog.askdirectory(initialdir = "/", title = "Select a folder")
-
-    symbolTable = SymbolTable.SymbolTable()
     for fileName in os.listdir(inputFilepath):
         if fileName.lower().endswith(".jack"):
-            compilationEngine = CompilationEngine.CompilationEngine(os.path.basename(inputFilepath) + "\\" + fileName, os.path.basename(inputFilepath) + "\\" + fileName[:-5] + ".xml")
+            Writer = VMWriter.VMWriter(os.path.basename(inputFilepath) + "\\" + fileName, os.path.basename(inputFilepath) + "\\" + fileName[:-5] + ".xml")
 
 if __name__ == "__main__":
     main()

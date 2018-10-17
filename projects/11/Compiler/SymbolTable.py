@@ -9,14 +9,14 @@ class SymbolTable:
         self.createTable("class")
         self.createTable("subroutine")
         self.index = {
-            "STATIC"    : 0
-            "FIELD"     : 0
-            "ARG"       : 0
+            "STATIC"    : 0,
+            "FIELD"     : 0,
+            "ARG"       : 0,
             "VAR"       : 0
         }
         self.scope = "class"
 
-    def createTable(self, cur, name):
+    def createTable(self, name):
         self.tableCursor.execute('''CREATE TABLE {}(
             _index INTEGER,
             name TEXT,
@@ -36,33 +36,51 @@ class SymbolTable:
         if kind in {"STATIC", "FIELD"}:
             sql =   '''INSERT INTO class(_index, name, type, kind)
                     VALUES(?, ?, ?, ?)'''
-            self.tableCursor.execute(sql, self.index[kind], name, type, kind)
+            self.tableCursor.execute(sql, (self.index[kind], name, type, kind))
             self.index[kind] += 1
             self.scope = "class"
 
         elif kind in {"ARG", "VAR"}:
             sql =   '''INSERT INTO subroutine(_index, name, type, kind)
                     VALUES(?, ?, ?, ?)'''
-            self.tableCursor.execute(sql, self.index[kind], name, type, kind)
+            self.tableCursor.execute(sql, (self.index[kind], name, type, kind))
             self.index[kind] += 1
             self.scope = "subroutine"
 
         else:
-            print("ERROR: INVALID KIND")
+            print("ERROR: INVALID KIND " + kind)
 
     #Returns the number of varibles of the given kind already defined in the current scope.
     def varCount(self, kind):
         return self.index[kind]
 
-    #Returns the kinf of the named identifier in the current scope.
+    #Returns the kind of the named identifier in the current scope.
     #if the identifier is unknown in the current scope returns NONE.
     def kindOf(self, name):
-        return self.tableCursor.execute('''SELECT kind FROM ? WHERE name = ?''', (self.scope, name,))
+        self.tableCursor.execute('''SELECT kind FROM ''' + self.scope + ''' WHERE name = ?''', (name,))
+        if self.tableCursor.fetchone() is not "NULL":
+            return self.tableCursor.fetchone()
+        else:
+            return None
 
     #Returns the type of the named identifier in the current scope
     def typeOf(self, name):
-        return self.tableCursor.execute('''SELECT type FROM ? WHERE name = ?''', (self.scope, name,))
+        self.tableCursor.execute('''SELECT type FROM ''' + self.scope + ''' WHERE name = ?''', (name,))
+        if self.tableCursor.fetchone() is not "NULL":
+            return self.tableCursor.fetchone()
+        else:
+            return None
 
     #Returns the index assigned to the named identifier
     def indexOf(self, name):
-        return self.tableCursor.execute('''SELECT index FROM ? WHERE name = ?''', (self.scope, name,))
+        self.tableCursor.execute('''SELECT _index FROM ''' + self.scope + ''' WHERE name = ?''', (name,))
+        if self.tableCursor.fetchone() is not "NULL":
+            return self.tableCursor.fetchone()
+        else:
+            return None
+
+    def printTable(self, table):
+        self.tableCursor.execute('''SELECT * FROM ''' + table)
+        rows = self.tableCursor.fetchall()
+        for row in rows:
+            print(row)

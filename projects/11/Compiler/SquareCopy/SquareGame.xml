@@ -1,23 +1,43 @@
 <class>
 	<KEYWORD> class </KEYWORD> 
-	<IDENTIFIER> SquareGame </IDENTIFIER> 
+	<Identifier>
+		Identifier: SquareGame
+Category: class
+State: defined
+Index: N/A
+	</Identifier>
 	<SYMBOL> { </SYMBOL> 
 	<classVarDec>
 		<KEYWORD> field </KEYWORD> 
 		<IDENTIFIER> Square </IDENTIFIER> 
-		<IDENTIFIER> square </IDENTIFIER> 
+		<Identifier>
+			Identifier: square
+Category: field
+State: Square
+Index: test
+		</Identifier>
 		<SYMBOL> ; </SYMBOL> 
 	</classVarDec>
 	<classVarDec>
 		<KEYWORD> field </KEYWORD> 
 		<KEYWORD> int </KEYWORD> 
-		<IDENTIFIER> direction </IDENTIFIER> 
+		<Identifier>
+			Identifier: direction
+Category: field
+State: int
+Index: test
+		</Identifier>
 		<SYMBOL> ; </SYMBOL> 
 	</classVarDec>
 	<subroutineDec>
 		<KEYWORD> constructor </KEYWORD> 
 		<IDENTIFIER> SquareGame </IDENTIFIER> 
-		<IDENTIFIER> new </IDENTIFIER> 
+		<Identifier>
+			Identifier: new
+Category: constructor
+State: defined
+Index: N/A
+		</Identifier>
 		<SYMBOL> ( </SYMBOL> 
 		<SYMBOL> ) </SYMBOL> 
 		<subroutineBody>
@@ -25,14 +45,29 @@
 			<statements>
 				<letStatement>
 					<KEYWORD> let </KEYWORD> 
-					<IDENTIFIER> square </IDENTIFIER> 
+					<Identifier>
+						Identifier: square
+Category: var
+State: var
+Index: test
+					</Identifier>
 					<SYMBOL> = </SYMBOL> 
 					<expression>
 						<term>
-							<IDENTIFIER> Square </IDENTIFIER> 
+							<Identifier>
+								Identifier: Square
+Category: var
+State: used
+Index: test
+							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
-								<IDENTIFIER> new </IDENTIFIER> 
+								<Identifier>
+									Identifier: new
+Category: method
+State: defined
+Index: N/A
+								</Identifier>
 								<SYMBOL> ( </SYMBOL> 
 								<expressionList>
 									<expression>
@@ -61,7 +96,12 @@
 				</letStatement>
 				<letStatement>
 					<KEYWORD> let </KEYWORD> 
-					<IDENTIFIER> direction </IDENTIFIER> 
+					<Identifier>
+						Identifier: direction
+Category: var
+State: var
+Index: test
+					</Identifier>
 					<SYMBOL> = </SYMBOL> 
 					<expression>
 						<term>
@@ -86,7 +126,12 @@
 	<subroutineDec>
 		<KEYWORD> method </KEYWORD> 
 		<KEYWORD> void </KEYWORD> 
-		<IDENTIFIER> dispose </IDENTIFIER> 
+		<Identifier>
+			Identifier: dispose
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
 		<SYMBOL> ( </SYMBOL> 
 		<SYMBOL> ) </SYMBOL> 
 		<subroutineBody>
@@ -96,10 +141,20 @@
 					<KEYWORD> do </KEYWORD> 
 					<expression>
 						<term>
-							<IDENTIFIER> square </IDENTIFIER> 
+							<Identifier>
+								Identifier: square
+Category: var
+State: used
+Index: test
+							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
-								<IDENTIFIER> dispose </IDENTIFIER> 
+								<Identifier>
+									Identifier: dispose
+Category: method
+State: defined
+Index: N/A
+								</Identifier>
 								<SYMBOL> ( </SYMBOL> 
 								<expressionList>
 								</expressionList>
@@ -113,10 +168,20 @@
 					<KEYWORD> do </KEYWORD> 
 					<expression>
 						<term>
-							<IDENTIFIER> Memory </IDENTIFIER> 
+							<Identifier>
+								Identifier: Memory
+Category: var
+State: used
+Index: test
+							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
-								<IDENTIFIER> deAlloc </IDENTIFIER> 
+								<Identifier>
+									Identifier: deAlloc
+Category: method
+State: defined
+Index: N/A
+								</Identifier>
 								<SYMBOL> ( </SYMBOL> 
 								<expressionList>
 									<expression>
@@ -142,7 +207,12 @@
 	<subroutineDec>
 		<KEYWORD> method </KEYWORD> 
 		<KEYWORD> void </KEYWORD> 
-		<IDENTIFIER> moveSquare </IDENTIFIER> 
+		<Identifier>
+			Identifier: moveSquare
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
 		<SYMBOL> ( </SYMBOL> 
 		<SYMBOL> ) </SYMBOL> 
 		<subroutineBody>
@@ -153,7 +223,12 @@
 					<SYMBOL> ( </SYMBOL> 
 					<expression>
 						<term>
-							<IDENTIFIER> direction </IDENTIFIER> 
+							<Identifier>
+								Identifier: direction
+Category: var
+State: used
+Index: test
+							</Identifier>
 						</term>
 						<SYMBOL> = </SYMBOL> 
 						<term>
@@ -167,10 +242,20 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> square </IDENTIFIER> 
+									<Identifier>
+										Identifier: square
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> moveUp </IDENTIFIER> 
+										<Identifier>
+											Identifier: moveUp
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 										</expressionList>
@@ -188,7 +273,12 @@
 					<SYMBOL> ( </SYMBOL> 
 					<expression>
 						<term>
-							<IDENTIFIER> direction </IDENTIFIER> 
+							<Identifier>
+								Identifier: direction
+Category: var
+State: used
+Index: test
+							</Identifier>
 						</term>
 						<SYMBOL> = </SYMBOL> 
 						<term>
@@ -202,10 +292,20 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> square </IDENTIFIER> 
+									<Identifier>
+										Identifier: square
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> moveDown </IDENTIFIER> 
+										<Identifier>
+											Identifier: moveDown
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 										</expressionList>
@@ -223,7 +323,12 @@
 					<SYMBOL> ( </SYMBOL> 
 					<expression>
 						<term>
-							<IDENTIFIER> direction </IDENTIFIER> 
+							<Identifier>
+								Identifier: direction
+Category: var
+State: used
+Index: test
+							</Identifier>
 						</term>
 						<SYMBOL> = </SYMBOL> 
 						<term>
@@ -237,10 +342,20 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> square </IDENTIFIER> 
+									<Identifier>
+										Identifier: square
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> moveLeft </IDENTIFIER> 
+										<Identifier>
+											Identifier: moveLeft
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 										</expressionList>
@@ -258,7 +373,12 @@
 					<SYMBOL> ( </SYMBOL> 
 					<expression>
 						<term>
-							<IDENTIFIER> direction </IDENTIFIER> 
+							<Identifier>
+								Identifier: direction
+Category: var
+State: used
+Index: test
+							</Identifier>
 						</term>
 						<SYMBOL> = </SYMBOL> 
 						<term>
@@ -272,10 +392,20 @@
 							<KEYWORD> do </KEYWORD> 
 							<expression>
 								<term>
-									<IDENTIFIER> square </IDENTIFIER> 
+									<Identifier>
+										Identifier: square
+Category: var
+State: used
+Index: test
+									</Identifier>
 									<subroutineCall>
 										<SYMBOL> . </SYMBOL> 
-										<IDENTIFIER> moveRight </IDENTIFIER> 
+										<Identifier>
+											Identifier: moveRight
+Category: method
+State: defined
+Index: N/A
+										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
 										<expressionList>
 										</expressionList>
@@ -292,10 +422,20 @@
 					<KEYWORD> do </KEYWORD> 
 					<expression>
 						<term>
-							<IDENTIFIER> Sys </IDENTIFIER> 
+							<Identifier>
+								Identifier: Sys
+Category: var
+State: used
+Index: test
+							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
-								<IDENTIFIER> wait </IDENTIFIER> 
+								<Identifier>
+									Identifier: wait
+Category: method
+State: defined
+Index: N/A
+								</Identifier>
 								<SYMBOL> ( </SYMBOL> 
 								<expressionList>
 									<expression>
@@ -321,7 +461,12 @@
 	<subroutineDec>
 		<KEYWORD> method </KEYWORD> 
 		<KEYWORD> void </KEYWORD> 
-		<IDENTIFIER> run </IDENTIFIER> 
+		<Identifier>
+			Identifier: run
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
 		<SYMBOL> ( </SYMBOL> 
 		<SYMBOL> ) </SYMBOL> 
 		<subroutineBody>
@@ -329,19 +474,34 @@
 			<varDec>
 				<KEYWORD> var </KEYWORD> 
 				<KEYWORD> char </KEYWORD> 
-				<IDENTIFIER> key </IDENTIFIER> 
+				<Identifier>
+					Identifier: key
+Category: var
+State: char
+Index: test
+				</Identifier>
 				<SYMBOL> ; </SYMBOL> 
 			</varDec>
 			<varDec>
 				<KEYWORD> var </KEYWORD> 
 				<KEYWORD> boolean </KEYWORD> 
-				<IDENTIFIER> exit </IDENTIFIER> 
+				<Identifier>
+					Identifier: exit
+Category: var
+State: boolean
+Index: test
+				</Identifier>
 				<SYMBOL> ; </SYMBOL> 
 			</varDec>
 			<statements>
 				<letStatement>
 					<KEYWORD> let </KEYWORD> 
-					<IDENTIFIER> exit </IDENTIFIER> 
+					<Identifier>
+						Identifier: exit
+Category: var
+State: var
+Index: test
+					</Identifier>
 					<SYMBOL> = </SYMBOL> 
 					<expression>
 						<term>
@@ -366,7 +526,12 @@
 							<SYMBOL> ( </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> key </IDENTIFIER> 
+									<Identifier>
+										Identifier: key
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> = </SYMBOL> 
 								<term>
@@ -378,14 +543,29 @@
 							<statements>
 								<letStatement>
 									<KEYWORD> let </KEYWORD> 
-									<IDENTIFIER> key </IDENTIFIER> 
+									<Identifier>
+										Identifier: key
+Category: var
+State: var
+Index: test
+									</Identifier>
 									<SYMBOL> = </SYMBOL> 
 									<expression>
 										<term>
-											<IDENTIFIER> Keyboard </IDENTIFIER> 
+											<Identifier>
+												Identifier: Keyboard
+Category: var
+State: used
+Index: test
+											</Identifier>
 											<subroutineCall>
 												<SYMBOL> . </SYMBOL> 
-												<IDENTIFIER> keyPressed </IDENTIFIER> 
+												<Identifier>
+													Identifier: keyPressed
+Category: method
+State: defined
+Index: N/A
+												</Identifier>
 												<SYMBOL> ( </SYMBOL> 
 												<expressionList>
 												</expressionList>
@@ -399,7 +579,12 @@
 									<KEYWORD> do </KEYWORD> 
 									<expression>
 										<term>
-											<IDENTIFIER> moveSquare </IDENTIFIER> 
+											<Identifier>
+												Identifier: moveSquare
+Category: var
+State: used
+Index: test
+											</Identifier>
 											<subroutineCall>
 												<SYMBOL> ( </SYMBOL> 
 												<expressionList>
@@ -418,7 +603,12 @@
 							<SYMBOL> ( </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> key </IDENTIFIER> 
+									<Identifier>
+										Identifier: key
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> = </SYMBOL> 
 								<term>
@@ -430,7 +620,12 @@
 							<statements>
 								<letStatement>
 									<KEYWORD> let </KEYWORD> 
-									<IDENTIFIER> exit </IDENTIFIER> 
+									<Identifier>
+										Identifier: exit
+Category: var
+State: var
+Index: test
+									</Identifier>
 									<SYMBOL> = </SYMBOL> 
 									<expression>
 										<term>
@@ -447,7 +642,12 @@
 							<SYMBOL> ( </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> key </IDENTIFIER> 
+									<Identifier>
+										Identifier: key
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> = </SYMBOL> 
 								<term>
@@ -461,10 +661,20 @@
 									<KEYWORD> do </KEYWORD> 
 									<expression>
 										<term>
-											<IDENTIFIER> square </IDENTIFIER> 
+											<Identifier>
+												Identifier: square
+Category: var
+State: used
+Index: test
+											</Identifier>
 											<subroutineCall>
 												<SYMBOL> . </SYMBOL> 
-												<IDENTIFIER> decSize </IDENTIFIER> 
+												<Identifier>
+													Identifier: decSize
+Category: method
+State: defined
+Index: N/A
+												</Identifier>
 												<SYMBOL> ( </SYMBOL> 
 												<expressionList>
 												</expressionList>
@@ -482,7 +692,12 @@
 							<SYMBOL> ( </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> key </IDENTIFIER> 
+									<Identifier>
+										Identifier: key
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> = </SYMBOL> 
 								<term>
@@ -496,10 +711,20 @@
 									<KEYWORD> do </KEYWORD> 
 									<expression>
 										<term>
-											<IDENTIFIER> square </IDENTIFIER> 
+											<Identifier>
+												Identifier: square
+Category: var
+State: used
+Index: test
+											</Identifier>
 											<subroutineCall>
 												<SYMBOL> . </SYMBOL> 
-												<IDENTIFIER> incSize </IDENTIFIER> 
+												<Identifier>
+													Identifier: incSize
+Category: method
+State: defined
+Index: N/A
+												</Identifier>
 												<SYMBOL> ( </SYMBOL> 
 												<expressionList>
 												</expressionList>
@@ -517,7 +742,12 @@
 							<SYMBOL> ( </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> key </IDENTIFIER> 
+									<Identifier>
+										Identifier: key
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> = </SYMBOL> 
 								<term>
@@ -529,7 +759,12 @@
 							<statements>
 								<letStatement>
 									<KEYWORD> let </KEYWORD> 
-									<IDENTIFIER> direction </IDENTIFIER> 
+									<Identifier>
+										Identifier: direction
+Category: var
+State: var
+Index: test
+									</Identifier>
 									<SYMBOL> = </SYMBOL> 
 									<expression>
 										<term>
@@ -546,7 +781,12 @@
 							<SYMBOL> ( </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> key </IDENTIFIER> 
+									<Identifier>
+										Identifier: key
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> = </SYMBOL> 
 								<term>
@@ -558,7 +798,12 @@
 							<statements>
 								<letStatement>
 									<KEYWORD> let </KEYWORD> 
-									<IDENTIFIER> direction </IDENTIFIER> 
+									<Identifier>
+										Identifier: direction
+Category: var
+State: var
+Index: test
+									</Identifier>
 									<SYMBOL> = </SYMBOL> 
 									<expression>
 										<term>
@@ -575,7 +820,12 @@
 							<SYMBOL> ( </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> key </IDENTIFIER> 
+									<Identifier>
+										Identifier: key
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> = </SYMBOL> 
 								<term>
@@ -587,7 +837,12 @@
 							<statements>
 								<letStatement>
 									<KEYWORD> let </KEYWORD> 
-									<IDENTIFIER> direction </IDENTIFIER> 
+									<Identifier>
+										Identifier: direction
+Category: var
+State: var
+Index: test
+									</Identifier>
 									<SYMBOL> = </SYMBOL> 
 									<expression>
 										<term>
@@ -604,7 +859,12 @@
 							<SYMBOL> ( </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> key </IDENTIFIER> 
+									<Identifier>
+										Identifier: key
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> = </SYMBOL> 
 								<term>
@@ -616,7 +876,12 @@
 							<statements>
 								<letStatement>
 									<KEYWORD> let </KEYWORD> 
-									<IDENTIFIER> direction </IDENTIFIER> 
+									<Identifier>
+										Identifier: direction
+Category: var
+State: var
+Index: test
+									</Identifier>
 									<SYMBOL> = </SYMBOL> 
 									<expression>
 										<term>
@@ -638,7 +903,12 @@
 										<SYMBOL> ( </SYMBOL> 
 										<expression>
 											<term>
-												<IDENTIFIER> key </IDENTIFIER> 
+												<Identifier>
+													Identifier: key
+Category: var
+State: used
+Index: test
+												</Identifier>
 											</term>
 											<SYMBOL> = </SYMBOL> 
 											<term>
@@ -654,14 +924,29 @@
 							<statements>
 								<letStatement>
 									<KEYWORD> let </KEYWORD> 
-									<IDENTIFIER> key </IDENTIFIER> 
+									<Identifier>
+										Identifier: key
+Category: var
+State: var
+Index: test
+									</Identifier>
 									<SYMBOL> = </SYMBOL> 
 									<expression>
 										<term>
-											<IDENTIFIER> Keyboard </IDENTIFIER> 
+											<Identifier>
+												Identifier: Keyboard
+Category: var
+State: used
+Index: test
+											</Identifier>
 											<subroutineCall>
 												<SYMBOL> . </SYMBOL> 
-												<IDENTIFIER> keyPressed </IDENTIFIER> 
+												<Identifier>
+													Identifier: keyPressed
+Category: method
+State: defined
+Index: N/A
+												</Identifier>
 												<SYMBOL> ( </SYMBOL> 
 												<expressionList>
 												</expressionList>
@@ -675,7 +960,12 @@
 									<KEYWORD> do </KEYWORD> 
 									<expression>
 										<term>
-											<IDENTIFIER> moveSquare </IDENTIFIER> 
+											<Identifier>
+												Identifier: moveSquare
+Category: var
+State: used
+Index: test
+											</Identifier>
 											<subroutineCall>
 												<SYMBOL> ( </SYMBOL> 
 												<expressionList>

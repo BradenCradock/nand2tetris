@@ -1,17 +1,32 @@
 <class>
 	<KEYWORD> class </KEYWORD> 
-	<IDENTIFIER> Main </IDENTIFIER> 
+	<Identifier>
+		Identifier: Main
+Category: class
+State: defined
+Index: N/A
+	</Identifier>
 	<SYMBOL> { </SYMBOL> 
 	<classVarDec>
 		<KEYWORD> static </KEYWORD> 
 		<KEYWORD> boolean </KEYWORD> 
-		<IDENTIFIER> test </IDENTIFIER> 
+		<Identifier>
+			Identifier: test
+Category: static
+State: boolean
+Index: test
+		</Identifier>
 		<SYMBOL> ; </SYMBOL> 
 	</classVarDec>
 	<subroutineDec>
 		<KEYWORD> function </KEYWORD> 
 		<KEYWORD> void </KEYWORD> 
-		<IDENTIFIER> main </IDENTIFIER> 
+		<Identifier>
+			Identifier: main
+Category: function
+State: defined
+Index: N/A
+		</Identifier>
 		<SYMBOL> ( </SYMBOL> 
 		<SYMBOL> ) </SYMBOL> 
 		<subroutineBody>
@@ -19,20 +34,40 @@
 			<varDec>
 				<KEYWORD> var </KEYWORD> 
 				<IDENTIFIER> SquareGame </IDENTIFIER> 
-				<IDENTIFIER> game </IDENTIFIER> 
+				<Identifier>
+					Identifier: game
+Category: var
+State: SquareGame
+Index: test
+				</Identifier>
 				<SYMBOL> ; </SYMBOL> 
 			</varDec>
 			<statements>
 				<letStatement>
 					<KEYWORD> let </KEYWORD> 
-					<IDENTIFIER> game </IDENTIFIER> 
+					<Identifier>
+						Identifier: game
+Category: var
+State: var
+Index: test
+					</Identifier>
 					<SYMBOL> = </SYMBOL> 
 					<expression>
 						<term>
-							<IDENTIFIER> SquareGame </IDENTIFIER> 
+							<Identifier>
+								Identifier: SquareGame
+Category: var
+State: used
+Index: test
+							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
-								<IDENTIFIER> new </IDENTIFIER> 
+								<Identifier>
+									Identifier: new
+Category: method
+State: defined
+Index: N/A
+								</Identifier>
 								<SYMBOL> ( </SYMBOL> 
 								<expressionList>
 								</expressionList>
@@ -46,10 +81,20 @@
 					<KEYWORD> do </KEYWORD> 
 					<expression>
 						<term>
-							<IDENTIFIER> game </IDENTIFIER> 
+							<Identifier>
+								Identifier: game
+Category: var
+State: used
+Index: test
+							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
-								<IDENTIFIER> run </IDENTIFIER> 
+								<Identifier>
+									Identifier: run
+Category: method
+State: defined
+Index: N/A
+								</Identifier>
 								<SYMBOL> ( </SYMBOL> 
 								<expressionList>
 								</expressionList>
@@ -63,10 +108,20 @@
 					<KEYWORD> do </KEYWORD> 
 					<expression>
 						<term>
-							<IDENTIFIER> game </IDENTIFIER> 
+							<Identifier>
+								Identifier: game
+Category: var
+State: used
+Index: test
+							</Identifier>
 							<subroutineCall>
 								<SYMBOL> . </SYMBOL> 
-								<IDENTIFIER> dispose </IDENTIFIER> 
+								<Identifier>
+									Identifier: dispose
+Category: method
+State: defined
+Index: N/A
+								</Identifier>
 								<SYMBOL> ( </SYMBOL> 
 								<expressionList>
 								</expressionList>
@@ -87,7 +142,12 @@
 	<subroutineDec>
 		<KEYWORD> function </KEYWORD> 
 		<KEYWORD> void </KEYWORD> 
-		<IDENTIFIER> test </IDENTIFIER> 
+		<Identifier>
+			Identifier: test
+Category: function
+State: defined
+Index: N/A
+		</Identifier>
 		<SYMBOL> ( </SYMBOL> 
 		<SYMBOL> ) </SYMBOL> 
 		<subroutineBody>
@@ -95,21 +155,41 @@
 			<varDec>
 				<KEYWORD> var </KEYWORD> 
 				<KEYWORD> int </KEYWORD> 
-				<IDENTIFIER> i </IDENTIFIER> 
+				<Identifier>
+					Identifier: i
+Category: var
+State: int
+Index: test
+				</Identifier>
 				<SYMBOL> , </SYMBOL> 
-				<IDENTIFIER> j </IDENTIFIER> 
+				<Identifier>
+					Identifier: j
+Category: var
+State: int
+Index: test
+				</Identifier>
 				<SYMBOL> ; </SYMBOL> 
 			</varDec>
 			<varDec>
 				<KEYWORD> var </KEYWORD> 
 				<IDENTIFIER> String </IDENTIFIER> 
-				<IDENTIFIER> s </IDENTIFIER> 
+				<Identifier>
+					Identifier: s
+Category: var
+State: String
+Index: test
+				</Identifier>
 				<SYMBOL> ; </SYMBOL> 
 			</varDec>
 			<varDec>
 				<KEYWORD> var </KEYWORD> 
 				<IDENTIFIER> Array </IDENTIFIER> 
-				<IDENTIFIER> a </IDENTIFIER> 
+				<Identifier>
+					Identifier: a
+Category: var
+State: Array
+Index: test
+				</Identifier>
 				<SYMBOL> ; </SYMBOL> 
 			</varDec>
 			<statements>
@@ -126,7 +206,12 @@
 					<statements>
 						<letStatement>
 							<KEYWORD> let </KEYWORD> 
-							<IDENTIFIER> s </IDENTIFIER> 
+							<Identifier>
+								Identifier: s
+Category: var
+State: var
+Index: test
+							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
 								<term>
@@ -137,7 +222,12 @@
 						</letStatement>
 						<letStatement>
 							<KEYWORD> let </KEYWORD> 
-							<IDENTIFIER> s </IDENTIFIER> 
+							<Identifier>
+								Identifier: s
+Category: var
+State: var
+Index: test
+							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
 								<term>
@@ -148,11 +238,21 @@
 						</letStatement>
 						<letStatement>
 							<KEYWORD> let </KEYWORD> 
-							<IDENTIFIER> a[1] </IDENTIFIER> 
+							<Identifier>
+								Identifier: a[1]
+Category: var
+State: var
+Index: test
+							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> a[2] </IDENTIFIER> 
+									<Identifier>
+										Identifier: a[2]
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 							</expression>
 							<SYMBOL> ; </SYMBOL> 
@@ -164,11 +264,21 @@
 					<statements>
 						<letStatement>
 							<KEYWORD> let </KEYWORD> 
-							<IDENTIFIER> i </IDENTIFIER> 
+							<Identifier>
+								Identifier: i
+Category: var
+State: var
+Index: test
+							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> i </IDENTIFIER> 
+									<Identifier>
+										Identifier: i
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> * </SYMBOL> 
 								<term>
@@ -177,7 +287,12 @@
 										<term>
 											<SYMBOL> - </SYMBOL> 
 											<term>
-												<IDENTIFIER> j </IDENTIFIER> 
+												<Identifier>
+													Identifier: j
+Category: var
+State: used
+Index: test
+												</Identifier>
 											</term>
 										</term>
 									</expression>
@@ -188,11 +303,21 @@
 						</letStatement>
 						<letStatement>
 							<KEYWORD> let </KEYWORD> 
-							<IDENTIFIER> j </IDENTIFIER> 
+							<Identifier>
+								Identifier: j
+Category: var
+State: var
+Index: test
+							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> j </IDENTIFIER> 
+									<Identifier>
+										Identifier: j
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> / </SYMBOL> 
 								<term>
@@ -212,15 +337,30 @@
 						</letStatement>
 						<letStatement>
 							<KEYWORD> let </KEYWORD> 
-							<IDENTIFIER> i </IDENTIFIER> 
+							<Identifier>
+								Identifier: i
+Category: var
+State: var
+Index: test
+							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
 								<term>
-									<IDENTIFIER> i </IDENTIFIER> 
+									<Identifier>
+										Identifier: i
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 								<SYMBOL> | </SYMBOL> 
 								<term>
-									<IDENTIFIER> j </IDENTIFIER> 
+									<Identifier>
+										Identifier: j
+Category: var
+State: used
+Index: test
+									</Identifier>
 								</term>
 							</expression>
 							<SYMBOL> ; </SYMBOL> 
