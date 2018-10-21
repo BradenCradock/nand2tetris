@@ -1,0 +1,10 @@
+function Square.new 0
+function Square.dispose 0
+function Square.draw 0
+function Square.erase 0
+function Square.incSize 0
+function Square.decSize 0
+function Square.moveUp 0
+function Square.moveDown 0
+function Square.moveLeft 0
+function Square.moveRight 0

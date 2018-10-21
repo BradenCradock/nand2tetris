@@ -1,5 +1,5 @@
 import sys
-import VMWriter
+import CompilationEngine
 import os
 from tkinter import *
 from tkinter import filedialog
@@ -11,7 +11,7 @@ def main():
     inputFilepath = filedialog.askdirectory(initialdir = "/", title = "Select a folder")
     for fileName in os.listdir(inputFilepath):
         if fileName.lower().endswith(".jack"):
-            Writer = VMWriter.VMWriter(os.path.basename(inputFilepath) + "\\" + fileName, os.path.basename(inputFilepath) + "\\" + fileName[:-5] + ".xml")
+            compEngine = CompilationEngine.CompilationEngine(os.path.basename(inputFilepath) + "\\" + fileName, os.path.basename(inputFilepath) + "\\" + fileName[:-5])
 
 if __name__ == "__main__":
     main()

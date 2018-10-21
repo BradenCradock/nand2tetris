@@ -1,0 +1,4 @@
+function SquareGame.new 0
+function SquareGame.dispose 0
+function SquareGame.moveSquare 0
+function SquareGame.run 2
