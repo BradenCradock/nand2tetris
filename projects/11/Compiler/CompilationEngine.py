@@ -14,7 +14,7 @@ class CompilationEngine:
         self.xmlIndentation = 0
         self.types = ["int", "boolean", "char"]
         self.className = ""
-
+        self.terms = []
         self.compileClass()
 
     def writeXml(self):
@@ -58,6 +58,7 @@ class CompilationEngine:
             self.syntaxError(string, self.tokenizer.currentToken)
 
     def checkIdentifier(self, type, category):
+
         if self.tokenizer.currentTokenType == "IDENTIFIER":
             if category in {"constructor", "function", "method", "void", "class"}:
                 if type != "used":
@@ -106,12 +107,11 @@ class CompilationEngine:
         while self.tokenizer.currentToken not in {"}", "constructor", "function", "method", "void"} :
             self.compileClassVarDec()
         while self.tokenizer.currentToken != "}":
-            self.compileSubroutine()
+            self.compileSubroutineHeader()
 
         self.xmlCloseTag("class")
 
         self.writer.close()
-
 
     #Compiles a static or field declaration.
     def compileClassVarDec(self):
@@ -134,7 +134,7 @@ class CompilationEngine:
         self.xmlCloseTag("classVarDec")
 
     #Compiles a complete method, function or constructor.
-    def compileSubroutine(self):
+    def compileSubroutineHeader(self):
         self.xmlOpenTag("subroutineDec")
 
         category = self.tokenizer.currentToken
@@ -213,7 +213,6 @@ class CompilationEngine:
         return nVars
 
     #Compiles a sequence of statements, not including the enclosing "{}".
-
     def compileStatements(self):
         self.xmlOpenTag("statements")
 
@@ -224,7 +223,7 @@ class CompilationEngine:
             "while"     : self.compileWhile,
             "return"    : self.compileReturn
         }
-        while self.tokenizer.currentToken != ("}"):
+        while self.tokenizer.currentToken != "}":
             if self.tokenizer.currentToken in statementPrefixes:
                 statementPrefixes[self.tokenizer.currentToken]()
             else:
@@ -305,14 +304,24 @@ class CompilationEngine:
 
     #Compiles an expression.
     def compileExpression(self):
+
         self.xmlOpenTag("expression")
 
         self.compileTerm()
         while self.tokenizer.currentToken not in {"]", ")", ";", ",", "("}:
+            operator = self.tokenizer.currentToken
             self.checkToken({"+", "-", "*", "/", "&", "|", ">", "<", "="})
             self.compileTerm()
+            self.compileOperator(operator)
 
         self.xmlCloseTag("expression")
+
+    def compileOperator(self, operator):
+
+        term2 = self.terms.pop()
+        term1 = self.terms.pop()
+        if operator in {"+", "-", "*", "/"} and term1.isdigit() and term2.isdigit():
+            self.terms.append(str(eval(term1 + operator + term2)))
 
     #Compiles a term.
     #This rotuine is faced with a slight difficulty when trying to decide between some of the alternate parsing rules.
@@ -320,6 +329,7 @@ class CompilationEngine:
     #A single look ahead token, which may be one of "[", "(" or "." suffices to distinguish between the three possibilities.
     #Any other token is not part of this term and should not be advanced over.
     def compileTerm(self):
+
         self.xmlOpenTag("term")
 
         invalidKeywords = {"class", "constructor", "function", "method", "field",
@@ -327,13 +337,14 @@ class CompilationEngine:
                            "let", "do", "if", "else", "while", "return"}
 
         if self.tokenizer.currentTokenType == "IDENTIFIER":
+            varName = self.tokenizer.currentToken
             self.checkIdentifier("used", "var")
             if self.tokenizer.currentToken == "[":             #Identifier is an array
                 self.checkToken("[")
                 self.compileExpression()
                 self.checkToken("]")
             elif self.tokenizer.currentToken in {"(", "."}:    #Identifier is a subroutine call
-                self.compileSubroutineCall()
+                self.compileSubroutineCall(varName)
 
         elif self.tokenizer.currentToken in {"-", "~"}:
             self.checkToken({"-", "~"})
@@ -346,6 +357,7 @@ class CompilationEngine:
 
         elif self.tokenizer.currentToken not in invalidKeywords:
             self.writeXml()
+            self.terms.append(self.tokenizer.currentToken)
             self.tokenizer.advance()
 
         else:
@@ -353,26 +365,35 @@ class CompilationEngine:
 
         self.xmlCloseTag("term")
 
-    def compileSubroutineCall(self):
+    def compileSubroutineCall(self, name):
         self.xmlOpenTag("subroutineCall")
 
         if self.tokenizer.currentToken == ".":
             self.checkToken(".")
+            name = name + "." + self.tokenizer.currentToken
             self.checkIdentifier("method", "method")
         self.checkToken("(")
-        self.compileExpressionList()
+        nArgs = self.compileExpressionList()
         self.checkToken(")")
+        self.writer.writeCall(name, nArgs)
 
         self.xmlCloseTag("subroutineCall")
 
     #Compiles a (possibily empty) comma-seperated list of expressions.
     def compileExpressionList(self):
+        nExp = 0
         self.xmlOpenTag("expressionList")
 
         if self.tokenizer.currentToken != ")":
             self.compileExpression()
+            self.writer.writePush("constant", self.terms.pop())
+            nExp = 1
         while self.tokenizer.currentToken != ")":
             self.checkToken(",")
             self.compileExpression()
+            self.writer.writePush("constant", self.terms.pop())
+            nExp += 1
 
         self.xmlCloseTag("expressionList")
+
+        return nExp

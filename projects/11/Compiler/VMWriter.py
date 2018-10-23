@@ -28,8 +28,8 @@ class VMWriter:
         print("if-goto " + label, file = self.VMFile)
 
     #Writes a VM call command
-    def writeCall(self, name, nLocals):
-        print("call " + name + " " + str(nLocals), file = self.VMFile)
+    def writeCall(self, name, nArgs):
+        print("call " + name + " " + str(nArgs), file = self.VMFile)
 
     #Writes a VM function command
     def writeFunction(self, name, nLocals):

@@ -1,0 +1,78 @@
+<class>
+	<KEYWORD> class </KEYWORD> 
+	<Identifier>
+		Identifier: Main
+Category: class
+State: defined
+Index: N/A
+	</Identifier>
+	<SYMBOL> { </SYMBOL> 
+	<subroutineDec>
+		<KEYWORD> function </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: main
+Category: function
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: var
+State: defined
+Index: 0
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: printInt
+Category: method
+State: defined
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<INT_CONST> 1 </INT_CONST> 
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<SYMBOL> ( </SYMBOL> 
+											<expression>
+												<term>
+													<INT_CONST> 2 </INT_CONST> 
+												</term>
+												<SYMBOL> * </SYMBOL> 
+												<term>
+													<INT_CONST> 3 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> ) </SYMBOL> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+</class>

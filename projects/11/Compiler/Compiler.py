@@ -11,7 +11,7 @@ def main():
     inputFilepath = filedialog.askdirectory(initialdir = "/", title = "Select a folder")
     for fileName in os.listdir(inputFilepath):
         if fileName.lower().endswith(".jack"):
-            compEngine = CompilationEngine.CompilationEngine(os.path.basename(inputFilepath) + "\\" + fileName, os.path.basename(inputFilepath) + "\\" + fileName[:-5])
+            compEngine = CompilationEngine.CompilationEngine(inputFilepath + "\\" + fileName, inputFilepath + "\\" + fileName[:-5])
 
 if __name__ == "__main__":
     main()

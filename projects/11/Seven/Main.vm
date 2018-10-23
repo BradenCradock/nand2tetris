@@ -1,0 +1,3 @@
+push constant 7
+call Output.printInt 1
+function Main.main 0
