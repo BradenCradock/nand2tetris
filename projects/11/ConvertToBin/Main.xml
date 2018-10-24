@@ -1,0 +1,150 @@
+<class>
+	<KEYWORD> class </KEYWORD> 
+	<Identifier>
+		Identifier: Main
+Category: class
+State: defined
+Index: N/A
+	</Identifier>
+	<SYMBOL> { </SYMBOL> 
+	<subroutineDec>
+		<KEYWORD> function </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: main
+Category: function
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<varDec>
+				<KEYWORD> var </KEYWORD> 
+				<KEYWORD> int </KEYWORD> 
+				<Identifier>
+					Identifier: value
+Category: var
+State: defined
+Index: 0
+				</Identifier>
+				<SYMBOL> ; </SYMBOL> 
+			</varDec>
+			<statements>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Main
+Category: var
+State: defined
+Index: 1
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: fillMemory
+Category: method
+State: defined
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<INT_CONST> 8001 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<INT_CONST> 16 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<SYMBOL> - </SYMBOL> 
+											<term>
+												<INT_CONST> 1 </INT_CONST> 
+											</term>
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: value
+Category: var
+State: used
+Index: 0
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Memory
+Category: var
+State: defined
+Index: 2
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: peek
+Category: method
+State: defined
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<INT_CONST> 8000 </INT_CONST> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Main
+Category: var
+State: used
+Index: 1
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: convert
+Category: method
+State: defined
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: value
+Category: var
+State: used
+Index: 0
+											</Identifier>
+										</term>
+									</expression>

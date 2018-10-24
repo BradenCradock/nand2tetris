@@ -14,6 +14,7 @@ class CompilationEngine:
         self.xmlIndentation = 0
         self.types = ["int", "boolean", "char"]
         self.className = ""
+        self.subroutineName = ""
         self.terms = []
         self.compileClass()
 
@@ -145,13 +146,12 @@ class CompilationEngine:
             self.tokenizer.advance()
         else:
             self.checkToken(self.types + ["void"])
-        subroutineName = self.tokenizer.currentToken
+        self.subroutineName = self.tokenizer.currentToken
         self.checkIdentifier(type, category)
         self.checkToken("(")
         self.compileParameterList()
         self.checkToken(")")
-        nLocals = self.compileSubroutineBody()
-        self.writer.writeFunction(self.className + "." + subroutineName, nLocals)
+        self.compileSubroutineBody()
 
         self.xmlCloseTag("subroutineDec")
 
@@ -160,15 +160,14 @@ class CompilationEngine:
         self.xmlOpenTag("subroutineBody")
 
         self.checkToken("{")
-        nVars = 0
+        nLocals = 0
         while self.tokenizer.currentToken not in {"let", "if", "while", "do", "return"}:
-            nVars += self.compileVarDec()
+            nLocals += self.compileVarDec()
+        self.writer.writeFunction(self.className + "." + self.subroutineName, nLocals)
         self.compileStatements()
         self.checkToken("}")
 
         self.xmlCloseTag("subroutineBody")
-
-        return nVars
 
     #Compiles a (possibly empty) parameter list, not including the enclosing"()".
     def compileParameterList(self):
@@ -280,6 +279,7 @@ class CompilationEngine:
         if self.tokenizer.currentToken != ";":
             self.compileExpression()
         self.checkToken(";")
+        self.writer.writeReturn()
 
         self.xmlCloseTag("returnStatement")
 
@@ -316,12 +316,40 @@ class CompilationEngine:
 
         self.xmlCloseTag("expression")
 
+
+    #Evaluates and compiles an expression
     def compileOperator(self, operator):
+
+        operatorDictionary = {
+            "+" : self.writer.writeArithmetic("add"),
+            "-" : self.writer.writeArithmetic("sub"),
+            "=" : self.writer.writeArithmetic("eq"),
+            ">" : self.writer.writeArithmetic("gt"),
+            "<" : self.writer.writeArithmetic("lt"),
+            "&" : self.writer.writeArithmetic("and"),
+            "|" : self.writer.writeArithmetic("or"),
+            "*" : self.writer.writeCall("Math.multiply", 2),
+            "/" : self.writer.writeCall("Math.divide", 2)
+        }
 
         term2 = self.terms.pop()
         term1 = self.terms.pop()
+
         if operator in {"+", "-", "*", "/"} and term1.isdigit() and term2.isdigit():
             self.terms.append(str(eval(term1 + operator + term2)))
+            return
+
+        if self.symbolTable.kindOf(term1) is not None:
+            self.writer.writePush("local", self.symbolTable.indexOf(term1))
+        elif term1.isdigit():
+            self.writer.writePush("constant", term1)
+        if self.symbolTable.kindOf(term2) is not None:
+            self.writer.writePush("local", self.symbolTable.indexOf(term2))
+        elif term2.isdigit():
+            self.writer.writePush("constant", term2)
+
+        self.terms.append(" ".join(term1, operator, term2))
+        operatorDictionary[operator]
 
     #Compiles a term.
     #This rotuine is faced with a slight difficulty when trying to decide between some of the alternate parsing rules.
@@ -347,8 +375,27 @@ class CompilationEngine:
                 self.compileSubroutineCall(varName)
 
         elif self.tokenizer.currentToken in {"-", "~"}:
+            operator = self.tokenizer.currentToken
             self.checkToken({"-", "~"})
             self.compileTerm()
+            term = self.terms.pop()
+            if term.isdigit():
+                self.writer.writePush("constant", term)
+            else:
+                self.writer.writePush("local", self.symbolTable.indexOf(term))
+            if operator == "-":
+                self.writer.writeArithmetic("neg")
+                if term.isdigit():
+                    self.terms.append(str(int(term) * -1))
+                else:
+                    self.terms.append(term)
+            else:
+                self.writer.writeArithmetic("not")
+                if term.isdigit():
+                    self.terms.append(str(~int(term)))
+                else:
+                    self.terms.append(term)
+
 
         elif self.tokenizer.currentToken == "(":
             self.checkToken("(")
@@ -364,6 +411,8 @@ class CompilationEngine:
             self.syntaxError("One of (true, false, null, this)", self.tokenizer.currentToken)
 
         self.xmlCloseTag("term")
+
+
 
     def compileSubroutineCall(self, name):
         self.xmlOpenTag("subroutineCall")

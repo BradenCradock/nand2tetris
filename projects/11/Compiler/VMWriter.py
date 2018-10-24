@@ -35,11 +35,9 @@ class VMWriter:
     def writeFunction(self, name, nLocals):
         print("function " + name + " " + str(nLocals), file = self.VMFile)
 
-
     #Writes a VM return command
     def writeReturn(self):
         print("return", file = self.VMFile)
-
 
     #Closes the output file
     def close(self):
