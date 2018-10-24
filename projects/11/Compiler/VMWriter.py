@@ -5,11 +5,11 @@ class VMWriter:
 
     #Writes a VM push command
     def writePush(self, segment, index):
-        print("push " + segment.lower() + " " + index, file = self.VMFile)
+        print("push " + segment.lower() + " " + str(index), file = self.VMFile)
 
     #Writes a VM pop command
     def writePop(self, segment, index):
-        print("pop " + segment.lower() + " " + index, file = self.VMFile)
+        print("pop " + segment.lower() + " " + str(index), file = self.VMFile)
 
     #Writes a VM arithmetic command
     def writeArithmetic(self, command):

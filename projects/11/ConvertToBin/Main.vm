@@ -7,3 +7,155 @@ push constant -1
 call Main.fillMemory 3
 push constant 8000
 call Memory.peek 1
+pop local 0
+push local 0
+call Main.convert 1
+return
+function Main.convert 3
+pop local 3
+add
+sub
+eq
+gt
+lt
+and
+or
+call Math.multiply 2
+call Math.divide 2
+push local 2
+push constant 1
+pop local 2
+push local 1
+call Main.nextMask 1
+pop local 1
+add
+sub
+eq
+gt
+lt
+and
+or
+call Math.multiply 2
+call Math.divide 2
+push local 2
+push constant 16
+push local None
+not
+add
+sub
+eq
+gt
+lt
+and
+or
+call Math.multiply 2
+call Math.divide 2
+push local 0
+push local 1
+add
+sub
+eq
+gt
+lt
+and
+or
+call Math.multiply 2
+call Math.divide 2
+push constant 0
+push local None
+not
+add
+sub
+eq
+gt
+lt
+and
+or
+call Math.multiply 2
+call Math.divide 2
+push constant 8000
+push local 2
+push local None
+push constant 1
+call Memory.poke 2
+add
+sub
+eq
+gt
+lt
+and
+or
+call Math.multiply 2
+call Math.divide 2
+push constant 8000
+push local 2
+push local None
+push constant 0
+call Memory.poke 2
+pop local 3
+return
+function Main.nextMask 0
+add
+sub
+eq
+gt
+lt
+and
+or
+call Math.multiply 2
+call Math.divide 2
+push local 1
+push constant 0
+return
+add
+sub
+eq
+gt
+lt
+and
+or
+call Math.multiply 2
+call Math.divide 2
+push local 1
+push constant 2
+return
+function Main.fillMemory 0
+add
+sub
+eq
+gt
+lt
+and
+or
+call Math.multiply 2
+call Math.divide 2
+push local 1
+push constant 0
+push local 0
+push constant value
+call Memory.poke 2
+add
+sub
+eq
+gt
+lt
+and
+or
+call Math.multiply 2
+call Math.divide 2
+push local 1
+push constant 1
+pop local 1
+add
+sub
+eq
+gt
+lt
+and
+or
+call Math.multiply 2
+call Math.divide 2
+push local 0
+push constant 1
+pop local 0
+return

@@ -134,7 +134,7 @@ class CompilationEngine:
 
         self.xmlCloseTag("classVarDec")
 
-    #Compiles a complete method, function or constructor.
+    #Compiles the declaration of a method, function or constructor.
     def compileSubroutineHeader(self):
         self.xmlOpenTag("subroutineDec")
 
@@ -246,6 +246,7 @@ class CompilationEngine:
         self.xmlOpenTag("letStatement")
 
         self.checkToken("let")
+        varName = self.tokenizer.currentToken
         self.checkIdentifier("var", "var")
         if self.tokenizer.currentToken == "[":
             self.checkToken("[")
@@ -253,6 +254,7 @@ class CompilationEngine:
             self.checkToken("]")
         self.checkToken("=")
         self.compileExpression()
+        self.writer.writePop("local", self.symbolTable.indexOf(varName))
         self.checkToken(";")
 
         self.xmlCloseTag("letStatement")
@@ -316,7 +318,6 @@ class CompilationEngine:
 
         self.xmlCloseTag("expression")
 
-
     #Evaluates and compiles an expression
     def compileOperator(self, operator):
 
@@ -348,7 +349,7 @@ class CompilationEngine:
         elif term2.isdigit():
             self.writer.writePush("constant", term2)
 
-        self.terms.append(" ".join(term1, operator, term2))
+        self.terms.append(" ".join((term1, operator, term2)))
         operatorDictionary[operator]
 
     #Compiles a term.
@@ -366,12 +367,16 @@ class CompilationEngine:
 
         if self.tokenizer.currentTokenType == "IDENTIFIER":
             varName = self.tokenizer.currentToken
-            self.checkIdentifier("used", "var")
             if self.tokenizer.currentToken == "[":             #Identifier is an array
+                self.checkIdentifier("used", "var")
                 self.checkToken("[")
                 self.compileExpression()
                 self.checkToken("]")
-            elif self.tokenizer.currentToken in {"(", "."}:    #Identifier is a subroutine call
+            elif self.symbolTable.kindOf(varName) is not None:  #Identifier is a varible
+                self.checkIdentifier("used", "var")
+                self.terms.append(varName)
+            else:                                                #Identifier is a subroutine call
+                self.checkIdentifier("used", "function")
                 self.compileSubroutineCall(varName)
 
         elif self.tokenizer.currentToken in {"-", "~"}:
@@ -412,8 +417,7 @@ class CompilationEngine:
 
         self.xmlCloseTag("term")
 
-
-
+    #Compiles a subroutine call
     def compileSubroutineCall(self, name):
         self.xmlOpenTag("subroutineCall")
 
@@ -435,7 +439,10 @@ class CompilationEngine:
 
         if self.tokenizer.currentToken != ")":
             self.compileExpression()
-            self.writer.writePush("constant", self.terms.pop())
+            if self.terms[-1].isdigit():
+                self.writer.writePush("constant", self.terms.pop())
+            else:
+                self.writer.writePush("local", self.symbolTable.indexOf(self.terms.pop()))
             nExp = 1
         while self.tokenizer.currentToken != ")":
             self.checkToken(",")
