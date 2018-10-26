@@ -3,6 +3,7 @@ import SymbolTable
 import VMWriter
 import re
 import sys
+from functools import partial
 
 class CompilationEngine:
 
@@ -16,6 +17,10 @@ class CompilationEngine:
         self.className = ""
         self.subroutineName = ""
         self.terms = []
+        self.whileCounter = 0
+        self.whiles = []
+        self.ifCounter = 0
+        self.ifs = []
         self.compileClass()
 
     def writeXml(self):
@@ -254,6 +259,8 @@ class CompilationEngine:
             self.checkToken("]")
         self.checkToken("=")
         self.compileExpression()
+        if self.terms:
+            self.pushTerm(self.terms.pop())
         self.writer.writePop("local", self.symbolTable.indexOf(varName))
         self.checkToken(";")
 
@@ -263,13 +270,23 @@ class CompilationEngine:
     def compileWhile(self):
         self.xmlOpenTag("whileStatement")
 
+        self.writer.writeLabel("WHILE_EXP" + str(self.whileCounter))
+        self.whiles.append(self.whileCounter)
+        self.whileCounter += 1
+
         self.checkToken("while")
         self.checkToken("(")
         self.compileExpression()
+        if self.terms:
+            self.pushTerm(self.terms.pop())
+        self.write.writeArithmetic("not")
+        self.writer.writeIf("WHILE_END" + str(self.whiles[-1]))
         self.checkToken(")")
         self.checkToken("{")
         self.compileStatements()
         self.checkToken("}")
+        self.writer.writeGoto("WHILE_EXP" + str(self.whiles[-1]))
+        self.writer.writeLabel("WHILE_END" + str(self.whiles.pop()))
 
         self.xmlCloseTag("whileStatement")
 
@@ -289,19 +306,28 @@ class CompilationEngine:
     def compileIf(self):
         self.xmlOpenTag("ifStatement")
 
+        self.ifs.append(self.ifCounter)
+        self.ifCounter += 1
+
         self.checkToken("if")
         self.checkToken("(")
         self.compileExpression()
+        if self.terms:
+            self.pushTerm(self.terms.pop())
+        self.write.writeArithmetic("not")
+        self.writer.writeIf("IF_TRUE" + str(self.ifs[-1]))
         self.checkToken(")")
         self.checkToken("{")
         self.compileStatements()
         self.checkToken("}")
+        self.writer.writeGoto("IF_FALSE" + str(self.ifs[-1]))
+        self.writer.writeLabel("IF_TRUE" + str(self.ifs[-1]))
         if self.tokenizer.currentToken == "else":
             self.checkToken("else")
             self.checkToken("{")
             self.compileStatements()
             self.checkToken("}")
-
+        self.writer.writeLabel("IF_FALSE" + str(self.ifs.pop()))
         self.xmlCloseTag("ifStatement")
 
     #Compiles an expression.
@@ -322,15 +348,13 @@ class CompilationEngine:
     def compileOperator(self, operator):
 
         operatorDictionary = {
-            "+" : self.writer.writeArithmetic("add"),
-            "-" : self.writer.writeArithmetic("sub"),
-            "=" : self.writer.writeArithmetic("eq"),
-            ">" : self.writer.writeArithmetic("gt"),
-            "<" : self.writer.writeArithmetic("lt"),
-            "&" : self.writer.writeArithmetic("and"),
-            "|" : self.writer.writeArithmetic("or"),
-            "*" : self.writer.writeCall("Math.multiply", 2),
-            "/" : self.writer.writeCall("Math.divide", 2)
+            "+" : "add",
+            "-" : "sub",
+            "=" : "eq",
+            ">" : "gt",
+            "<" : "lt",
+            "&" : "and",
+            "|" : "or",
         }
 
         term2 = self.terms.pop()
@@ -340,17 +364,16 @@ class CompilationEngine:
             self.terms.append(str(eval(term1 + operator + term2)))
             return
 
-        if self.symbolTable.kindOf(term1) is not None:
-            self.writer.writePush("local", self.symbolTable.indexOf(term1))
-        elif term1.isdigit():
-            self.writer.writePush("constant", term1)
-        if self.symbolTable.kindOf(term2) is not None:
-            self.writer.writePush("local", self.symbolTable.indexOf(term2))
-        elif term2.isdigit():
-            self.writer.writePush("constant", term2)
+        self.pushTerm(term1)
+        self.pushTerm(term2)
 
         self.terms.append(" ".join((term1, operator, term2)))
-        operatorDictionary[operator]
+        if operator == "*":
+            self.writer.writeCall("Math.multiply", 2)
+        elif operator == "/":
+            self.writer.writeCall("Math.divide", 2)
+        else:
+            self.writer.writeArithmetic(operatorDictionary[operator])
 
     #Compiles a term.
     #This rotuine is faced with a slight difficulty when trying to decide between some of the alternate parsing rules.
@@ -384,10 +407,7 @@ class CompilationEngine:
             self.checkToken({"-", "~"})
             self.compileTerm()
             term = self.terms.pop()
-            if term.isdigit():
-                self.writer.writePush("constant", term)
-            else:
-                self.writer.writePush("local", self.symbolTable.indexOf(term))
+            self.pushTerm(term)
             if operator == "-":
                 self.writer.writeArithmetic("neg")
                 if term.isdigit():
@@ -439,17 +459,25 @@ class CompilationEngine:
 
         if self.tokenizer.currentToken != ")":
             self.compileExpression()
-            if self.terms[-1].isdigit():
-                self.writer.writePush("constant", self.terms.pop())
-            else:
-                self.writer.writePush("local", self.symbolTable.indexOf(self.terms.pop()))
+            self.pushTerm(self.terms.pop())
             nExp = 1
         while self.tokenizer.currentToken != ")":
             self.checkToken(",")
             self.compileExpression()
-            self.writer.writePush("constant", self.terms.pop())
+            self.pushTerm(self.terms.pop())
             nExp += 1
 
         self.xmlCloseTag("expressionList")
 
         return nExp
+
+    def pushTerm(self, term):
+        if self.symbolTable.kindOf(term) is not None:
+            self.writer.writePush("local", self.symbolTable.indexOf(term))
+        elif term.isdigit():
+            self.writer.writePush("constant", term)
+        elif term == "true":
+            self.writer.writePush("constant", 1)
+            self.writer.writeArithmetic("neg")
+        elif term ==  "false":
+            self.writer.writePush("constant", 0)
