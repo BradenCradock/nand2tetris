@@ -11,7 +11,8 @@ push local 0
 call Main.convert 1
 return
 function Main.convert 3
-push constant 0
+push constant 1
+neg
 pop local 2
 label WHILE_EXP0
 push local 2
@@ -53,8 +54,7 @@ call Memory.poke 2
 label IF_FALSE1
 goto IF_FALSE0
 label IF_TRUE0
-push constant 1
-neg
+push constant 0
 pop local 2
 label IF_FALSE0
 goto WHILE_EXP0
@@ -66,6 +66,7 @@ push constant 0
 eq
 not
 if-goto IF_TRUE2
+push constant 1
 return
 goto IF_FALSE2
 label IF_TRUE2

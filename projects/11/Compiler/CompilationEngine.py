@@ -301,6 +301,7 @@ class CompilationEngine:
         self.checkToken("return")
         if self.tokenizer.currentToken != ";":
             self.compileExpression()
+            self.pushTerm(self.terms.pop())
         self.checkToken(";")
         self.writer.writeReturn()
 
@@ -484,7 +485,7 @@ class CompilationEngine:
         elif term.isdigit():
             self.writer.writePush("constant", term)
         elif term == "true":
-            self.writer.writePush("constant", 0)
-        elif term ==  "false":
             self.writer.writePush("constant", 1)
             self.writer.writeArithmetic("neg")
+        elif term ==  "false":
+            self.writer.writePush("constant", 0)
