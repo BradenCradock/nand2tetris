@@ -11,82 +11,87 @@ push local 0
 call Main.convert 1
 return
 function Main.convert 3
-push constant 1
-neg
-pop local 3
+push constant 0
+pop local 2
 label WHILE_EXP0
-push local 3
-if-goto WHILE_END0
 push local 2
+not
+if-goto WHILE_END0
+push local 1
 push constant 1
 add
-pop local 2
-push local 1
-call Main.nextMask 1
 pop local 1
-push local 2
+push local 0
+call Main.nextMask 1
+pop local 0
+push local 1
 push constant 16
 gt
 not
+not
 if-goto IF_TRUE0
+push argument 0
 push local 0
-push local 1
 and
 push constant 0
 eq
 not
+not
 if-goto IF_TRUE1
 push constant 8000
-push local 2
+push local 1
 add
 push constant 1
 call Memory.poke 2
 goto IF_FALSE1
 label IF_TRUE1
 push constant 8000
-push local 2
+push local 1
 add
 push constant 0
 call Memory.poke 2
 label IF_FALSE1
 goto IF_FALSE0
 label IF_TRUE0
-push constant 0
-pop local 3
+push constant 1
+neg
+pop local 2
 label IF_FALSE0
 goto WHILE_EXP0
 label WHILE_END0
 return
 function Main.nextMask 0
-push local 1
+push argument 0
 push constant 0
 eq
+not
 if-goto IF_TRUE2
 return
 goto IF_FALSE2
 label IF_TRUE2
-push local 1
+push argument 0
 push constant 2
 call Math.multiply 2
 return
 label IF_FALSE2
 function Main.fillMemory 0
 label WHILE_EXP1
-push local 1
+push argument 1
 push constant 0
 gt
+not
 if-goto WHILE_END1
-push local 0
-push local 0
+push argument 0
+push argument 2
 call Memory.poke 2
-push local 1
+push argument 1
 push constant 1
 sub
-pop local 1
-push local 0
+pop argument 1
+push argument 0
 push constant 1
 add
-pop local 0
+pop argument 0
 goto WHILE_EXP1
 label WHILE_END1
 return

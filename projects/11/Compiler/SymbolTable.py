@@ -27,7 +27,8 @@ class SymbolTable:
     #Starts a new subroutine scope (Resets the subroutine's symbol table)
     def startSubroutine(self):
         self.tableCursor.execute("DELETE FROM subroutine")
-        self.index["ARG", "VAR"] = 0
+        self.index["ARG"] = 0
+        self.index["VAR"] = 0
         return
 
     #Defines a new identifier of a given name, type and kind and assigns it to a running index.

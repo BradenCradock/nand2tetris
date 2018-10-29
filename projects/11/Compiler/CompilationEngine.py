@@ -143,6 +143,7 @@ class CompilationEngine:
     def compileSubroutineHeader(self):
         self.xmlOpenTag("subroutineDec")
 
+        self.symbolTable.startSubroutine()
         category = self.tokenizer.currentToken
         self.checkToken({"constructor", "function", "method", "void"})
         type = self.tokenizer.currentToken
@@ -261,7 +262,10 @@ class CompilationEngine:
         self.compileExpression()
         if self.terms:
             self.pushTerm(self.terms.pop())
-        self.writer.writePop("local", self.symbolTable.indexOf(varName))
+        if self.symbolTable.kindOf(varName) == "ARG":
+            self.writer.writePop("argument", self.symbolTable.indexOf(varName))
+        else:
+            self.writer.writePop("local", self.symbolTable.indexOf(varName))
         self.checkToken(";")
 
         self.xmlCloseTag("letStatement")
@@ -279,7 +283,7 @@ class CompilationEngine:
         self.compileExpression()
         if self.terms:
             self.pushTerm(self.terms.pop())
-        self.write.writeArithmetic("not")
+        self.writer.writeArithmetic("not")
         self.writer.writeIf("WHILE_END" + str(self.whiles[-1]))
         self.checkToken(")")
         self.checkToken("{")
@@ -314,7 +318,7 @@ class CompilationEngine:
         self.compileExpression()
         if self.terms:
             self.pushTerm(self.terms.pop())
-        self.write.writeArithmetic("not")
+        self.writer.writeArithmetic("not")
         self.writer.writeIf("IF_TRUE" + str(self.ifs[-1]))
         self.checkToken(")")
         self.checkToken("{")
@@ -473,11 +477,14 @@ class CompilationEngine:
 
     def pushTerm(self, term):
         if self.symbolTable.kindOf(term) is not None:
-            self.writer.writePush("local", self.symbolTable.indexOf(term))
+            if self.symbolTable.kindOf(term) == "ARG":
+                self.writer.writePush("argument", self.symbolTable.indexOf(term))
+            else:
+                self.writer.writePush("local", self.symbolTable.indexOf(term))
         elif term.isdigit():
             self.writer.writePush("constant", term)
         elif term == "true":
+            self.writer.writePush("constant", 0)
+        elif term ==  "false":
             self.writer.writePush("constant", 1)
             self.writer.writeArithmetic("neg")
-        elif term ==  "false":
-            self.writer.writePush("constant", 0)

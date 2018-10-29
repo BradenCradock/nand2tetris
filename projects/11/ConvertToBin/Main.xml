@@ -178,7 +178,7 @@ Index: N/A
 			<Identifier>
 				Identifier: value
 Category: arg
-State: used
+State: defined
 Index: 0
 			</Identifier>
 		</parameterList>
@@ -192,14 +192,14 @@ Index: 0
 					Identifier: mask
 Category: var
 State: defined
-Index: 1
+Index: 0
 				</Identifier>
 				<SYMBOL> , </SYMBOL> 
 				<Identifier>
 					Identifier: position
 Category: var
 State: defined
-Index: 2
+Index: 1
 				</Identifier>
 				<SYMBOL> ; </SYMBOL> 
 			</varDec>
@@ -210,7 +210,7 @@ Index: 2
 					Identifier: loop
 Category: var
 State: defined
-Index: 3
+Index: 2
 				</Identifier>
 				<SYMBOL> ; </SYMBOL> 
 			</varDec>
@@ -221,7 +221,7 @@ Index: 3
 						Identifier: loop
 Category: var
 State: used
-Index: 3
+Index: 2
 					</Identifier>
 					<SYMBOL> = </SYMBOL> 
 					<expression>
@@ -240,7 +240,7 @@ Index: 3
 								Identifier: loop
 Category: var
 State: used
-Index: 3
+Index: 2
 							</Identifier>
 						</term>
 					</expression>
@@ -253,7 +253,7 @@ Index: 3
 								Identifier: position
 Category: var
 State: used
-Index: 2
+Index: 1
 							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
@@ -262,7 +262,7 @@ Index: 2
 										Identifier: position
 Category: var
 State: used
-Index: 2
+Index: 1
 									</Identifier>
 								</term>
 								<SYMBOL> + </SYMBOL> 
@@ -278,7 +278,7 @@ Index: 2
 								Identifier: mask
 Category: var
 State: used
-Index: 1
+Index: 0
 							</Identifier>
 							<SYMBOL> = </SYMBOL> 
 							<expression>
@@ -305,7 +305,7 @@ Index: N/A
 														Identifier: mask
 Category: var
 State: used
-Index: 1
+Index: 0
 													</Identifier>
 												</term>
 											</expression>
@@ -330,7 +330,7 @@ Index: 1
 													Identifier: position
 Category: var
 State: used
-Index: 2
+Index: 1
 												</Identifier>
 											</term>
 											<SYMBOL> $gt; </SYMBOL> 
@@ -371,7 +371,7 @@ Index: 0
 																	Identifier: mask
 Category: var
 State: used
-Index: 1
+Index: 0
 																</Identifier>
 															</term>
 														</expression>
@@ -419,7 +419,7 @@ Index: N/A
 																		Identifier: position
 Category: var
 State: used
-Index: 2
+Index: 1
 																	</Identifier>
 																</term>
 															</expression>
@@ -471,7 +471,7 @@ Index: N/A
 																		Identifier: position
 Category: var
 State: used
-Index: 2
+Index: 1
 																	</Identifier>
 																</term>
 															</expression>
@@ -502,7 +502,7 @@ Index: 2
 										Identifier: loop
 Category: var
 State: used
-Index: 3
+Index: 2
 									</Identifier>
 									<SYMBOL> = </SYMBOL> 
 									<expression>
@@ -541,8 +541,8 @@ Index: N/A
 			<Identifier>
 				Identifier: mask
 Category: arg
-State: used
-Index: 1
+State: defined
+Index: 0
 			</Identifier>
 		</parameterList>
 		<SYMBOL> ) </SYMBOL> 
@@ -558,7 +558,7 @@ Index: 1
 								Identifier: mask
 Category: var
 State: used
-Index: 1
+Index: 0
 							</Identifier>
 						</term>
 						<SYMBOL> = </SYMBOL> 
@@ -591,7 +591,7 @@ Index: 1
 										Identifier: mask
 Category: var
 State: used
-Index: 1
+Index: 0
 									</Identifier>
 								</term>
 								<SYMBOL> * </SYMBOL> 
@@ -639,8 +639,8 @@ Index: 1
 			<Identifier>
 				Identifier: value
 Category: arg
-State: used
-Index: 0
+State: defined
+Index: 2
 			</Identifier>
 		</parameterList>
 		<SYMBOL> ) </SYMBOL> 
@@ -704,7 +704,7 @@ Index: 0
 														Identifier: value
 Category: var
 State: used
-Index: 0
+Index: 2
 													</Identifier>
 												</term>
 											</expression>
