@@ -58,21 +58,31 @@ class SymbolTable:
     #Returns the kind of the named identifier in the current scope.
     #if the identifier is unknown in the current scope returns NONE.
     def kindOf(self, name):
-        self.tableCursor.execute('''SELECT * FROM ''' + self.scope + ''' WHERE name = ?''', (name,))
+        self.tableCursor.execute('''SELECT * FROM subroutine WHERE name = ?''', (name,))
         row = self.tableCursor.fetchone()
         if row is not None:
             return row[3]
         else:
-            return None
+            self.tableCursor.execute('''SELECT * FROM class WHERE name = ?''', (name,))
+            row = self.tableCursor.fetchone()
+            if row is not None:
+                return row[3]
+            else:
+                return None
 
     #Returns the type of the named identifier in the current scope
     def typeOf(self, name):
-        self.tableCursor.execute('''SELECT * FROM ''' + self.scope + ''' WHERE name = ?''', (name,))
+        self.tableCursor.execute('''SELECT * FROM subroutine WHERE name = ?''', (name,))
         row = self.tableCursor.fetchone()
         if row is not None:
             return row[2]
         else:
-            return None
+            self.tableCursor.execute('''SELECT * FROM class WHERE name = ?''', (name,))
+            row = self.tableCursor.fetchone()
+            if row is not None:
+                return row[2]
+            else:
+                return None
 
     #Returns the index assigned to the named identifier
     def indexOf(self, name):
@@ -81,7 +91,12 @@ class SymbolTable:
         if row is not None:
             return row[0]
         else:
-            return None
+            self.tableCursor.execute('''SELECT * FROM class WHERE name = ?''', (name,))
+            row = self.tableCursor.fetchone()
+            if row is not None:
+                return row[0]
+            else:
+                return None
 
     def printTable(self, table):
         self.tableCursor.execute('''SELECT * FROM ''' + table)

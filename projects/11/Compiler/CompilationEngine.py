@@ -16,12 +16,14 @@ class CompilationEngine:
         self.types = ["int", "boolean", "char"]
         self.className = ""
         self.subroutineName = ""
+        self.subroutineReturnType = ""
         self.terms = []
         self.whileCounter = 0
         self.whiles = []
         self.ifCounter = 0
         self.ifs = []
         self.compileClass()
+
 
     def writeXml(self):
         rep = {"<"  : "&lt;",
@@ -144,24 +146,26 @@ class CompilationEngine:
         self.xmlOpenTag("subroutineDec")
 
         self.symbolTable.startSubroutine()
-        category = self.tokenizer.currentToken
+        self.subroutineCategory = self.tokenizer.currentToken
+        if self.subroutineCategory == "method":
+            self.symbolTable.define("this", self.className, "ARG")
         self.checkToken({"constructor", "function", "method", "void"})
         type = self.tokenizer.currentToken
         if self.tokenizer.currentTokenType == "IDENTIFIER":
             self.writeXml()
             self.tokenizer.advance()
         else:
-            self.checkToken(self.types + ["void"])
+            self.subroutineReturnType = self.tokenizer.currentToken
+            self.checkToken(self.types + ["void"])                              #TODO: Change this to handle objects
         self.subroutineName = self.tokenizer.currentToken
-        self.checkIdentifier(type, category)
+        self.checkIdentifier(type, self.subroutineCategory)
         self.checkToken("(")
         self.compileParameterList()
         self.checkToken(")")
         self.compileSubroutineBody()
-
         self.xmlCloseTag("subroutineDec")
 
-    #Compiles the boday of a method, function or constructor.
+    #Compiles the body of a method, function or constructor.
     def compileSubroutineBody(self):
         self.xmlOpenTag("subroutineBody")
 
@@ -170,6 +174,9 @@ class CompilationEngine:
         while self.tokenizer.currentToken not in {"let", "if", "while", "do", "return"}:
             nLocals += self.compileVarDec()
         self.writer.writeFunction(self.className + "." + self.subroutineName, nLocals)
+        if self.subroutineCategory == "method":
+            self.pushTerm("this")
+            self.writer.writePop("pointer", 0)
         self.compileStatements()
         self.checkToken("}")
 
@@ -192,7 +199,7 @@ class CompilationEngine:
                 self.checkVarType()
                 self.checkIdentifier(type, "arg")
 
-            self.xmlCloseTag("parameterList")\
+            self.xmlCloseTag("parameterList")
 
     #Compiles a var declaration.
     def compileVarDec(self):
@@ -230,6 +237,8 @@ class CompilationEngine:
         }
         while self.tokenizer.currentToken != "}":
             if self.tokenizer.currentToken in statementPrefixes:
+                if self.subroutineReturnType == "void":
+                    self.pushTerm("0")
                 statementPrefixes[self.tokenizer.currentToken]()
             else:
                 print(self.tokenizer.currentToken)
@@ -243,6 +252,8 @@ class CompilationEngine:
 
         self.checkToken("do")
         self.compileExpression()
+        if self.subroutineReturnType == "void":
+            self.writer.writePop("temp", 0)
         self.checkToken(";")
 
         self.xmlCloseTag("doStatement")
@@ -262,10 +273,16 @@ class CompilationEngine:
         self.compileExpression()
         if self.terms:
             self.pushTerm(self.terms.pop())
-        if self.symbolTable.kindOf(varName) == "ARG":
-            self.writer.writePop("argument", self.symbolTable.indexOf(varName))
-        else:
-            self.writer.writePop("local", self.symbolTable.indexOf(varName))
+
+        termKindDict = {
+            "ARG"   : "argument"
+            "VAR"   : "local"
+            "STATIC": "static"
+            "FIELD" : "field"
+        }
+        if self.symbolTable.kindOf(varName) is not None:
+            self.writer.writePop(termKindDict[self.symbolTable.kindOf(varName)], self.symbolTable.indexOf(varName))
+
         self.checkToken(";")
 
         self.xmlCloseTag("letStatement")
@@ -449,7 +466,7 @@ class CompilationEngine:
         if self.tokenizer.currentToken == ".":
             self.checkToken(".")
             name = name + "." + self.tokenizer.currentToken
-            self.checkIdentifier("method", "method")
+            self.checkIdentifier("used", "function")
         self.checkToken("(")
         nArgs = self.compileExpressionList()
         self.checkToken(")")
@@ -477,11 +494,14 @@ class CompilationEngine:
         return nExp
 
     def pushTerm(self, term):
+        termKindDict = {
+            "ARG"   : "argument"
+            "VAR"   : "local"
+            "STATIC": "static"
+            "FIELD" : "field"
+        }
         if self.symbolTable.kindOf(term) is not None:
-            if self.symbolTable.kindOf(term) == "ARG":
-                self.writer.writePush("argument", self.symbolTable.indexOf(term))
-            else:
-                self.writer.writePush("local", self.symbolTable.indexOf(term))
+                self.writer.writePush(termKindDict[self.symboltable.kinfOf(term)], self.symbolTable.indexOf(term))
         elif term.isdigit():
             self.writer.writePush("constant", term)
         elif term == "true":
