@@ -8,8 +8,8 @@ from functools import partial
 class CompilationEngine:
 
     def __init__(self, inputFilepath, outputFilepath):
-        self.tokenizer = JackTokenizer.JackTokenizer(inputFilepath)
-        self.symbolTable = SymbolTable.SymbolTable()
+        self.tokenizer = JackTokenizer.JackTokenizer(inputFilepath)             #Tokenizer reads input .jack files and parses it for easy access to each token
+        self.symbolTable = SymbolTable.SymbolTable()                            #The sumbolTable module uses SQL to store and access static, field, local and argument varibles
         self.xmlFile = open(outputFilepath + ".xml", "w+")
         self.writer = VMWriter.VMWriter(outputFilepath + ".vm")
         self.xmlIndentation = 0
@@ -24,7 +24,7 @@ class CompilationEngine:
         self.ifs = []
         self.compileClass()
 
-
+    #Replaces reserved symbols and encapsulates the current token in xml tags beofre writing it into an xml file
     def writeXml(self):
         rep = {"<"  : "&lt;",
                ">"  : "$gt;",
@@ -36,11 +36,12 @@ class CompilationEngine:
 
         print("\t" * self.xmlIndentation + "<" + self.tokenizer.currentTokenType + "> " + token + " </" + self.tokenizer.currentTokenType + "> ", file = self.xmlFile)
 
+    #Modified XML writer that allows extra descritors for any identifiers
     def writeIdentifierXml(self, category, state, index):
-        rep = {"<"  : "&lt;",
-                  ">"  : "$gt;",
-                  "\"" : "&quot;",
-                  "&"  : "&amp;"}
+        rep = { "<"  : "&lt;",
+                ">"  : "$gt;",
+                "\"" : "&quot;",
+                "&"  : "&amp;"}
         rep = dict((re.escape(k), v) for k, v in rep.items())
         pattern = re.compile("|".join(rep.keys()))
         input = "Identifier: " + self.tokenizer.currentToken + "\n" +\
@@ -53,11 +54,13 @@ class CompilationEngine:
         print("\t" * self.xmlIndentation + output, file = self.xmlFile)
         self.xmlCloseTag("Identifier")
 
+    #Called whenever the compiler encounters a token the does not match the syntatic language
     def syntaxError(self, expected, recieved):
         self.xmlIndentation = 0
         self.xmlCloseTag("class")
-        sys.exit("Invalid Syntax: Expected " + str(expected) + " but recieved " + recieved)
+        sys.exit("Invalid Syntax in " + self.className + ".jack, token number " + str(self.tokenizer.tokenCounter) + ": Expected " + str(expected) + " but recieved " + recieved)
 
+    #Checks the current token agains a string or a list of strings
     def checkToken(self, string):
         if self.tokenizer.currentToken in string:
             self.writeXml()
@@ -65,6 +68,8 @@ class CompilationEngine:
         else:
             self.syntaxError(string, self.tokenizer.currentToken)
 
+    #This subroutine handles processing of any token of type IDENTIFIER.
+    #If it is a varible it needs to be added to the symbol table.
     def checkIdentifier(self, type, category):
 
         if self.tokenizer.currentTokenType == "IDENTIFIER":
@@ -84,16 +89,7 @@ class CompilationEngine:
                 self.tokenizer.advance()
 
         else:
-            self.syntaxError(string, self.tokenizer.currentTokenType)
-
-    def checkVarType(self):
-        if self.tokenizer.currentToken in self.types:
-            self.writeXml()
-            self.tokenizer.advance()
-        else:
-            self.xmlIndentation = 0
-            self.xmlCloseTag("class")
-            sys.exit("Invalid Syntax: " + self.tokenizer.currentToken + " is not a valid type.")
+            self.syntaxError("Function or Varible", self.tokenizer.currentTokenType)
 
     def xmlOpenTag(self, tag):
         print("\t" * self.xmlIndentation + "<" + tag + ">", file = self.xmlFile)
@@ -196,7 +192,8 @@ class CompilationEngine:
             while self.tokenizer.currentToken != ")":
                 self.checkToken(",")
                 type = self.tokenizer.currentToken
-                self.checkVarType()
+                self.writeXml()
+                self.tokenizer.advance()
                 self.checkIdentifier(type, "arg")
 
             self.xmlCloseTag("parameterList")
@@ -275,9 +272,9 @@ class CompilationEngine:
             self.pushTerm(self.terms.pop())
 
         termKindDict = {
-            "ARG"   : "argument"
-            "VAR"   : "local"
-            "STATIC": "static"
+            "ARG"   : "argument",
+            "VAR"   : "local",
+            "STATIC": "static",
             "FIELD" : "field"
         }
         if self.symbolTable.kindOf(varName) is not None:
@@ -410,30 +407,33 @@ class CompilationEngine:
                            "static","var","int", "char", "boolean", "void",
                            "let", "do", "if", "else", "while", "return"}
 
-        if self.tokenizer.currentTokenType == "IDENTIFIER":
+        if self.tokenizer.currentTokenType == "IDENTIFIER" or self.tokenizer.currentToken == "this":
             varName = self.tokenizer.currentToken
-            if self.tokenizer.currentToken == "[":             #Identifier is an array
+            if self.tokenizer.currentToken == "[":                              #Identifier is an array
                 self.checkIdentifier("used", "var")
                 self.checkToken("[")
                 self.compileExpression()
                 self.checkToken("]")
-            elif self.symbolTable.kindOf(varName) is not None:  #Identifier is a varible
+            elif (self.symbolTable.kindOf(varName) is not None) or self.tokenizer.currentToken == "this":        #Identifier is a varible or object
                 self.checkIdentifier("used", "var")
-                self.terms.append(varName)
-            else:                                                #Identifier is a subroutine call
+                if self.tokenizer.currentToken == ".":                          #Variable is an object
+                    self.compileSubroutineCall(varName)
+                else:
+                    self.terms.append(varName)
+            else:                                                               #Identifier is a subroutine call
                 self.checkIdentifier("used", "function")
                 self.compileSubroutineCall(varName)
 
-        elif self.tokenizer.currentToken in {"-", "~"}:
+        elif self.tokenizer.currentToken in {"-", "~"}:                         #Term is a Unary op
             operator = self.tokenizer.currentToken
             self.checkToken({"-", "~"})
             self.compileTerm()
             term = self.terms.pop()
             self.pushTerm(term)
-            if operator == "-":
+            if operator == "-":                                                 #The term following the unary op needs to be operated on by the unary op before performing other operations
                 self.writer.writeArithmetic("neg")
                 if term.isdigit():
-                    self.terms.append(str(int(term) * -1))
+                    self.terms.append(str(int(term) * -1))                      #Manipulating the term if it is a number allows the compiler to remove instructions if the next term is also a number
                 else:
                     self.terms.append(term)
             else:
@@ -444,12 +444,12 @@ class CompilationEngine:
                     self.terms.append(term)
 
 
-        elif self.tokenizer.currentToken == "(":
+        elif self.tokenizer.currentToken == "(":                                #Parenthesis indicated nested expressions
             self.checkToken("(")
             self.compileExpression()
             self.checkToken(")")
 
-        elif self.tokenizer.currentToken not in invalidKeywords:
+        elif self.tokenizer.currentToken not in invalidKeywords:                #Terms is a number/string/bool etc
             self.writeXml()
             self.terms.append(self.tokenizer.currentToken)
             self.tokenizer.advance()
@@ -495,13 +495,13 @@ class CompilationEngine:
 
     def pushTerm(self, term):
         termKindDict = {
-            "ARG"   : "argument"
-            "VAR"   : "local"
-            "STATIC": "static"
+            "ARG"   : "argument",
+            "VAR"   : "local",
+            "STATIC": "static",
             "FIELD" : "field"
         }
         if self.symbolTable.kindOf(term) is not None:
-                self.writer.writePush(termKindDict[self.symboltable.kinfOf(term)], self.symbolTable.indexOf(term))
+                self.writer.writePush(termKindDict[self.symbolTable.kindOf(term)], self.symbolTable.indexOf(term))
         elif term.isdigit():
             self.writer.writePush("constant", term)
         elif term == "true":

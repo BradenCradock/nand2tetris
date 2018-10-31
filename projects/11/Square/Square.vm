@@ -1,0 +1,8 @@
+function Square.new 0
+push argument 0
+pop field 0
+push argument 1
+pop field 1
+push argument 2
+pop field 2
+call draw 0

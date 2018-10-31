@@ -1,0 +1,165 @@
+<class>
+	<KEYWORD> class </KEYWORD> 
+	<Identifier>
+		Identifier: Square
+Category: class
+State: defined
+Index: N/A
+	</Identifier>
+	<SYMBOL> { </SYMBOL> 
+	<classVarDec>
+		<KEYWORD> field </KEYWORD> 
+		<KEYWORD> int </KEYWORD> 
+		<Identifier>
+			Identifier: x
+Category: field
+State: defined
+Index: 0
+		</Identifier>
+		<SYMBOL> , </SYMBOL> 
+		<Identifier>
+			Identifier: y
+Category: field
+State: defined
+Index: 1
+		</Identifier>
+		<SYMBOL> ; </SYMBOL> 
+	</classVarDec>
+	<classVarDec>
+		<KEYWORD> field </KEYWORD> 
+		<KEYWORD> int </KEYWORD> 
+		<Identifier>
+			Identifier: size
+Category: field
+State: defined
+Index: 2
+		</Identifier>
+		<SYMBOL> ; </SYMBOL> 
+	</classVarDec>
+	<subroutineDec>
+		<KEYWORD> constructor </KEYWORD> 
+		<IDENTIFIER> Square </IDENTIFIER> 
+		<Identifier>
+			Identifier: new
+Category: constructor
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<parameterList>
+			<KEYWORD> int </KEYWORD> 
+			<Identifier>
+				Identifier: Ax
+Category: arg
+State: defined
+Index: 0
+			</Identifier>
+			<SYMBOL> , </SYMBOL> 
+			<KEYWORD> int </KEYWORD> 
+			<Identifier>
+				Identifier: Ay
+Category: arg
+State: defined
+Index: 1
+			</Identifier>
+			<SYMBOL> , </SYMBOL> 
+			<KEYWORD> int </KEYWORD> 
+			<Identifier>
+				Identifier: Asize
+Category: arg
+State: defined
+Index: 2
+			</Identifier>
+		</parameterList>
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: x
+Category: var
+State: used
+Index: 0
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Ax
+Category: var
+State: used
+Index: 0
+							</Identifier>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: y
+Category: var
+State: used
+Index: 1
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Ay
+Category: var
+State: used
+Index: 1
+							</Identifier>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: size
+Category: var
+State: used
+Index: 2
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Asize
+Category: var
+State: used
+Index: 2
+							</Identifier>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: draw
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<expression>
+						<term>
+</class>
