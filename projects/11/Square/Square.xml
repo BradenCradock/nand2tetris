@@ -162,4 +162,1952 @@ Index: N/A
 					<KEYWORD> return </KEYWORD> 
 					<expression>
 						<term>
+							<KEYWORD> this </KEYWORD> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: dispose
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Memory
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: deAlloc
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<KEYWORD> this </KEYWORD> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: draw
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Screen
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: setColor
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<KEYWORD> true </KEYWORD> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Screen
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: drawRectangle
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: 0
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: 0
+											</Identifier>
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: size
+Category: var
+State: used
+Index: 2
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: size
+Category: var
+State: used
+Index: 2
+											</Identifier>
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: erase
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Screen
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: setColor
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<KEYWORD> false </KEYWORD> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Screen
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: drawRectangle
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: 0
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: 0
+											</Identifier>
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: size
+Category: var
+State: used
+Index: 2
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: size
+Category: var
+State: used
+Index: 2
+											</Identifier>
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: incSize
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<SYMBOL> ( </SYMBOL> 
+							<expression>
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: size
+Category: var
+State: used
+Index: 2
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+								<SYMBOL> &lt; </SYMBOL> 
+								<term>
+									<INT_CONST> 254 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ) </SYMBOL> 
+						</term>
+						<SYMBOL> &amp; </SYMBOL> 
+						<term>
+							<SYMBOL> ( </SYMBOL> 
+							<expression>
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: 0
+											</Identifier>
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: size
+Category: var
+State: used
+Index: 2
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+								<SYMBOL> &lt; </SYMBOL> 
+								<term>
+									<INT_CONST> 510 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ) </SYMBOL> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: erase
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: size
+Category: var
+State: used
+Index: 2
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: size
+Category: var
+State: used
+Index: 2
+									</Identifier>
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<INT_CONST> 2 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: draw
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: decSize
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: size
+Category: var
+State: used
+Index: 2
+							</Identifier>
+						</term>
+						<SYMBOL> $gt; </SYMBOL> 
+						<term>
+							<INT_CONST> 2 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: erase
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: size
+Category: var
+State: used
+Index: 2
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: size
+Category: var
+State: used
+Index: 2
+									</Identifier>
+								</term>
+								<SYMBOL> - </SYMBOL> 
+								<term>
+									<INT_CONST> 2 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: draw
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: moveUp
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: y
+Category: var
+State: used
+Index: 1
+							</Identifier>
+						</term>
+						<SYMBOL> $gt; </SYMBOL> 
+						<term>
+							<INT_CONST> 1 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Screen
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: setColor
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<KEYWORD> false </KEYWORD> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Screen
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: drawRectangle
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<SYMBOL> ( </SYMBOL> 
+													<expression>
+														<term>
+															<Identifier>
+																Identifier: y
+Category: var
+State: used
+Index: 1
+															</Identifier>
+														</term>
+														<SYMBOL> + </SYMBOL> 
+														<term>
+															<Identifier>
+																Identifier: size
+Category: var
+State: used
+Index: 2
+															</Identifier>
+														</term>
+													</expression>
+													<SYMBOL> ) </SYMBOL> 
+												</term>
+												<SYMBOL> - </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: 2
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: 2
+													</Identifier>
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: y
+Category: var
+State: used
+Index: 1
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: y
+Category: var
+State: used
+Index: 1
+									</Identifier>
+								</term>
+								<SYMBOL> - </SYMBOL> 
+								<term>
+									<INT_CONST> 2 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Screen
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: setColor
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<KEYWORD> true </KEYWORD> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Screen
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: drawRectangle
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: 2
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: moveDown
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<SYMBOL> ( </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: y
+Category: var
+State: used
+Index: 1
+									</Identifier>
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<Identifier>
+										Identifier: size
+Category: var
+State: used
+Index: 2
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ) </SYMBOL> 
+						</term>
+						<SYMBOL> &lt; </SYMBOL> 
+						<term>
+							<INT_CONST> 254 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Screen
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: setColor
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<KEYWORD> false </KEYWORD> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Screen
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: drawRectangle
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: 2
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: y
+Category: var
+State: used
+Index: 1
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: y
+Category: var
+State: used
+Index: 1
+									</Identifier>
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<INT_CONST> 2 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Screen
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: setColor
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<KEYWORD> true </KEYWORD> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Screen
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: drawRectangle
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<SYMBOL> ( </SYMBOL> 
+													<expression>
+														<term>
+															<Identifier>
+																Identifier: y
+Category: var
+State: used
+Index: 1
+															</Identifier>
+														</term>
+														<SYMBOL> + </SYMBOL> 
+														<term>
+															<Identifier>
+																Identifier: size
+Category: var
+State: used
+Index: 2
+															</Identifier>
+														</term>
+													</expression>
+													<SYMBOL> ) </SYMBOL> 
+												</term>
+												<SYMBOL> - </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: 2
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: 2
+													</Identifier>
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: moveLeft
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: x
+Category: var
+State: used
+Index: 0
+							</Identifier>
+						</term>
+						<SYMBOL> $gt; </SYMBOL> 
+						<term>
+							<INT_CONST> 1 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Screen
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: setColor
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<KEYWORD> false </KEYWORD> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Screen
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: drawRectangle
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<SYMBOL> ( </SYMBOL> 
+													<expression>
+														<term>
+															<Identifier>
+																Identifier: x
+Category: var
+State: used
+Index: 0
+															</Identifier>
+														</term>
+														<SYMBOL> + </SYMBOL> 
+														<term>
+															<Identifier>
+																Identifier: size
+Category: var
+State: used
+Index: 2
+															</Identifier>
+														</term>
+													</expression>
+													<SYMBOL> ) </SYMBOL> 
+												</term>
+												<SYMBOL> - </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: 2
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: 2
+													</Identifier>
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: x
+Category: var
+State: used
+Index: 0
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: x
+Category: var
+State: used
+Index: 0
+									</Identifier>
+								</term>
+								<SYMBOL> - </SYMBOL> 
+								<term>
+									<INT_CONST> 2 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Screen
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: setColor
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<KEYWORD> true </KEYWORD> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Screen
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: drawRectangle
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: 2
+													</Identifier>
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: moveRight
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<SYMBOL> ( </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: x
+Category: var
+State: used
+Index: 0
+									</Identifier>
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<Identifier>
+										Identifier: size
+Category: var
+State: used
+Index: 2
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ) </SYMBOL> 
+						</term>
+						<SYMBOL> &lt; </SYMBOL> 
+						<term>
+							<INT_CONST> 510 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Screen
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: setColor
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<KEYWORD> false </KEYWORD> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Screen
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: drawRectangle
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: 2
+													</Identifier>
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: x
+Category: var
+State: used
+Index: 0
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: x
+Category: var
+State: used
+Index: 0
+									</Identifier>
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<INT_CONST> 2 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Screen
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: setColor
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<KEYWORD> true </KEYWORD> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Screen
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: drawRectangle
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<SYMBOL> ( </SYMBOL> 
+													<expression>
+														<term>
+															<Identifier>
+																Identifier: x
+Category: var
+State: used
+Index: 0
+															</Identifier>
+														</term>
+														<SYMBOL> + </SYMBOL> 
+														<term>
+															<Identifier>
+																Identifier: size
+Category: var
+State: used
+Index: 2
+															</Identifier>
+														</term>
+													</expression>
+													<SYMBOL> ) </SYMBOL> 
+												</term>
+												<SYMBOL> - </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: 2
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<Identifier>
+														Identifier: size
+Category: var
+State: used
+Index: 2
+													</Identifier>
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
 </class>

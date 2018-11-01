@@ -173,6 +173,10 @@ class CompilationEngine:
         if self.subroutineCategory == "method":
             self.pushTerm("this")
             self.writer.writePop("pointer", 0)
+        elif self.subroutineCategory == "constructor":
+            self.pushTerm(str(self.symbolTable.varCount("FIELD")))
+            self.writer.writeCall("Memory.alloc", 1)
+            self.writer.writePop("pointer", 0)
         self.compileStatements()
         self.checkToken("}")
 
@@ -249,8 +253,7 @@ class CompilationEngine:
 
         self.checkToken("do")
         self.compileExpression()
-        if self.subroutineReturnType == "void":
-            self.writer.writePop("temp", 0)
+        self.writer.writePop("temp", 0)
         self.checkToken(";")
 
         self.xmlCloseTag("doStatement")
@@ -275,7 +278,7 @@ class CompilationEngine:
             "ARG"   : "argument",
             "VAR"   : "local",
             "STATIC": "static",
-            "FIELD" : "field"
+            "FIELD" : "this"
         }
         if self.symbolTable.kindOf(varName) is not None:
             self.writer.writePop(termKindDict[self.symbolTable.kindOf(varName)], self.symbolTable.indexOf(varName))
@@ -407,14 +410,14 @@ class CompilationEngine:
                            "static","var","int", "char", "boolean", "void",
                            "let", "do", "if", "else", "while", "return"}
 
-        if self.tokenizer.currentTokenType == "IDENTIFIER" or self.tokenizer.currentToken == "this":
+        if self.tokenizer.currentTokenType == "IDENTIFIER":
             varName = self.tokenizer.currentToken
             if self.tokenizer.currentToken == "[":                              #Identifier is an array
                 self.checkIdentifier("used", "var")
                 self.checkToken("[")
                 self.compileExpression()
                 self.checkToken("]")
-            elif (self.symbolTable.kindOf(varName) is not None) or self.tokenizer.currentToken == "this":        #Identifier is a varible or object
+            elif self.symbolTable.kindOf(varName) is not None:        #Identifier is a varible or object
                 self.checkIdentifier("used", "var")
                 if self.tokenizer.currentToken == ".":                          #Variable is an object
                     self.compileSubroutineCall(varName)
@@ -498,7 +501,7 @@ class CompilationEngine:
             "ARG"   : "argument",
             "VAR"   : "local",
             "STATIC": "static",
-            "FIELD" : "field"
+            "FIELD" : "this"
         }
         if self.symbolTable.kindOf(term) is not None:
                 self.writer.writePush(termKindDict[self.symbolTable.kindOf(term)], self.symbolTable.indexOf(term))
@@ -509,3 +512,5 @@ class CompilationEngine:
             self.writer.writeArithmetic("neg")
         elif term ==  "false":
             self.writer.writePush("constant", 0)
+        elif term == "this":
+            self.writer.writePush("this", 0)

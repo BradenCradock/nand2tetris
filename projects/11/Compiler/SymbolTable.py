@@ -53,7 +53,7 @@ class SymbolTable:
 
     #Returns the number of varibles of the given kind already defined in the current scope.
     def varCount(self, kind):
-        return self.index[kind]
+        return self.index.get(kind)
 
     #Returns the kind of the named identifier in the current scope.
     #if the identifier is unknown in the current scope returns NONE.
