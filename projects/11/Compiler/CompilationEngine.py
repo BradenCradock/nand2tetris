@@ -238,8 +238,6 @@ class CompilationEngine:
         }
         while self.tokenizer.currentToken != "}":
             if self.tokenizer.currentToken in statementPrefixes:
-                if self.subroutineReturnType == "void":
-                    self.pushTerm("0")
                 statementPrefixes[self.tokenizer.currentToken]()
             else:
                 print(self.tokenizer.currentToken)
@@ -319,6 +317,8 @@ class CompilationEngine:
         if self.tokenizer.currentToken != ";":
             self.compileExpression()
             self.pushTerm(self.terms.pop())
+        else:
+            self.pushTerm("0")
         self.checkToken(";")
         self.writer.writeReturn()
 
@@ -466,12 +466,21 @@ class CompilationEngine:
     def compileSubroutineCall(self, name):
         self.xmlOpenTag("subroutineCall")
 
+        nArgs = 0
         if self.tokenizer.currentToken == ".":
+            if self.symbolTable.kindOf(name) is not None:       #If the call is for a method the object needs to be pushed first
+                self.pushTerm("this")
+                nArgs += 1
+                name = self.symbolTable.typeOf(name)
             self.checkToken(".")
             name = name + "." + self.tokenizer.currentToken
             self.checkIdentifier("used", "function")
+        else:
+            self.pushTerm("this")
+            name = self.className + "." + name
+            nArgs += 1
         self.checkToken("(")
-        nArgs = self.compileExpressionList()
+        nArgs += self.compileExpressionList()
         self.checkToken(")")
         self.writer.writeCall(name, nArgs)
 
@@ -503,6 +512,7 @@ class CompilationEngine:
             "STATIC": "static",
             "FIELD" : "this"
         }
+
         if self.symbolTable.kindOf(term) is not None:
                 self.writer.writePush(termKindDict[self.symbolTable.kindOf(term)], self.symbolTable.indexOf(term))
         elif term.isdigit():
@@ -513,4 +523,4 @@ class CompilationEngine:
         elif term ==  "false":
             self.writer.writePush("constant", 0)
         elif term == "this":
-            self.writer.writePush("this", 0)
+            self.writer.writePush("pointer", 0)
