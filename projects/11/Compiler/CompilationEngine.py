@@ -171,7 +171,7 @@ class CompilationEngine:
             nLocals += self.compileVarDec()
         self.writer.writeFunction(self.className + "." + self.subroutineName, nLocals)
         if self.subroutineCategory == "method":
-            self.pushTerm("this")
+            self.writer.writePush("argument", 0)
             self.writer.writePop("pointer", 0)
         elif self.subroutineCategory == "constructor":
             self.pushTerm(str(self.symbolTable.varCount("FIELD")))
@@ -512,9 +512,10 @@ class CompilationEngine:
             "STATIC": "static",
             "FIELD" : "this"
         }
-
-        if self.symbolTable.kindOf(term) is not None:
-                self.writer.writePush(termKindDict[self.symbolTable.kindOf(term)], self.symbolTable.indexOf(term))
+        if term == "this":
+            self.writer.writePush("pointer", 0)
+        elif self.symbolTable.kindOf(term) is not None:
+            self.writer.writePush(termKindDict[self.symbolTable.kindOf(term)], self.symbolTable.indexOf(term))
         elif term.isdigit():
             self.writer.writePush("constant", term)
         elif term == "true":
@@ -522,5 +523,3 @@ class CompilationEngine:
             self.writer.writeArithmetic("neg")
         elif term ==  "false":
             self.writer.writePush("constant", 0)
-        elif term == "this":
-            self.writer.writePush("pointer", 0)
