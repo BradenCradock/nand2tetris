@@ -469,9 +469,12 @@ class CompilationEngine:
         nArgs = 0
         if self.tokenizer.currentToken == ".":
             if self.symbolTable.kindOf(name) is not None:       #If the call is for a method the object needs to be pushed first
-                self.pushTerm("this")
-                nArgs += 1
+                if self.symbolTable.kindOf(name) != self.className:
+                    self.pushTerm(name)
+                else:
+                    self.pushTerm("this")
                 name = self.symbolTable.typeOf(name)
+                nArgs += 1
             self.checkToken(".")
             name = name + "." + self.tokenizer.currentToken
             self.checkIdentifier("used", "function")

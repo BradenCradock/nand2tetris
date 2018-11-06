@@ -14,7 +14,7 @@ return
 function SquareGame.dispose 0
 push argument 0
 pop pointer 0
-push pointer 0
+push this 0
 call Square.dispose 1
 pop temp 0
 push pointer 0
@@ -30,7 +30,7 @@ push constant 1
 eq
 not
 if-goto IF_TRUE0
-push pointer 0
+push this 0
 call Square.moveUp 1
 pop temp 0
 goto IF_FALSE0
@@ -41,7 +41,7 @@ push constant 2
 eq
 not
 if-goto IF_TRUE1
-push pointer 0
+push this 0
 call Square.moveDown 1
 pop temp 0
 goto IF_FALSE1
@@ -52,7 +52,7 @@ push constant 3
 eq
 not
 if-goto IF_TRUE2
-push pointer 0
+push this 0
 call Square.moveLeft 1
 pop temp 0
 goto IF_FALSE2
@@ -63,7 +63,7 @@ push constant 4
 eq
 not
 if-goto IF_TRUE3
-push pointer 0
+push this 0
 call Square.moveRight 1
 pop temp 0
 goto IF_FALSE3
@@ -111,7 +111,7 @@ push constant 90
 eq
 not
 if-goto IF_TRUE5
-push pointer 0
+push this 0
 call Square.decSize 1
 pop temp 0
 goto IF_FALSE5
@@ -122,7 +122,7 @@ push constant 88
 eq
 not
 if-goto IF_TRUE6
-push pointer 0
+push this 0
 call Square.incSize 1
 pop temp 0
 goto IF_FALSE6
