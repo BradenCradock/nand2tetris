@@ -46,8 +46,8 @@ Index: N/A
 								<SYMBOL> . </SYMBOL> 
 								<Identifier>
 									Identifier: fillMemory
-Category: method
-State: defined
+Category: function
+State: used
 Index: N/A
 								</Identifier>
 								<SYMBOL> ( </SYMBOL> 
@@ -100,8 +100,8 @@ Index: N/A
 								<SYMBOL> . </SYMBOL> 
 								<Identifier>
 									Identifier: peek
-Category: method
-State: defined
+Category: function
+State: used
 Index: N/A
 								</Identifier>
 								<SYMBOL> ( </SYMBOL> 
@@ -132,8 +132,8 @@ Index: N/A
 								<SYMBOL> . </SYMBOL> 
 								<Identifier>
 									Identifier: convert
-Category: method
-State: defined
+Category: function
+State: used
 Index: N/A
 								</Identifier>
 								<SYMBOL> ( </SYMBOL> 
@@ -293,8 +293,8 @@ Index: N/A
 										<SYMBOL> . </SYMBOL> 
 										<Identifier>
 											Identifier: nextMask
-Category: method
-State: defined
+Category: function
+State: used
 Index: N/A
 										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
@@ -403,8 +403,8 @@ Index: N/A
 														<SYMBOL> . </SYMBOL> 
 														<Identifier>
 															Identifier: poke
-Category: method
-State: defined
+Category: function
+State: used
 Index: N/A
 														</Identifier>
 														<SYMBOL> ( </SYMBOL> 
@@ -455,8 +455,8 @@ Index: N/A
 														<SYMBOL> . </SYMBOL> 
 														<Identifier>
 															Identifier: poke
-Category: method
-State: defined
+Category: function
+State: used
 Index: N/A
 														</Identifier>
 														<SYMBOL> ( </SYMBOL> 
@@ -681,8 +681,8 @@ Index: N/A
 										<SYMBOL> . </SYMBOL> 
 										<Identifier>
 											Identifier: poke
-Category: method
-State: defined
+Category: function
+State: used
 Index: N/A
 										</Identifier>
 										<SYMBOL> ( </SYMBOL> 
