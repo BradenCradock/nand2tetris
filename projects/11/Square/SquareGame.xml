@@ -515,7 +515,17 @@ Index: 1
 					<SYMBOL> ( </SYMBOL> 
 					<expression>
 						<term>
-							<SYMBOL> ~exit </SYMBOL> 
+							<SYMBOL> ~ </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: exit
+Category: var
+State: used
+Index: 1
+									</Identifier>
+								</term>
+							</expression>
 						</term>
 					</expression>
 					<SYMBOL> ) </SYMBOL> 
@@ -899,24 +909,26 @@ Index: 1
 							<expression>
 								<term>
 									<SYMBOL> ~ </SYMBOL> 
-									<term>
-										<SYMBOL> ( </SYMBOL> 
-										<expression>
-											<term>
-												<Identifier>
-													Identifier: key
+									<expression>
+										<term>
+											<SYMBOL> ( </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: key
 Category: var
 State: used
 Index: 0
-												</Identifier>
-											</term>
-											<SYMBOL> = </SYMBOL> 
-											<term>
-												<INT_CONST> 0 </INT_CONST> 
-											</term>
-										</expression>
-										<SYMBOL> ) </SYMBOL> 
-									</term>
+													</Identifier>
+												</term>
+												<SYMBOL> = </SYMBOL> 
+												<term>
+													<INT_CONST> 0 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> ) </SYMBOL> 
+										</term>
+									</expression>
 								</term>
 							</expression>
 							<SYMBOL> ) </SYMBOL> 

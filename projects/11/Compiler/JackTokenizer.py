@@ -60,7 +60,7 @@ class JackTokenizer:
 
     def formatProgramAsRead(self):
         self.programIn = self.removeComments()
-        self.tokens = re.split('([(;}){.,-])| ', self.programIn)
+        self.tokens = re.split('([(;})~{.,-])| ', self.programIn)
         self.tokens = self.removeWhitespace()
         self.tokens = list(filter(None, self.tokens)) #Removes any null elements in the list
         self.tokens = self.fixStrings()
@@ -103,7 +103,6 @@ class JackTokenizer:
 
         elif re.match("\W", self.currentToken):
             return "SYMBOL"
-
         else:
             print("Invalid token: " + self.currentToken)
 

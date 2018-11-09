@@ -292,7 +292,6 @@ class CompilationEngine:
         self.writer.writeLabel("WHILE_EXP" + str(self.whileCounter))
         self.whiles.append(self.whileCounter)
         self.whileCounter += 1
-
         self.checkToken("while")
         self.checkToken("(")
         self.compileExpression()
@@ -430,7 +429,7 @@ class CompilationEngine:
         elif self.tokenizer.currentToken in {"-", "~"}:                         #Term is a Unary op
             operator = self.tokenizer.currentToken
             self.checkToken({"-", "~"})
-            self.compileTerm()
+            self.compileExpression()
             term = self.terms.pop()
             self.pushTerm(term)
             if operator == "-":                                                 #The term following the unary op needs to be operated on by the unary op before performing other operations
@@ -438,14 +437,13 @@ class CompilationEngine:
                 if term.isdigit():
                     self.terms.append(str(int(term) * -1))                      #Manipulating the term if it is a number allows the compiler to remove instructions if the next term is also a number
                 else:
-                    self.terms.append(term)
+                    self.terms.append("-" + term)
             else:
                 self.writer.writeArithmetic("not")
                 if term.isdigit():
                     self.terms.append(str(~int(term)))
                 else:
-                    self.terms.append(term)
-
+                    self.terms.append("~" + term)
 
         elif self.tokenizer.currentToken == "(":                                #Parenthesis indicated nested expressions
             self.checkToken("(")
