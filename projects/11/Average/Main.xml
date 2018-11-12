@@ -188,11 +188,23 @@ Index: 1
 						<letStatement>
 							<KEYWORD> let </KEYWORD> 
 							<Identifier>
-								Identifier: a[i]
+								Identifier: a
 Category: var
-State: defined
-Index: 4
+State: used
+Index: 0
 							</Identifier>
+							<SYMBOL> [ </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: i
+Category: var
+State: used
+Index: 2
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ] </SYMBOL> 
 							<SYMBOL> = </SYMBOL> 
 							<expression>
 								<term>
@@ -245,11 +257,23 @@ Index: 3
 								<SYMBOL> + </SYMBOL> 
 								<term>
 									<Identifier>
-										Identifier: a[i]
+										Identifier: a
 Category: var
 State: used
-Index: 4
+Index: 0
 									</Identifier>
+									<SYMBOL> [ </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: i
+Category: var
+State: used
+Index: 2
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> ] </SYMBOL> 
 								</term>
 							</expression>
 							<SYMBOL> ; </SYMBOL> 

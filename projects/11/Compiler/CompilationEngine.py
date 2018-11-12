@@ -240,7 +240,6 @@ class CompilationEngine:
             if self.tokenizer.currentToken in statementPrefixes:
                 statementPrefixes[self.tokenizer.currentToken]()
             else:
-                print(self.tokenizer.currentToken)
                 self.syntaxError("One of (let, do, if, while, return)", self.tokenizer.currentToken)
 
         self.xmlCloseTag("statements")
@@ -267,8 +266,11 @@ class CompilationEngine:
             self.checkToken("[")
             self.compileExpression()
             self.checkToken("]")
+            self.pushTerm(varName)
+            self.writer.writePop("pointer", 0)
         self.checkToken("=")
         self.compileExpression()
+
         if self.terms:
             self.pushTerm(self.terms.pop())
 
@@ -278,7 +280,13 @@ class CompilationEngine:
             "STATIC": "static",
             "FIELD" : "this"
         }
-        if self.symbolTable.kindOf(varName) is not None:
+        if self.terms:
+            self.pushTerm("this")
+            self.pushTerm(self.terms.pop())
+            self.writer.writeArithmetic("add")
+            self.writer.writePop("pointer", 0)
+            self.writer.writePop("this", 0)
+        elif self.symbolTable.kindOf(varName) is not None:
             self.writer.writePop(termKindDict[self.symbolTable.kindOf(varName)], self.symbolTable.indexOf(varName))
 
         self.checkToken(";")
@@ -377,7 +385,6 @@ class CompilationEngine:
             "&" : "and",
             "|" : "or",
         }
-
         term2 = self.terms.pop()
         term1 = self.terms.pop()
 
@@ -411,19 +418,22 @@ class CompilationEngine:
 
         if self.tokenizer.currentTokenType == "IDENTIFIER":
             varName = self.tokenizer.currentToken
-            if self.tokenizer.currentToken == "[":                              #Identifier is an array
-                self.checkIdentifier("used", "var")
-                self.checkToken("[")
-                self.compileExpression()
-                self.checkToken("]")
-            elif self.symbolTable.kindOf(varName) is not None:        #Identifier is a varible or object
+
+            if self.symbolTable.kindOf(varName) is not None:        #Identifier is a varible or object
                 self.checkIdentifier("used", "var")
                 if self.tokenizer.currentToken == ".":                          #Variable is an object
                     self.compileSubroutineCall(varName)
+
+                elif self.tokenizer.currentToken == "[":                              #Identifier is an array
+                    self.checkToken("[")
+                    self.compileExpression()
+                    self.checkToken("]")
+                    self.terms.append(varName + "[" + str(self.terms.pop()) + "]")
                 else:
                     self.terms.append(varName)
             else:                                                               #Identifier is a subroutine call
                 self.checkIdentifier("used", "function")
+                self.terms.append(self.className + "." + varName)
                 self.compileSubroutineCall(varName)
 
         elif self.tokenizer.currentToken in {"-", "~"}:                         #Term is a Unary op
@@ -524,3 +534,12 @@ class CompilationEngine:
             self.writer.writeArithmetic("neg")
         elif term ==  "false":
             self.writer.writePush("constant", 0)
+        elif "[" in term:                                                       #Term is an array
+            noIndex = re.sub(r'<.+?>', '', term)
+            if " " not in noIndex:
+                self.writer.writePush("local", self.symbolTable.indexOf(term.split("[")[0]))
+                index = re.search('\[(.*)\]', term)
+                self.pushTerm(index.group(1))
+                self.writer.writeArithmetic("add")
+                self.writer.writePop("pointer", 0)
+                self.writer.writePush("this", 0)

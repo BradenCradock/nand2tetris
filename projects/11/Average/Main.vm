@@ -12,10 +12,20 @@ push local 1
 lt
 not
 if-goto WHILE_END0
+push local 0
+pop pointer 0
 call Keyboard.readInt 1
-pop local 4
+push pointer 0
+push local 2
+add
+pop pointer 0
+pop this 0
 push local 3
-push local 4
+push local 0
+push local 2
+add
+pop pointer 0
+push this 0
 add
 pop local 3
 push local 2
