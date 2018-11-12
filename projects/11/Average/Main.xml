@@ -1,0 +1,371 @@
+<class>
+	<KEYWORD> class </KEYWORD> 
+	<Identifier>
+		Identifier: Main
+Category: class
+State: defined
+Index: N/A
+	</Identifier>
+	<SYMBOL> { </SYMBOL> 
+	<subroutineDec>
+		<KEYWORD> function </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: main
+Category: function
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<varDec>
+				<KEYWORD> var </KEYWORD> 
+				<IDENTIFIER> Array </IDENTIFIER> 
+				<Identifier>
+					Identifier: a
+Category: var
+State: defined
+Index: 0
+				</Identifier>
+				<SYMBOL> ; </SYMBOL> 
+			</varDec>
+			<varDec>
+				<KEYWORD> var </KEYWORD> 
+				<KEYWORD> int </KEYWORD> 
+				<Identifier>
+					Identifier: length
+Category: var
+State: defined
+Index: 1
+				</Identifier>
+				<SYMBOL> ; </SYMBOL> 
+			</varDec>
+			<varDec>
+				<KEYWORD> var </KEYWORD> 
+				<KEYWORD> int </KEYWORD> 
+				<Identifier>
+					Identifier: i
+Category: var
+State: defined
+Index: 2
+				</Identifier>
+				<SYMBOL> , </SYMBOL> 
+				<Identifier>
+					Identifier: sum
+Category: var
+State: defined
+Index: 3
+				</Identifier>
+				<SYMBOL> ; </SYMBOL> 
+			</varDec>
+			<statements>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: length
+Category: var
+State: used
+Index: 1
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Keyboard
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: readInt
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<STRING_CONST> How many numbers?  </STRING_CONST> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: a
+Category: var
+State: used
+Index: 0
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Array
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: new
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: length
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: i
+Category: var
+State: used
+Index: 2
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<INT_CONST> 0 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<whileStatement>
+					<KEYWORD> while </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: i
+Category: var
+State: used
+Index: 2
+							</Identifier>
+						</term>
+						<SYMBOL> &lt; </SYMBOL> 
+						<term>
+							<Identifier>
+								Identifier: length
+Category: var
+State: used
+Index: 1
+							</Identifier>
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: a[i]
+Category: var
+State: defined
+Index: 4
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Keyboard
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: readInt
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<STRING_CONST> Enter a number:  </STRING_CONST> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: sum
+Category: var
+State: used
+Index: 3
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: sum
+Category: var
+State: used
+Index: 3
+									</Identifier>
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<Identifier>
+										Identifier: a[i]
+Category: var
+State: used
+Index: 4
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: i
+Category: var
+State: used
+Index: 2
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: i
+Category: var
+State: used
+Index: 2
+									</Identifier>
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<INT_CONST> 1 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</whileStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: printString
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<STRING_CONST> The average is  </STRING_CONST> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: printInt
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: sum
+Category: var
+State: used
+Index: 3
+											</Identifier>
+										</term>
+										<SYMBOL> / </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: length
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+</class>
