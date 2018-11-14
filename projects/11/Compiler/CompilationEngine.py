@@ -410,6 +410,17 @@ class CompilationEngine:
             self.checkToken("(")
             self.compileExpression()
             self.checkToken(")")
+        elif self.tokenizer.currentTokenType == "STRING_CONST":
+            string = self.tokenizer.currentToken.replace("\"", "")
+            self.pushTerm(str(len(string)))
+            self.writer.writeCall("String.new", 1)
+            for char in string:
+                self.pushTerm(str(ord(char)))
+                self.writer.writeCall("String.appendChar", 2)
+            self.writeXml()
+            self.terms.append(self.tokenizer.currentToken)
+            self.tokenizer.advance()
+
         elif self.tokenizer.currentToken not in invalidKeywords:                #Term is a number/string/bool etc
             self.writeXml()
             self.terms.append(self.tokenizer.currentToken)
