@@ -237,9 +237,11 @@ class CompilationEngine:
         self.checkToken("let")
         varName = self.tokenizer.currentToken
         self.checkIdentifier("var", "var")
+        arrayFlag = False
         if self.tokenizer.currentToken == "[":                                  #if the left expression is an array the index needs to be be compiled
             self.checkToken("[")
             self.compileExpression()
+            arrayFlag = True
             self.checkToken("]")
             #self.pushTerm(varName)
             #self.writer.writePop("pointer", 0)
@@ -247,7 +249,8 @@ class CompilationEngine:
         self.compileExpression()
         if self.terms:                                                          #self.terms will be empty if the right expression was a subroutine call, thus we need to check before trying to push the expression
             self.pushTerm(self.terms.pop())
-        if self.terms:                                                          #self.terms will not be empty if the left expression was an array
+        if arrayFlag:
+            arrayFlag = False                                                          #self.terms will not be empty if the left expression was an array
             self.pushTerm(varName)                                              #this block of instuctions sets the pointer to the base address of the array + the index
             self.pushTerm(self.terms.pop())                                     #the right expression is then popped into the address indicated by the pointer
             self.writer.writeArithmetic("add")

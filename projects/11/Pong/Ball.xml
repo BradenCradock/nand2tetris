@@ -1,0 +1,3019 @@
+<class>
+	<KEYWORD> class </KEYWORD> 
+	<Identifier>
+		Identifier: Ball
+Category: class
+State: defined
+Index: N/A
+	</Identifier>
+	<SYMBOL> { </SYMBOL> 
+	<classVarDec>
+		<KEYWORD> field </KEYWORD> 
+		<KEYWORD> int </KEYWORD> 
+		<Identifier>
+			Identifier: x
+Category: field
+State: defined
+Index: 0
+		</Identifier>
+		<SYMBOL> , </SYMBOL> 
+		<Identifier>
+			Identifier: y
+Category: field
+State: defined
+Index: 1
+		</Identifier>
+		<SYMBOL> ; </SYMBOL> 
+	</classVarDec>
+	<classVarDec>
+		<KEYWORD> field </KEYWORD> 
+		<KEYWORD> int </KEYWORD> 
+		<Identifier>
+			Identifier: lengthx
+Category: field
+State: defined
+Index: 2
+		</Identifier>
+		<SYMBOL> , </SYMBOL> 
+		<Identifier>
+			Identifier: lengthy
+Category: field
+State: defined
+Index: 3
+		</Identifier>
+		<SYMBOL> ; </SYMBOL> 
+	</classVarDec>
+	<classVarDec>
+		<KEYWORD> field </KEYWORD> 
+		<KEYWORD> int </KEYWORD> 
+		<Identifier>
+			Identifier: d
+Category: field
+State: defined
+Index: 4
+		</Identifier>
+		<SYMBOL> , </SYMBOL> 
+		<Identifier>
+			Identifier: straightD
+Category: field
+State: defined
+Index: 5
+		</Identifier>
+		<SYMBOL> , </SYMBOL> 
+		<Identifier>
+			Identifier: diagonalD
+Category: field
+State: defined
+Index: 6
+		</Identifier>
+		<SYMBOL> ; </SYMBOL> 
+	</classVarDec>
+	<classVarDec>
+		<KEYWORD> field </KEYWORD> 
+		<KEYWORD> boolean </KEYWORD> 
+		<Identifier>
+			Identifier: invert
+Category: field
+State: defined
+Index: 7
+		</Identifier>
+		<SYMBOL> , </SYMBOL> 
+		<Identifier>
+			Identifier: positivex
+Category: field
+State: defined
+Index: 8
+		</Identifier>
+		<SYMBOL> , </SYMBOL> 
+		<Identifier>
+			Identifier: positivey
+Category: field
+State: defined
+Index: 9
+		</Identifier>
+		<SYMBOL> ; </SYMBOL> 
+	</classVarDec>
+	<classVarDec>
+		<KEYWORD> field </KEYWORD> 
+		<KEYWORD> int </KEYWORD> 
+		<Identifier>
+			Identifier: leftWall
+Category: field
+State: defined
+Index: 10
+		</Identifier>
+		<SYMBOL> , </SYMBOL> 
+		<Identifier>
+			Identifier: rightWall
+Category: field
+State: defined
+Index: 11
+		</Identifier>
+		<SYMBOL> , </SYMBOL> 
+		<Identifier>
+			Identifier: topWall
+Category: field
+State: defined
+Index: 12
+		</Identifier>
+		<SYMBOL> , </SYMBOL> 
+		<Identifier>
+			Identifier: bottomWall
+Category: field
+State: defined
+Index: 13
+		</Identifier>
+		<SYMBOL> ; </SYMBOL> 
+	</classVarDec>
+	<classVarDec>
+		<KEYWORD> field </KEYWORD> 
+		<KEYWORD> int </KEYWORD> 
+		<Identifier>
+			Identifier: wall
+Category: field
+State: defined
+Index: 14
+		</Identifier>
+		<SYMBOL> ; </SYMBOL> 
+	</classVarDec>
+	<subroutineDec>
+		<KEYWORD> constructor </KEYWORD> 
+		<IDENTIFIER> Ball </IDENTIFIER> 
+		<Identifier>
+			Identifier: new
+Category: constructor
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<parameterList>
+			<KEYWORD> int </KEYWORD> 
+			<Identifier>
+				Identifier: Ax
+Category: arg
+State: defined
+Index: 0
+			</Identifier>
+			<SYMBOL> , </SYMBOL> 
+			<KEYWORD> int </KEYWORD> 
+			<Identifier>
+				Identifier: Ay
+Category: arg
+State: defined
+Index: 1
+			</Identifier>
+			<SYMBOL> , </SYMBOL> 
+			<KEYWORD> int </KEYWORD> 
+			<Identifier>
+				Identifier: AleftWall
+Category: arg
+State: defined
+Index: 2
+			</Identifier>
+			<SYMBOL> , </SYMBOL> 
+			<KEYWORD> int </KEYWORD> 
+			<Identifier>
+				Identifier: ArightWall
+Category: arg
+State: defined
+Index: 3
+			</Identifier>
+			<SYMBOL> , </SYMBOL> 
+			<KEYWORD> int </KEYWORD> 
+			<Identifier>
+				Identifier: AtopWall
+Category: arg
+State: defined
+Index: 4
+			</Identifier>
+			<SYMBOL> , </SYMBOL> 
+			<KEYWORD> int </KEYWORD> 
+			<Identifier>
+				Identifier: AbottomWall
+Category: arg
+State: defined
+Index: 5
+			</Identifier>
+		</parameterList>
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: x
+Category: var
+State: used
+Index: 0
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Ax
+Category: var
+State: used
+Index: 0
+							</Identifier>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: y
+Category: var
+State: used
+Index: 1
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Ay
+Category: var
+State: used
+Index: 1
+							</Identifier>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: leftWall
+Category: var
+State: used
+Index: 10
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: AleftWall
+Category: var
+State: used
+Index: 2
+							</Identifier>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: rightWall
+Category: var
+State: used
+Index: 11
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: ArightWall
+Category: var
+State: used
+Index: 3
+							</Identifier>
+						</term>
+						<SYMBOL> - </SYMBOL> 
+						<term>
+							<INT_CONST> 6 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: topWall
+Category: var
+State: used
+Index: 12
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: AtopWall
+Category: var
+State: used
+Index: 4
+							</Identifier>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: bottomWall
+Category: var
+State: used
+Index: 13
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: AbottomWall
+Category: var
+State: used
+Index: 5
+							</Identifier>
+						</term>
+						<SYMBOL> - </SYMBOL> 
+						<term>
+							<INT_CONST> 6 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: wall
+Category: var
+State: used
+Index: 14
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<INT_CONST> 0 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: show
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<expression>
+						<term>
+							<KEYWORD> this </KEYWORD> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: dispose
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Memory
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: deAlloc
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<KEYWORD> this </KEYWORD> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: show
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Screen
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: setColor
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<KEYWORD> true </KEYWORD> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: draw
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: hide
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Screen
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: setColor
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<KEYWORD> false </KEYWORD> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: draw
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: draw
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Screen
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: drawRectangle
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: 0
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: 0
+											</Identifier>
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<INT_CONST> 5 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<INT_CONST> 5 </INT_CONST> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> int </KEYWORD> 
+		<Identifier>
+			Identifier: getLeft
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: x
+Category: var
+State: used
+Index: 0
+							</Identifier>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> int </KEYWORD> 
+		<Identifier>
+			Identifier: getRight
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: x
+Category: var
+State: used
+Index: 0
+							</Identifier>
+						</term>
+						<SYMBOL> + </SYMBOL> 
+						<term>
+							<INT_CONST> 5 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: setDestination
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<parameterList>
+			<KEYWORD> int </KEYWORD> 
+			<Identifier>
+				Identifier: destx
+Category: arg
+State: defined
+Index: 1
+			</Identifier>
+			<SYMBOL> , </SYMBOL> 
+			<KEYWORD> int </KEYWORD> 
+			<Identifier>
+				Identifier: desty
+Category: arg
+State: defined
+Index: 2
+			</Identifier>
+		</parameterList>
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<varDec>
+				<KEYWORD> var </KEYWORD> 
+				<KEYWORD> int </KEYWORD> 
+				<Identifier>
+					Identifier: dx
+Category: var
+State: defined
+Index: 0
+				</Identifier>
+				<SYMBOL> , </SYMBOL> 
+				<Identifier>
+					Identifier: dy
+Category: var
+State: defined
+Index: 1
+				</Identifier>
+				<SYMBOL> , </SYMBOL> 
+				<Identifier>
+					Identifier: temp
+Category: var
+State: defined
+Index: 2
+				</Identifier>
+				<SYMBOL> ; </SYMBOL> 
+			</varDec>
+			<statements>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: lengthx
+Category: var
+State: used
+Index: 2
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: destx
+Category: var
+State: used
+Index: 1
+							</Identifier>
+						</term>
+						<SYMBOL> - </SYMBOL> 
+						<term>
+							<Identifier>
+								Identifier: x
+Category: var
+State: used
+Index: 0
+							</Identifier>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: lengthy
+Category: var
+State: used
+Index: 3
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: desty
+Category: var
+State: used
+Index: 2
+							</Identifier>
+						</term>
+						<SYMBOL> - </SYMBOL> 
+						<term>
+							<Identifier>
+								Identifier: y
+Category: var
+State: used
+Index: 1
+							</Identifier>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: dx
+Category: var
+State: used
+Index: 0
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Math
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: abs
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: lengthx
+Category: var
+State: used
+Index: 2
+											</Identifier>
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: dy
+Category: var
+State: used
+Index: 1
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Math
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: abs
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: lengthy
+Category: var
+State: used
+Index: 3
+											</Identifier>
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: invert
+Category: var
+State: used
+Index: 7
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<SYMBOL> ( </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: dx
+Category: var
+State: used
+Index: 0
+									</Identifier>
+								</term>
+								<SYMBOL> &lt; </SYMBOL> 
+								<term>
+									<Identifier>
+										Identifier: dy
+Category: var
+State: used
+Index: 1
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ) </SYMBOL> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: invert
+Category: var
+State: used
+Index: 7
+							</Identifier>
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: temp
+Category: var
+State: used
+Index: 2
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: dx
+Category: var
+State: used
+Index: 0
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: dx
+Category: var
+State: used
+Index: 0
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: dy
+Category: var
+State: used
+Index: 1
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: dy
+Category: var
+State: used
+Index: 1
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: temp
+Category: var
+State: used
+Index: 2
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: positivex
+Category: var
+State: used
+Index: 8
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+										<SYMBOL> &lt; </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: desty
+Category: var
+State: used
+Index: 2
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: positivey
+Category: var
+State: used
+Index: 9
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: 0
+											</Identifier>
+										</term>
+										<SYMBOL> &lt; </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: destx
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+					<KEYWORD> else </KEYWORD> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: positivex
+Category: var
+State: used
+Index: 8
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: 0
+											</Identifier>
+										</term>
+										<SYMBOL> &lt; </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: destx
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: positivey
+Category: var
+State: used
+Index: 9
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+										<SYMBOL> &lt; </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: desty
+Category: var
+State: used
+Index: 2
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: d
+Category: var
+State: used
+Index: 4
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<SYMBOL> ( </SYMBOL> 
+							<expression>
+								<term>
+									<INT_CONST> 2 </INT_CONST> 
+								</term>
+								<SYMBOL> * </SYMBOL> 
+								<term>
+									<Identifier>
+										Identifier: dy
+Category: var
+State: used
+Index: 1
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ) </SYMBOL> 
+						</term>
+						<SYMBOL> - </SYMBOL> 
+						<term>
+							<Identifier>
+								Identifier: dx
+Category: var
+State: used
+Index: 0
+							</Identifier>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: straightD
+Category: var
+State: used
+Index: 5
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<INT_CONST> 2 </INT_CONST> 
+						</term>
+						<SYMBOL> * </SYMBOL> 
+						<term>
+							<Identifier>
+								Identifier: dy
+Category: var
+State: used
+Index: 1
+							</Identifier>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: diagonalD
+Category: var
+State: used
+Index: 6
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<INT_CONST> 2 </INT_CONST> 
+						</term>
+						<SYMBOL> * </SYMBOL> 
+						<term>
+							<SYMBOL> ( </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: dy
+Category: var
+State: used
+Index: 1
+									</Identifier>
+								</term>
+								<SYMBOL> - </SYMBOL> 
+								<term>
+									<Identifier>
+										Identifier: dx
+Category: var
+State: used
+Index: 0
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ) </SYMBOL> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> int </KEYWORD> 
+		<Identifier>
+			Identifier: move
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: hide
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: d
+Category: var
+State: used
+Index: 4
+							</Identifier>
+						</term>
+						<SYMBOL> &lt; </SYMBOL> 
+						<term>
+							<INT_CONST> 0 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: d
+Category: var
+State: used
+Index: 4
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: d
+Category: var
+State: used
+Index: 4
+									</Identifier>
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<Identifier>
+										Identifier: straightD
+Category: var
+State: used
+Index: 5
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+					<KEYWORD> else </KEYWORD> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: d
+Category: var
+State: used
+Index: 4
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: d
+Category: var
+State: used
+Index: 4
+									</Identifier>
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<Identifier>
+										Identifier: diagonalD
+Category: var
+State: used
+Index: 6
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<ifStatement>
+							<KEYWORD> if </KEYWORD> 
+							<SYMBOL> ( </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: positivey
+Category: var
+State: used
+Index: 9
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ) </SYMBOL> 
+							<SYMBOL> { </SYMBOL> 
+							<statements>
+								<ifStatement>
+									<KEYWORD> if </KEYWORD> 
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: invert
+Category: var
+State: used
+Index: 7
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+									<SYMBOL> { </SYMBOL> 
+									<statements>
+										<letStatement>
+											<KEYWORD> let </KEYWORD> 
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: 0
+											</Identifier>
+											<SYMBOL> = </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<INT_CONST> 4 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> ; </SYMBOL> 
+										</letStatement>
+									</statements>
+									<SYMBOL> } </SYMBOL> 
+									<KEYWORD> else </KEYWORD> 
+									<SYMBOL> { </SYMBOL> 
+									<statements>
+										<letStatement>
+											<KEYWORD> let </KEYWORD> 
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: 1
+											</Identifier>
+											<SYMBOL> = </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<INT_CONST> 4 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> ; </SYMBOL> 
+										</letStatement>
+									</statements>
+									<SYMBOL> } </SYMBOL> 
+								</ifStatement>
+							</statements>
+							<SYMBOL> } </SYMBOL> 
+							<KEYWORD> else </KEYWORD> 
+							<SYMBOL> { </SYMBOL> 
+							<statements>
+								<ifStatement>
+									<KEYWORD> if </KEYWORD> 
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: invert
+Category: var
+State: used
+Index: 7
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+									<SYMBOL> { </SYMBOL> 
+									<statements>
+										<letStatement>
+											<KEYWORD> let </KEYWORD> 
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: 0
+											</Identifier>
+											<SYMBOL> = </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+												<SYMBOL> - </SYMBOL> 
+												<term>
+													<INT_CONST> 4 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> ; </SYMBOL> 
+										</letStatement>
+									</statements>
+									<SYMBOL> } </SYMBOL> 
+									<KEYWORD> else </KEYWORD> 
+									<SYMBOL> { </SYMBOL> 
+									<statements>
+										<letStatement>
+											<KEYWORD> let </KEYWORD> 
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: 1
+											</Identifier>
+											<SYMBOL> = </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: y
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+												<SYMBOL> - </SYMBOL> 
+												<term>
+													<INT_CONST> 4 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> ; </SYMBOL> 
+										</letStatement>
+									</statements>
+									<SYMBOL> } </SYMBOL> 
+								</ifStatement>
+							</statements>
+							<SYMBOL> } </SYMBOL> 
+						</ifStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: positivex
+Category: var
+State: used
+Index: 8
+							</Identifier>
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<ifStatement>
+							<KEYWORD> if </KEYWORD> 
+							<SYMBOL> ( </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: invert
+Category: var
+State: used
+Index: 7
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ) </SYMBOL> 
+							<SYMBOL> { </SYMBOL> 
+							<statements>
+								<letStatement>
+									<KEYWORD> let </KEYWORD> 
+									<Identifier>
+										Identifier: y
+Category: var
+State: used
+Index: 1
+									</Identifier>
+									<SYMBOL> = </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<INT_CONST> 4 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> ; </SYMBOL> 
+								</letStatement>
+							</statements>
+							<SYMBOL> } </SYMBOL> 
+							<KEYWORD> else </KEYWORD> 
+							<SYMBOL> { </SYMBOL> 
+							<statements>
+								<letStatement>
+									<KEYWORD> let </KEYWORD> 
+									<Identifier>
+										Identifier: x
+Category: var
+State: used
+Index: 0
+									</Identifier>
+									<SYMBOL> = </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: 0
+											</Identifier>
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<INT_CONST> 4 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> ; </SYMBOL> 
+								</letStatement>
+							</statements>
+							<SYMBOL> } </SYMBOL> 
+						</ifStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+					<KEYWORD> else </KEYWORD> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<ifStatement>
+							<KEYWORD> if </KEYWORD> 
+							<SYMBOL> ( </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: invert
+Category: var
+State: used
+Index: 7
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ) </SYMBOL> 
+							<SYMBOL> { </SYMBOL> 
+							<statements>
+								<letStatement>
+									<KEYWORD> let </KEYWORD> 
+									<Identifier>
+										Identifier: y
+Category: var
+State: used
+Index: 1
+									</Identifier>
+									<SYMBOL> = </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+										<SYMBOL> - </SYMBOL> 
+										<term>
+											<INT_CONST> 4 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> ; </SYMBOL> 
+								</letStatement>
+							</statements>
+							<SYMBOL> } </SYMBOL> 
+							<KEYWORD> else </KEYWORD> 
+							<SYMBOL> { </SYMBOL> 
+							<statements>
+								<letStatement>
+									<KEYWORD> let </KEYWORD> 
+									<Identifier>
+										Identifier: x
+Category: var
+State: used
+Index: 0
+									</Identifier>
+									<SYMBOL> = </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: 0
+											</Identifier>
+										</term>
+										<SYMBOL> - </SYMBOL> 
+										<term>
+											<INT_CONST> 4 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> ; </SYMBOL> 
+								</letStatement>
+							</statements>
+							<SYMBOL> } </SYMBOL> 
+						</ifStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<SYMBOL> ~ </SYMBOL> 
+							<expression>
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: 0
+											</Identifier>
+										</term>
+										<SYMBOL> $gt; </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: leftWall
+Category: var
+State: used
+Index: 10
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+							</expression>
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: wall
+Category: var
+State: used
+Index: 14
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<INT_CONST> 1 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: x
+Category: var
+State: used
+Index: 0
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: leftWall
+Category: var
+State: used
+Index: 10
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<SYMBOL> ~ </SYMBOL> 
+							<expression>
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: x
+Category: var
+State: used
+Index: 0
+											</Identifier>
+										</term>
+										<SYMBOL> &lt; </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: rightWall
+Category: var
+State: used
+Index: 11
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+							</expression>
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: wall
+Category: var
+State: used
+Index: 14
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<INT_CONST> 2 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: x
+Category: var
+State: used
+Index: 0
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: rightWall
+Category: var
+State: used
+Index: 11
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<SYMBOL> ~ </SYMBOL> 
+							<expression>
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+										<SYMBOL> $gt; </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: topWall
+Category: var
+State: used
+Index: 12
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+							</expression>
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: wall
+Category: var
+State: used
+Index: 14
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<INT_CONST> 3 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: y
+Category: var
+State: used
+Index: 1
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: topWall
+Category: var
+State: used
+Index: 12
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<SYMBOL> ~ </SYMBOL> 
+							<expression>
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+										<SYMBOL> &lt; </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: bottomWall
+Category: var
+State: used
+Index: 13
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+							</expression>
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: wall
+Category: var
+State: used
+Index: 14
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<INT_CONST> 4 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: y
+Category: var
+State: used
+Index: 1
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: bottomWall
+Category: var
+State: used
+Index: 13
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: show
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: wall
+Category: var
+State: used
+Index: 14
+							</Identifier>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> method </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: bounce
+Category: method
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<parameterList>
+			<KEYWORD> int </KEYWORD> 
+			<Identifier>
+				Identifier: bouncingDirection
+Category: arg
+State: defined
+Index: 1
+			</Identifier>
+		</parameterList>
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<varDec>
+				<KEYWORD> var </KEYWORD> 
+				<KEYWORD> int </KEYWORD> 
+				<Identifier>
+					Identifier: newx
+Category: var
+State: defined
+Index: 0
+				</Identifier>
+				<SYMBOL> , </SYMBOL> 
+				<Identifier>
+					Identifier: newy
+Category: var
+State: defined
+Index: 1
+				</Identifier>
+				<SYMBOL> , </SYMBOL> 
+				<Identifier>
+					Identifier: divLengthx
+Category: var
+State: defined
+Index: 2
+				</Identifier>
+				<SYMBOL> , </SYMBOL> 
+				<Identifier>
+					Identifier: divLengthy
+Category: var
+State: defined
+Index: 3
+				</Identifier>
+				<SYMBOL> , </SYMBOL> 
+				<Identifier>
+					Identifier: factor
+Category: var
+State: defined
+Index: 4
+				</Identifier>
+				<SYMBOL> ; </SYMBOL> 
+			</varDec>
+			<statements>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: divLengthx
+Category: var
+State: used
+Index: 2
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: lengthx
+Category: var
+State: used
+Index: 2
+							</Identifier>
+						</term>
+						<SYMBOL> / </SYMBOL> 
+						<term>
+							<INT_CONST> 10 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: divLengthy
+Category: var
+State: used
+Index: 3
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: lengthy
+Category: var
+State: used
+Index: 3
+							</Identifier>
+						</term>
+						<SYMBOL> / </SYMBOL> 
+						<term>
+							<INT_CONST> 10 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: bouncingDirection
+Category: var
+State: used
+Index: 1
+							</Identifier>
+						</term>
+						<SYMBOL> = </SYMBOL> 
+						<term>
+							<INT_CONST> 0 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: factor
+Category: var
+State: used
+Index: 4
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<INT_CONST> 10 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+					<KEYWORD> else </KEYWORD> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<ifStatement>
+							<KEYWORD> if </KEYWORD> 
+							<SYMBOL> ( </SYMBOL> 
+							<expression>
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<SYMBOL> ( </SYMBOL> 
+											<expression>
+												<term>
+													<SYMBOL> ~ </SYMBOL> 
+													<expression>
+														<term>
+															<SYMBOL> ( </SYMBOL> 
+															<expression>
+																<term>
+																	<Identifier>
+																		Identifier: lengthx
+Category: var
+State: used
+Index: 2
+																	</Identifier>
+																</term>
+																<SYMBOL> &lt; </SYMBOL> 
+																<term>
+																	<INT_CONST> 0 </INT_CONST> 
+																</term>
+															</expression>
+															<SYMBOL> ) </SYMBOL> 
+														</term>
+													</expression>
+												</term>
+											</expression>
+											<SYMBOL> ) </SYMBOL> 
+										</term>
+										<SYMBOL> &amp; </SYMBOL> 
+										<term>
+											<SYMBOL> ( </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: bouncingDirection
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+												<SYMBOL> = </SYMBOL> 
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> ) </SYMBOL> 
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+								<SYMBOL> | </SYMBOL> 
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<SYMBOL> ( </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: lengthx
+Category: var
+State: used
+Index: 2
+													</Identifier>
+												</term>
+												<SYMBOL> &lt; </SYMBOL> 
+												<term>
+													<INT_CONST> 0 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> ) </SYMBOL> 
+										</term>
+										<SYMBOL> &amp; </SYMBOL> 
+										<term>
+											<SYMBOL> ( </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: bouncingDirection
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+												<SYMBOL> = </SYMBOL> 
+												<term>
+													<SYMBOL> ( </SYMBOL> 
+													<expression>
+														<term>
+															<SYMBOL> - </SYMBOL> 
+															<expression>
+																<term>
+																	<INT_CONST> 1 </INT_CONST> 
+																</term>
+															</expression>
+														</term>
+													</expression>
+													<SYMBOL> ) </SYMBOL> 
+												</term>
+											</expression>
+											<SYMBOL> ) </SYMBOL> 
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+							</expression>
+							<SYMBOL> ) </SYMBOL> 
+							<SYMBOL> { </SYMBOL> 
+							<statements>
+								<letStatement>
+									<KEYWORD> let </KEYWORD> 
+									<Identifier>
+										Identifier: factor
+Category: var
+State: used
+Index: 4
+									</Identifier>
+									<SYMBOL> = </SYMBOL> 
+									<expression>
+										<term>
+											<INT_CONST> 20 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> ; </SYMBOL> 
+								</letStatement>
+							</statements>
+							<SYMBOL> } </SYMBOL> 
+							<KEYWORD> else </KEYWORD> 
+							<SYMBOL> { </SYMBOL> 
+							<statements>
+								<letStatement>
+									<KEYWORD> let </KEYWORD> 
+									<Identifier>
+										Identifier: factor
+Category: var
+State: used
+Index: 4
+									</Identifier>
+									<SYMBOL> = </SYMBOL> 
+									<expression>
+										<term>
+											<INT_CONST> 5 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> ; </SYMBOL> 
+								</letStatement>
+							</statements>
+							<SYMBOL> } </SYMBOL> 
+						</ifStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: wall
+Category: var
+State: used
+Index: 14
+							</Identifier>
+						</term>
+						<SYMBOL> = </SYMBOL> 
+						<term>
+							<INT_CONST> 1 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: newx
+Category: var
+State: used
+Index: 0
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<INT_CONST> 506 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: newy
+Category: var
+State: used
+Index: 1
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: divLengthy
+Category: var
+State: used
+Index: 3
+											</Identifier>
+										</term>
+										<SYMBOL> * </SYMBOL> 
+										<term>
+											<SYMBOL> ( </SYMBOL> 
+											<expression>
+												<term>
+													<SYMBOL> - </SYMBOL> 
+													<expression>
+														<term>
+															<INT_CONST> 50 </INT_CONST> 
+														</term>
+													</expression>
+												</term>
+											</expression>
+											<SYMBOL> ) </SYMBOL> 
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+								<SYMBOL> / </SYMBOL> 
+								<term>
+									<Identifier>
+										Identifier: divLengthx
+Category: var
+State: used
+Index: 2
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: newy
+Category: var
+State: used
+Index: 1
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: y
+Category: var
+State: used
+Index: 1
+									</Identifier>
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: newy
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+										<SYMBOL> * </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: factor
+Category: var
+State: used
+Index: 4
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+					<KEYWORD> else </KEYWORD> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<ifStatement>
+							<KEYWORD> if </KEYWORD> 
+							<SYMBOL> ( </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: wall
+Category: var
+State: used
+Index: 14
+									</Identifier>
+								</term>
+								<SYMBOL> = </SYMBOL> 
+								<term>
+									<INT_CONST> 2 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ) </SYMBOL> 
+							<SYMBOL> { </SYMBOL> 
+							<statements>
+								<letStatement>
+									<KEYWORD> let </KEYWORD> 
+									<Identifier>
+										Identifier: newx
+Category: var
+State: used
+Index: 0
+									</Identifier>
+									<SYMBOL> = </SYMBOL> 
+									<expression>
+										<term>
+											<INT_CONST> 0 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> ; </SYMBOL> 
+								</letStatement>
+								<letStatement>
+									<KEYWORD> let </KEYWORD> 
+									<Identifier>
+										Identifier: newy
+Category: var
+State: used
+Index: 1
+									</Identifier>
+									<SYMBOL> = </SYMBOL> 
+									<expression>
+										<term>
+											<SYMBOL> ( </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: divLengthy
+Category: var
+State: used
+Index: 3
+													</Identifier>
+												</term>
+												<SYMBOL> * </SYMBOL> 
+												<term>
+													<INT_CONST> 50 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> ) </SYMBOL> 
+										</term>
+										<SYMBOL> / </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: divLengthx
+Category: var
+State: used
+Index: 2
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> ; </SYMBOL> 
+								</letStatement>
+								<letStatement>
+									<KEYWORD> let </KEYWORD> 
+									<Identifier>
+										Identifier: newy
+Category: var
+State: used
+Index: 1
+									</Identifier>
+									<SYMBOL> = </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: y
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+										<SYMBOL> + </SYMBOL> 
+										<term>
+											<SYMBOL> ( </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: newy
+Category: var
+State: used
+Index: 1
+													</Identifier>
+												</term>
+												<SYMBOL> * </SYMBOL> 
+												<term>
+													<Identifier>
+														Identifier: factor
+Category: var
+State: used
+Index: 4
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> ) </SYMBOL> 
+										</term>
+									</expression>
+									<SYMBOL> ; </SYMBOL> 
+								</letStatement>
+							</statements>
+							<SYMBOL> } </SYMBOL> 
+							<KEYWORD> else </KEYWORD> 
+							<SYMBOL> { </SYMBOL> 
+							<statements>
+								<ifStatement>
+									<KEYWORD> if </KEYWORD> 
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: wall
+Category: var
+State: used
+Index: 14
+											</Identifier>
+										</term>
+										<SYMBOL> = </SYMBOL> 
+										<term>
+											<INT_CONST> 3 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+									<SYMBOL> { </SYMBOL> 
+									<statements>
+										<letStatement>
+											<KEYWORD> let </KEYWORD> 
+											<Identifier>
+												Identifier: newy
+Category: var
+State: used
+Index: 1
+											</Identifier>
+											<SYMBOL> = </SYMBOL> 
+											<expression>
+												<term>
+													<INT_CONST> 250 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> ; </SYMBOL> 
+										</letStatement>
+										<letStatement>
+											<KEYWORD> let </KEYWORD> 
+											<Identifier>
+												Identifier: newx
+Category: var
+State: used
+Index: 0
+											</Identifier>
+											<SYMBOL> = </SYMBOL> 
+											<expression>
+												<term>
+													<SYMBOL> ( </SYMBOL> 
+													<expression>
+														<term>
+															<Identifier>
+																Identifier: divLengthx
+Category: var
+State: used
+Index: 2
+															</Identifier>
+														</term>
+														<SYMBOL> * </SYMBOL> 
+														<term>
+															<SYMBOL> ( </SYMBOL> 
+															<expression>
+																<term>
+																	<SYMBOL> - </SYMBOL> 
+																	<expression>
+																		<term>
+																			<INT_CONST> 25 </INT_CONST> 
+																		</term>
+																	</expression>
+																</term>
+															</expression>
+															<SYMBOL> ) </SYMBOL> 
+														</term>
+													</expression>
+													<SYMBOL> ) </SYMBOL> 
+												</term>
+												<SYMBOL> / </SYMBOL> 
+												<term>
+													<Identifier>
+														Identifier: divLengthy
+Category: var
+State: used
+Index: 3
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> ; </SYMBOL> 
+										</letStatement>
+										<letStatement>
+											<KEYWORD> let </KEYWORD> 
+											<Identifier>
+												Identifier: newx
+Category: var
+State: used
+Index: 0
+											</Identifier>
+											<SYMBOL> = </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<SYMBOL> ( </SYMBOL> 
+													<expression>
+														<term>
+															<Identifier>
+																Identifier: newx
+Category: var
+State: used
+Index: 0
+															</Identifier>
+														</term>
+														<SYMBOL> * </SYMBOL> 
+														<term>
+															<Identifier>
+																Identifier: factor
+Category: var
+State: used
+Index: 4
+															</Identifier>
+														</term>
+													</expression>
+													<SYMBOL> ) </SYMBOL> 
+												</term>
+											</expression>
+											<SYMBOL> ; </SYMBOL> 
+										</letStatement>
+									</statements>
+									<SYMBOL> } </SYMBOL> 
+									<KEYWORD> else </KEYWORD> 
+									<SYMBOL> { </SYMBOL> 
+									<statements>
+										<letStatement>
+											<KEYWORD> let </KEYWORD> 
+											<Identifier>
+												Identifier: newy
+Category: var
+State: used
+Index: 1
+											</Identifier>
+											<SYMBOL> = </SYMBOL> 
+											<expression>
+												<term>
+													<INT_CONST> 0 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> ; </SYMBOL> 
+										</letStatement>
+										<letStatement>
+											<KEYWORD> let </KEYWORD> 
+											<Identifier>
+												Identifier: newx
+Category: var
+State: used
+Index: 0
+											</Identifier>
+											<SYMBOL> = </SYMBOL> 
+											<expression>
+												<term>
+													<SYMBOL> ( </SYMBOL> 
+													<expression>
+														<term>
+															<Identifier>
+																Identifier: divLengthx
+Category: var
+State: used
+Index: 2
+															</Identifier>
+														</term>
+														<SYMBOL> * </SYMBOL> 
+														<term>
+															<INT_CONST> 25 </INT_CONST> 
+														</term>
+													</expression>
+													<SYMBOL> ) </SYMBOL> 
+												</term>
+												<SYMBOL> / </SYMBOL> 
+												<term>
+													<Identifier>
+														Identifier: divLengthy
+Category: var
+State: used
+Index: 3
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> ; </SYMBOL> 
+										</letStatement>
+										<letStatement>
+											<KEYWORD> let </KEYWORD> 
+											<Identifier>
+												Identifier: newx
+Category: var
+State: used
+Index: 0
+											</Identifier>
+											<SYMBOL> = </SYMBOL> 
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: x
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+												<SYMBOL> + </SYMBOL> 
+												<term>
+													<SYMBOL> ( </SYMBOL> 
+													<expression>
+														<term>
+															<Identifier>
+																Identifier: newx
+Category: var
+State: used
+Index: 0
+															</Identifier>
+														</term>
+														<SYMBOL> * </SYMBOL> 
+														<term>
+															<Identifier>
+																Identifier: factor
+Category: var
+State: used
+Index: 4
+															</Identifier>
+														</term>
+													</expression>
+													<SYMBOL> ) </SYMBOL> 
+												</term>
+											</expression>
+											<SYMBOL> ; </SYMBOL> 
+										</letStatement>
+									</statements>
+									<SYMBOL> } </SYMBOL> 
+								</ifStatement>
+							</statements>
+							<SYMBOL> } </SYMBOL> 
+						</ifStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: setDestination
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: newx
+Category: var
+State: used
+Index: 0
+											</Identifier>
+										</term>
+									</expression>
+									<SYMBOL> , </SYMBOL> 
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: newy
+Category: var
+State: used
+Index: 1
+											</Identifier>
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+</class>
