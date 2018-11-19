@@ -1,0 +1,1445 @@
+<class>
+	<KEYWORD> class </KEYWORD> 
+	<Identifier>
+		Identifier: Main
+Category: class
+State: defined
+Index: N/A
+	</Identifier>
+	<SYMBOL> { </SYMBOL> 
+	<subroutineDec>
+		<KEYWORD> function </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: main
+Category: function
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<varDec>
+				<KEYWORD> var </KEYWORD> 
+				<IDENTIFIER> Array </IDENTIFIER> 
+				<Identifier>
+					Identifier: a
+Category: var
+State: defined
+Index: 0
+				</Identifier>
+				<SYMBOL> , </SYMBOL> 
+				<Identifier>
+					Identifier: b
+Category: var
+State: defined
+Index: 1
+				</Identifier>
+				<SYMBOL> , </SYMBOL> 
+				<Identifier>
+					Identifier: c
+Category: var
+State: defined
+Index: 2
+				</Identifier>
+				<SYMBOL> ; </SYMBOL> 
+			</varDec>
+			<statements>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: a
+Category: var
+State: used
+Index: 0
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Array
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: new
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<INT_CONST> 10 </INT_CONST> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: b
+Category: var
+State: used
+Index: 1
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Array
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: new
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<INT_CONST> 5 </INT_CONST> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: c
+Category: var
+State: used
+Index: 2
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Array
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: new
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<INT_CONST> 1 </INT_CONST> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: a
+Category: var
+State: used
+Index: 0
+					</Identifier>
+					<SYMBOL> [ </SYMBOL> 
+					<expression>
+						<term>
+							<INT_CONST> 3 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ] </SYMBOL> 
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<INT_CONST> 2 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: a
+Category: var
+State: used
+Index: 0
+					</Identifier>
+					<SYMBOL> [ </SYMBOL> 
+					<expression>
+						<term>
+							<INT_CONST> 4 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ] </SYMBOL> 
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<INT_CONST> 8 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: a
+Category: var
+State: used
+Index: 0
+					</Identifier>
+					<SYMBOL> [ </SYMBOL> 
+					<expression>
+						<term>
+							<INT_CONST> 5 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ] </SYMBOL> 
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<INT_CONST> 4 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: b
+Category: var
+State: used
+Index: 1
+					</Identifier>
+					<SYMBOL> [ </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: a
+Category: var
+State: used
+Index: 0
+							</Identifier>
+							<SYMBOL> [ </SYMBOL> 
+							<expression>
+								<term>
+									<INT_CONST> 3 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ] </SYMBOL> 
+						</term>
+					</expression>
+					<SYMBOL> ] </SYMBOL> 
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: a
+Category: var
+State: used
+Index: 0
+							</Identifier>
+							<SYMBOL> [ </SYMBOL> 
+							<expression>
+								<term>
+									<INT_CONST> 3 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ] </SYMBOL> 
+						</term>
+						<SYMBOL> + </SYMBOL> 
+						<term>
+							<INT_CONST> 3 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: a
+Category: var
+State: used
+Index: 0
+					</Identifier>
+					<SYMBOL> [ </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: b
+Category: var
+State: used
+Index: 1
+							</Identifier>
+							<SYMBOL> [ </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: a
+Category: var
+State: used
+Index: 0
+									</Identifier>
+									<SYMBOL> [ </SYMBOL> 
+									<expression>
+										<term>
+											<INT_CONST> 3 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> ] </SYMBOL> 
+								</term>
+							</expression>
+							<SYMBOL> ] </SYMBOL> 
+						</term>
+					</expression>
+					<SYMBOL> ] </SYMBOL> 
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: a
+Category: var
+State: used
+Index: 0
+							</Identifier>
+							<SYMBOL> [ </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: a
+Category: var
+State: used
+Index: 0
+									</Identifier>
+									<SYMBOL> [ </SYMBOL> 
+									<expression>
+										<term>
+											<INT_CONST> 5 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> ] </SYMBOL> 
+								</term>
+							</expression>
+							<SYMBOL> ] </SYMBOL> 
+						</term>
+						<SYMBOL> * </SYMBOL> 
+						<term>
+							<Identifier>
+								Identifier: b
+Category: var
+State: used
+Index: 1
+							</Identifier>
+							<SYMBOL> [ </SYMBOL> 
+							<expression>
+								<term>
+									<SYMBOL> ( </SYMBOL> 
+									<expression>
+										<term>
+											<SYMBOL> ( </SYMBOL> 
+											<expression>
+												<term>
+													<INT_CONST> 7 </INT_CONST> 
+												</term>
+												<SYMBOL> - </SYMBOL> 
+												<term>
+													<Identifier>
+														Identifier: a
+Category: var
+State: used
+Index: 0
+													</Identifier>
+													<SYMBOL> [ </SYMBOL> 
+													<expression>
+														<term>
+															<INT_CONST> 3 </INT_CONST> 
+														</term>
+													</expression>
+													<SYMBOL> ] </SYMBOL> 
+												</term>
+											</expression>
+											<SYMBOL> ) </SYMBOL> 
+										</term>
+										<SYMBOL> - </SYMBOL> 
+										<term>
+											<Identifier>
+												Identifier: Main
+Category: function
+State: used
+Index: N/A
+											</Identifier>
+											<subroutineCall>
+												<SYMBOL> . </SYMBOL> 
+												<Identifier>
+													Identifier: double
+Category: function
+State: used
+Index: N/A
+												</Identifier>
+												<SYMBOL> ( </SYMBOL> 
+												<expressionList>
+													<expression>
+														<term>
+															<INT_CONST> 2 </INT_CONST> 
+														</term>
+													</expression>
+												</expressionList>
+												<SYMBOL> ) </SYMBOL> 
+											</subroutineCall>
+										</term>
+									</expression>
+									<SYMBOL> ) </SYMBOL> 
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<INT_CONST> 1 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ] </SYMBOL> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: c
+Category: var
+State: used
+Index: 2
+					</Identifier>
+					<SYMBOL> [ </SYMBOL> 
+					<expression>
+						<term>
+							<INT_CONST> 0 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ] </SYMBOL> 
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<KEYWORD> null </KEYWORD> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: c
+Category: var
+State: used
+Index: 2
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: c
+Category: var
+State: used
+Index: 2
+							</Identifier>
+							<SYMBOL> [ </SYMBOL> 
+							<expression>
+								<term>
+									<INT_CONST> 0 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ] </SYMBOL> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: printString
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<STRING_CONST> Test 1: expected result: 5 ; actual result:  </STRING_CONST> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: printInt
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: b
+Category: var
+State: used
+Index: 1
+											</Identifier>
+											<SYMBOL> [ </SYMBOL> 
+											<expression>
+												<term>
+													<INT_CONST> 2 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> ] </SYMBOL> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: println
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: printString
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<STRING_CONST> Test 2: expected result: 40 ; actual result:  </STRING_CONST> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: printInt
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: a
+Category: var
+State: used
+Index: 0
+											</Identifier>
+											<SYMBOL> [ </SYMBOL> 
+											<expression>
+												<term>
+													<INT_CONST> 5 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> ] </SYMBOL> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: println
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: printString
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<STRING_CONST> Test 3: expected result: 0 ; actual result:  </STRING_CONST> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: printInt
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: c
+Category: var
+State: used
+Index: 2
+											</Identifier>
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: println
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<letStatement>
+					<KEYWORD> let </KEYWORD> 
+					<Identifier>
+						Identifier: c
+Category: var
+State: used
+Index: 2
+					</Identifier>
+					<SYMBOL> = </SYMBOL> 
+					<expression>
+						<term>
+							<KEYWORD> null </KEYWORD> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</letStatement>
+				<ifStatement>
+					<KEYWORD> if </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: c
+Category: var
+State: used
+Index: 2
+							</Identifier>
+						</term>
+						<SYMBOL> = </SYMBOL> 
+						<term>
+							<KEYWORD> null </KEYWORD> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<doStatement>
+							<KEYWORD> do </KEYWORD> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Main
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: fill
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<Identifier>
+														Identifier: a
+Category: var
+State: used
+Index: 0
+													</Identifier>
+												</term>
+											</expression>
+											<SYMBOL> , </SYMBOL> 
+											<expression>
+												<term>
+													<INT_CONST> 10 </INT_CONST> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</doStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: c
+Category: var
+State: used
+Index: 2
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: a
+Category: var
+State: used
+Index: 0
+									</Identifier>
+									<SYMBOL> [ </SYMBOL> 
+									<expression>
+										<term>
+											<INT_CONST> 3 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> ] </SYMBOL> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: c
+Category: var
+State: used
+Index: 2
+							</Identifier>
+							<SYMBOL> [ </SYMBOL> 
+							<expression>
+								<term>
+									<INT_CONST> 1 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ] </SYMBOL> 
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<INT_CONST> 33 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: c
+Category: var
+State: used
+Index: 2
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: a
+Category: var
+State: used
+Index: 0
+									</Identifier>
+									<SYMBOL> [ </SYMBOL> 
+									<expression>
+										<term>
+											<INT_CONST> 7 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> ] </SYMBOL> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: c
+Category: var
+State: used
+Index: 2
+							</Identifier>
+							<SYMBOL> [ </SYMBOL> 
+							<expression>
+								<term>
+									<INT_CONST> 1 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ] </SYMBOL> 
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<INT_CONST> 77 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: b
+Category: var
+State: used
+Index: 1
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: a
+Category: var
+State: used
+Index: 0
+									</Identifier>
+									<SYMBOL> [ </SYMBOL> 
+									<expression>
+										<term>
+											<INT_CONST> 3 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> ] </SYMBOL> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: b
+Category: var
+State: used
+Index: 1
+							</Identifier>
+							<SYMBOL> [ </SYMBOL> 
+							<expression>
+								<term>
+									<INT_CONST> 1 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ] </SYMBOL> 
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: b
+Category: var
+State: used
+Index: 1
+									</Identifier>
+									<SYMBOL> [ </SYMBOL> 
+									<expression>
+										<term>
+											<INT_CONST> 1 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> ] </SYMBOL> 
+								</term>
+								<SYMBOL> + </SYMBOL> 
+								<term>
+									<Identifier>
+										Identifier: c
+Category: var
+State: used
+Index: 2
+									</Identifier>
+									<SYMBOL> [ </SYMBOL> 
+									<expression>
+										<term>
+											<INT_CONST> 1 </INT_CONST> 
+										</term>
+									</expression>
+									<SYMBOL> ] </SYMBOL> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</ifStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: printString
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<STRING_CONST> Test 4: expected result: 77 ; actual result:  </STRING_CONST> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: printInt
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: c
+Category: var
+State: used
+Index: 2
+											</Identifier>
+											<SYMBOL> [ </SYMBOL> 
+											<expression>
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> ] </SYMBOL> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: println
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: printString
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<STRING_CONST> Test 5: expected result: 110 ; actual result:  </STRING_CONST> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: printInt
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+									<expression>
+										<term>
+											<Identifier>
+												Identifier: b
+Category: var
+State: used
+Index: 1
+											</Identifier>
+											<SYMBOL> [ </SYMBOL> 
+											<expression>
+												<term>
+													<INT_CONST> 1 </INT_CONST> 
+												</term>
+											</expression>
+											<SYMBOL> ] </SYMBOL> 
+										</term>
+									</expression>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<doStatement>
+					<KEYWORD> do </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: Output
+Category: function
+State: used
+Index: N/A
+							</Identifier>
+							<subroutineCall>
+								<SYMBOL> . </SYMBOL> 
+								<Identifier>
+									Identifier: println
+Category: function
+State: used
+Index: N/A
+								</Identifier>
+								<SYMBOL> ( </SYMBOL> 
+								<expressionList>
+								</expressionList>
+								<SYMBOL> ) </SYMBOL> 
+							</subroutineCall>
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</doStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> function </KEYWORD> 
+		<KEYWORD> int </KEYWORD> 
+		<Identifier>
+			Identifier: double
+Category: function
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<parameterList>
+			<KEYWORD> int </KEYWORD> 
+			<Identifier>
+				Identifier: a
+Category: arg
+State: defined
+Index: 0
+			</Identifier>
+		</parameterList>
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: a
+Category: var
+State: used
+Index: 0
+							</Identifier>
+						</term>
+						<SYMBOL> * </SYMBOL> 
+						<term>
+							<INT_CONST> 2 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<KEYWORD> function </KEYWORD> 
+		<KEYWORD> void </KEYWORD> 
+		<Identifier>
+			Identifier: fill
+Category: function
+State: defined
+Index: N/A
+		</Identifier>
+		<SYMBOL> ( </SYMBOL> 
+		<parameterList>
+			<IDENTIFIER> Array </IDENTIFIER> 
+			<Identifier>
+				Identifier: a
+Category: arg
+State: defined
+Index: 0
+			</Identifier>
+			<SYMBOL> , </SYMBOL> 
+			<KEYWORD> int </KEYWORD> 
+			<Identifier>
+				Identifier: size
+Category: arg
+State: defined
+Index: 1
+			</Identifier>
+		</parameterList>
+		<SYMBOL> ) </SYMBOL> 
+		<subroutineBody>
+			<SYMBOL> { </SYMBOL> 
+			<statements>
+				<whileStatement>
+					<KEYWORD> while </KEYWORD> 
+					<SYMBOL> ( </SYMBOL> 
+					<expression>
+						<term>
+							<Identifier>
+								Identifier: size
+Category: var
+State: used
+Index: 1
+							</Identifier>
+						</term>
+						<SYMBOL> $gt; </SYMBOL> 
+						<term>
+							<INT_CONST> 0 </INT_CONST> 
+						</term>
+					</expression>
+					<SYMBOL> ) </SYMBOL> 
+					<SYMBOL> { </SYMBOL> 
+					<statements>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: size
+Category: var
+State: used
+Index: 1
+							</Identifier>
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: size
+Category: var
+State: used
+Index: 1
+									</Identifier>
+								</term>
+								<SYMBOL> - </SYMBOL> 
+								<term>
+									<INT_CONST> 1 </INT_CONST> 
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+						<letStatement>
+							<KEYWORD> let </KEYWORD> 
+							<Identifier>
+								Identifier: a
+Category: var
+State: used
+Index: 0
+							</Identifier>
+							<SYMBOL> [ </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: size
+Category: var
+State: used
+Index: 1
+									</Identifier>
+								</term>
+							</expression>
+							<SYMBOL> ] </SYMBOL> 
+							<SYMBOL> = </SYMBOL> 
+							<expression>
+								<term>
+									<Identifier>
+										Identifier: Array
+Category: function
+State: used
+Index: N/A
+									</Identifier>
+									<subroutineCall>
+										<SYMBOL> . </SYMBOL> 
+										<Identifier>
+											Identifier: new
+Category: function
+State: used
+Index: N/A
+										</Identifier>
+										<SYMBOL> ( </SYMBOL> 
+										<expressionList>
+											<expression>
+												<term>
+													<INT_CONST> 3 </INT_CONST> 
+												</term>
+											</expression>
+										</expressionList>
+										<SYMBOL> ) </SYMBOL> 
+									</subroutineCall>
+								</term>
+							</expression>
+							<SYMBOL> ; </SYMBOL> 
+						</letStatement>
+					</statements>
+					<SYMBOL> } </SYMBOL> 
+				</whileStatement>
+				<returnStatement>
+					<KEYWORD> return </KEYWORD> 
+					<SYMBOL> ; </SYMBOL> 
+				</returnStatement>
+			</statements>
+			<SYMBOL> } </SYMBOL> 
+		</subroutineBody>
+	</subroutineDec>
+</class>
