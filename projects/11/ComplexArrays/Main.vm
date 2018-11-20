@@ -63,7 +63,15 @@ push this 0
 add
 pop pointer 0
 push this 0
+push local 1
+add
+pop pointer 0
+push this 0
 call Math.multiply 2
+push local 0
+add
+pop pointer 0
+push this 0
 push local 0
 push local 1
 push local 0
@@ -439,6 +447,10 @@ add
 pop pointer 0
 push this 0
 add
+push local 1
+add
+pop pointer 0
+push this 0
 push local 1
 push constant 1
 add

@@ -247,6 +247,8 @@ class CompilationEngine:
             #self.writer.writePop("pointer", 0)
         self.checkToken("=")
         self.compileExpression()
+        print(self.terms)
+        print(" ")
         if self.terms:                                                          #self.terms will be empty if the right expression was a subroutine call, thus we need to check before trying to push the expression
             self.pushTerm(self.terms.pop())
         if arrayFlag:
@@ -496,8 +498,8 @@ class CompilationEngine:
             self.writer.writeArithmetic("neg")
         elif term ==  "false":
             self.writer.writePush("constant", 0)
-        elif "[" in term:                                                       #Term is an array
-            noIndex = re.sub(r'<.+?>', '', term)
+        elif "[" in term:                                                     #Term is an array
+            noIndex = re.sub(r'\[.*\]', '', term)
             if " " not in noIndex:
                 array = term.split("[")[0]
                 self.writer.writePush(termKindDict[self.symbolTable.kindOf(array)], self.symbolTable.indexOf(array))
