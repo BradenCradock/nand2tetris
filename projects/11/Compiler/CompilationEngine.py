@@ -247,9 +247,9 @@ class CompilationEngine:
         self.checkIdentifier("var", "var")
         arrayFlag = False
         if self.tokenizer.currentToken == "[":                                  #if the left expression is an array the index needs to be be compiled
+            arrayFlag = True
             self.checkToken("[")
             self.compileExpression()
-            arrayFlag = True
             self.checkToken("]")
             self.writer.writePush(termKindDict[self.symbolTable.kindOf(varName)], self.symbolTable.indexOf(varName))
             index = self.terms.pop()
@@ -257,13 +257,13 @@ class CompilationEngine:
             self.writer.writeArithmetic("add")
         self.checkToken("=")
         self.compileExpression()
-        print(self.terms)
-        print(" ")
         if self.terms:                                                          #self.terms will be empty if the right expression was a subroutine call, thus we need to check before trying to push the expression
             self.pushTerm(self.terms.pop())
         if arrayFlag:
-            arrayFlag = False                                                          #self.terms will not be empty if the left expression was an array
+            arrayFlag = False
+            self.writer.writePop("temp", 0)                                                          #self.terms will not be empty if the left expression was an array
             self.writer.writePop("pointer", 0)
+            self.writer.writePush("temp", 0)
             self.writer.writePop("this", 0)
         elif self.symbolTable.kindOf(varName) is not None:                      #if the left expression is a variable that exists then the right expression is popped into that variables address
             self.writer.writePop(termKindDict[self.symbolTable.kindOf(varName)], self.symbolTable.indexOf(varName))
@@ -358,8 +358,29 @@ class CompilationEngine:
             self.terms.append(str(eval(term1 + operator + term2)))
             return
 
+
         self.pushTerm(term1)
-        self.pushTerm(term2)
+        if "[" in term2:
+            termKindDict = {
+                "ARG"   : "argument",
+                "VAR"   : "local",
+                "STATIC": "static",
+                "FIELD" : "this"
+            }
+            noIndex = re.sub(r'\[.*\]', '', term2)
+            if " " not in noIndex:
+                self.writer.writePop("temp", 0)
+                array = term2.split("[")[0]
+                self.writer.writePush(termKindDict[self.symbolTable.kindOf(array)], self.symbolTable.indexOf(array))
+                index = re.search('\[(.*)\]', term2)
+                self.pushTerm(index.group(1))
+                self.writer.writeArithmetic("add")
+                self.writer.writePop("pointer", 0)
+                self.writer.writePush("temp", 0)
+                self.writer.writePush("this", 0)
+
+        else:
+            self.pushTerm(term2)
         self.terms.append(" ".join((term1, operator, term2)))
         if operator == "*":
             self.writer.writeCall("Math.multiply", 2)
@@ -388,20 +409,7 @@ class CompilationEngine:
                     self.checkToken("[")
                     self.compileExpression()
                     self.checkToken("]")
-                    termKindDict = {
-                        "ARG"   : "argument",
-                        "VAR"   : "local",
-                        "STATIC": "static",
-                        "FIELD" : "this"
-                    }
-                    self.writer.writePush(termKindDict[self.symbolTable.kindOf(varName)], self.symbolTable.indexOf(varName))
-                    index = self.terms.pop()
-                    self.pushTerm(index)
-                    self.writer.writeArithmetic("add")
-                    self.writer.writePop("pointer", 0)
-                    self.writer.writePush("this", 0)
-                    self.terms.append(varName + "[" + str(index) + "]")
-
+                    self.terms.append(varName + "[" + str(self.terms.pop()) + "]")
                 else:                                                           #Identifier is a variable
                     self.terms.append(varName)
             else:                                                               #Identifier is a subroutine call
@@ -512,4 +520,23 @@ class CompilationEngine:
             self.writer.writePush("constant", 1)
             self.writer.writeArithmetic("neg")
         elif term ==  "false":
-            self.writer.writePush("constant", 0)                                                 #Term is an array
+            self.writer.writePush("constant", 0)
+        elif "[" in term:                                                       #Term is an array
+            noIndexList = []
+            for char in term:
+                nestCounter = 0
+                if char == "[":
+                    nestCounter += 1
+                elif char == "]":
+                    nestCounter -= 1
+                if nestCounter == 0:
+                    noIndexList.append(char)
+            noIndex = "".join(noIndexList)
+            if " " not in noIndex:
+                array = term.split("[")[0]
+                self.writer.writePush(termKindDict[self.symbolTable.kindOf(array)], self.symbolTable.indexOf(array))
+                index = re.search('\[(.*)\]', term)
+                self.pushTerm(index.group(1))
+                self.writer.writeArithmetic("add")
+                self.writer.writePop("pointer", 0)
+                self.writer.writePush("this", 0)                                              #Term is an array
