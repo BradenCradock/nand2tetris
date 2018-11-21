@@ -8,81 +8,77 @@ pop local 1
 push constant 1
 call Array.new 1
 pop local 2
+push local 0
+push constant 3
+add
 push constant 2
+pop pointer 0
+pop this 0
+push local 0
+push constant 4
+add
+push constant 8
+pop pointer 0
+pop this 0
+push local 0
+push constant 5
+add
+push constant 4
+pop pointer 0
+pop this 0
 push local 0
 push constant 3
 add
 pop pointer 0
-pop this 0
-push constant 8
+push this 0
+push local 1
+add
 push local 0
-push constant 4
+push constant 3
+add
+pop pointer 0
+push this 0
+push constant 3
 add
 pop pointer 0
 pop this 0
-push constant 4
+push local 0
+push constant 3
+add
+pop pointer 0
+push this 0
+push local 1
+add
+pop pointer 0
+push this 0
+push local 0
+add
 push local 0
 push constant 5
 add
 pop pointer 0
-pop this 0
+push this 0
+push local 0
+add
+pop pointer 0
+push this 0
 push local 0
 push constant 3
 add
 pop pointer 0
 push this 0
-push constant 3
-add
-push local 1
-push local 0
-push constant 3
-add
-pop pointer 0
-push this 0
-add
-pop pointer 0
-pop this 0
 push constant 7
-push local 0
-push constant 3
-add
-pop pointer 0
-push this 0
 sub
 push constant 2
 call Main.double 1
 sub
 push constant 1
 add
-push local 0
-push local 0
-push constant 5
-add
-pop pointer 0
-push this 0
-add
-pop pointer 0
-push this 0
 push local 1
 add
 pop pointer 0
 push this 0
 call Math.multiply 2
-push local 0
-add
-pop pointer 0
-push this 0
-push local 0
-push local 1
-push local 0
-push constant 3
-add
-pop pointer 0
-push this 0
-add
-pop pointer 0
-push this 0
-add
 pop pointer 0
 pop this 0
 push local 2
@@ -412,10 +408,10 @@ add
 pop pointer 0
 push this 0
 pop local 2
-push constant 33
 push local 2
 push constant 1
 add
+push constant 33
 pop pointer 0
 pop this 0
 push local 0
@@ -424,10 +420,10 @@ add
 pop pointer 0
 push this 0
 pop local 2
-push constant 77
 push local 2
 push constant 1
 add
+push constant 77
 pop pointer 0
 pop this 0
 push local 0
@@ -439,6 +435,9 @@ pop local 1
 push local 1
 push constant 1
 add
+push local 1
+push constant 1
+add
 pop pointer 0
 push this 0
 push local 2
@@ -446,13 +445,6 @@ push constant 1
 add
 pop pointer 0
 push this 0
-add
-push local 1
-add
-pop pointer 0
-push this 0
-push local 1
-push constant 1
 add
 pop pointer 0
 pop this 0
@@ -685,11 +677,11 @@ push argument 1
 push constant 1
 sub
 pop argument 1
-push constant 3
-call Array.new 1
 push argument 0
 push argument 1
 add
+push constant 3
+call Array.new 1
 pop pointer 0
 pop this 0
 goto WHILE_EXP0

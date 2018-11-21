@@ -233,6 +233,14 @@ class CompilationEngine:
     #in format: let a = b
     #a and b are referred to as left and right respectively
     def compileLet(self):
+
+        termKindDict = {
+            "ARG"   : "argument",
+            "VAR"   : "local",
+            "STATIC": "static",
+            "FIELD" : "this"
+        }
+
         self.xmlOpenTag("letStatement")
         self.checkToken("let")
         varName = self.tokenizer.currentToken
@@ -243,8 +251,10 @@ class CompilationEngine:
             self.compileExpression()
             arrayFlag = True
             self.checkToken("]")
-            #self.pushTerm(varName)
-            #self.writer.writePop("pointer", 0)
+            self.writer.writePush(termKindDict[self.symbolTable.kindOf(varName)], self.symbolTable.indexOf(varName))
+            index = self.terms.pop()
+            self.pushTerm(index)
+            self.writer.writeArithmetic("add")
         self.checkToken("=")
         self.compileExpression()
         print(self.terms)
@@ -253,18 +263,9 @@ class CompilationEngine:
             self.pushTerm(self.terms.pop())
         if arrayFlag:
             arrayFlag = False                                                          #self.terms will not be empty if the left expression was an array
-            self.pushTerm(varName)                                              #this block of instuctions sets the pointer to the base address of the array + the index
-            self.pushTerm(self.terms.pop())                                     #the right expression is then popped into the address indicated by the pointer
-            self.writer.writeArithmetic("add")
             self.writer.writePop("pointer", 0)
             self.writer.writePop("this", 0)
         elif self.symbolTable.kindOf(varName) is not None:                      #if the left expression is a variable that exists then the right expression is popped into that variables address
-            termKindDict = {
-                "ARG"   : "argument",
-                "VAR"   : "local",
-                "STATIC": "static",
-                "FIELD" : "this"
-            }
             self.writer.writePop(termKindDict[self.symbolTable.kindOf(varName)], self.symbolTable.indexOf(varName))
         self.checkToken(";")
         self.xmlCloseTag("letStatement")
@@ -356,6 +357,7 @@ class CompilationEngine:
         if operator in {"+", "-", "*", "/"} and term1.isdigit() and term2.isdigit():
             self.terms.append(str(eval(term1 + operator + term2)))
             return
+
         self.pushTerm(term1)
         self.pushTerm(term2)
         self.terms.append(" ".join((term1, operator, term2)))
@@ -386,7 +388,20 @@ class CompilationEngine:
                     self.checkToken("[")
                     self.compileExpression()
                     self.checkToken("]")
-                    self.terms.append(varName + "[" + str(self.terms.pop()) + "]")
+                    termKindDict = {
+                        "ARG"   : "argument",
+                        "VAR"   : "local",
+                        "STATIC": "static",
+                        "FIELD" : "this"
+                    }
+                    self.writer.writePush(termKindDict[self.symbolTable.kindOf(varName)], self.symbolTable.indexOf(varName))
+                    index = self.terms.pop()
+                    self.pushTerm(index)
+                    self.writer.writeArithmetic("add")
+                    self.writer.writePop("pointer", 0)
+                    self.writer.writePush("this", 0)
+                    self.terms.append(varName + "[" + str(index) + "]")
+
                 else:                                                           #Identifier is a variable
                     self.terms.append(varName)
             else:                                                               #Identifier is a subroutine call
@@ -497,14 +512,4 @@ class CompilationEngine:
             self.writer.writePush("constant", 1)
             self.writer.writeArithmetic("neg")
         elif term ==  "false":
-            self.writer.writePush("constant", 0)
-        elif "[" in term:                                                     #Term is an array
-            noIndex = re.sub(r'\[.*\]', '', term)
-            if " " not in noIndex:
-                array = term.split("[")[0]
-                self.writer.writePush(termKindDict[self.symbolTable.kindOf(array)], self.symbolTable.indexOf(array))
-                index = re.search('\[(.*)\]', term)
-                self.pushTerm(index.group(1))
-                self.writer.writeArithmetic("add")
-                self.writer.writePop("pointer", 0)
-                self.writer.writePush("this", 0)
+            self.writer.writePush("constant", 0)                                                 #Term is an array
