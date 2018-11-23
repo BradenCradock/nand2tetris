@@ -519,7 +519,7 @@ class CompilationEngine:
         elif term == "true":
             self.writer.writePush("constant", 1)
             self.writer.writeArithmetic("neg")
-        elif term ==  "false":
+        elif term ==  "false" or term == "null":
             self.writer.writePush("constant", 0)
         elif "[" in term:                                                       #Term is an array
             noIndexList = []
