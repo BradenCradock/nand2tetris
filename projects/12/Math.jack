@@ -11,6 +11,7 @@ class Math {
 
     /** Initializes the library. */
     function void init() {
+	//do this one first
     }
 
     /** Returns the absolute value of x. */
