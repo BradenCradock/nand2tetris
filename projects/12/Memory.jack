@@ -12,6 +12,7 @@ class Memory {
 
     /** Initializes the class. */
     function void init() {
+	//linked list implementation, starts with whole heap
     }
 
     /** Returns the RAM value at the given address. */
