@@ -38,11 +38,22 @@ class Memory {
     /** Finds an available RAM block of the given size and returns
      *  a reference to its base address. */
     function int alloc(int size) {
-		
+		while (~(heap[heap[freeList] + 1] > size)) {
+			if ((freeList + size + 2) > 14335) {
+				do Output.printString("Need to defrag");
+				return 0;
+			}
+			let freeList = heap[freeList];
+		}
+		let heap[freeList] = size + 2 + freelist;
+		let heap[freeList + 1] = size;
+		let freeList = freelist + size + 2;
+		return freeList + 2;
     }
 
     /** De-allocates the given object (cast as an array) by making
      *  it available for future allocations. */
     function void deAlloc(Array o) {
+		
     }    
 }
