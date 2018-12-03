@@ -38,15 +38,16 @@ class Memory {
     /** Finds an available RAM block of the given size and returns
      *  a reference to its base address. */
     function int alloc(int size) {
-		while (~(heap[heap[freeList] + 1] > size)) {
+	//need to define locals
+		while (~(memory[memory[freeList] + 1] > size)) {
 			if ((freeList + size + 2) > 14335) {
 				do Output.printString("Need to defrag");
 				return 0;
 			}
-			let freeList = heap[freeList];
+			let freeList = memory[freeList];
 		}
-		let heap[freeList] = size + 2 + freelist;
-		let heap[freeList + 1] = size;
+		let memory[freeList] = size + 2 + freelist;
+		let memory[freeList + 1] = size;
 		let freeList = freelist + size + 2;
 		return freeList + 2;
     }
